@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
+    <device id="ipad10_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,29 +15,52 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SmartInterphone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HomeScreen_Bg" translatesAutoresizingMaskIntoConstraints="NO" id="dS0-dM-Flr">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="20" width="834" height="1092"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please login to your account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tZU-vh-uBJ">
+                                <rect key="frame" x="66" y="602.5" width="703" height="24"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hnl-CV-90p" customClass="BorderButton" customModule="SmartInterphone" customModuleProvider="target">
-                                <rect key="frame" x="16" y="399" width="343" height="53"/>
+                                <rect key="frame" x="16" y="877" width="802" height="60"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.7038127200704225" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="53" id="4Ej-0w-kvs"/>
+                                    <constraint firstAttribute="height" constant="60" id="4Ej-0w-kvs"/>
+                                    <constraint firstAttribute="height" constant="60" id="GjE-eH-Mc3"/>
+                                    <constraint firstAttribute="height" constant="53" id="VjX-fo-cIN"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="SignIn">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="4Ej-0w-kvs"/>
+                                        <exclude reference="GjE-eH-Mc3"/>
+                                        <exclude reference="VjX-fo-cIN"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="VjX-fo-cIN"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="4Ej-0w-kvs"/>
+                                        <include reference="GjE-eH-Mc3"/>
+                                    </mask>
+                                </variation>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TUL-kc-oba" customClass="BorderButton" customModule="SmartInterphone" customModuleProvider="target">
-                                <rect key="frame" x="16" y="467" width="343" height="53"/>
+                                <rect key="frame" x="16" y="952" width="802" height="60"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.58403939260000004" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="53" id="z60-3f-IwW"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Signup">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -47,34 +70,69 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Your Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yCi-06-hrj" customClass="HomeCustomTextField" customModule="SmartInterphone" customModuleProvider="target">
-                                <rect key="frame" x="54" y="289" width="267" height="48"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="8Ar-6G-aja"/>
-                                </constraints>
+                                <rect key="frame" x="54" y="715.5" width="726" height="60"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="go" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Your Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cqY-Cg-8I5" customClass="HomeCustomTextField" customModule="SmartInterphone" customModuleProvider="target">
-                                <rect key="frame" x="54" y="227" width="267" height="48"/>
+                                <rect key="frame" x="54" y="641.5" width="726" height="60"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" keyboardKey="YES"/>
                                 </accessibility>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="XVN-Di-NLT"/>
+                                    <constraint firstAttribute="height" constant="60" id="XVN-Di-NLT"/>
+                                    <constraint firstAttribute="height" constant="40" id="xUa-GR-FnJ"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="email"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="XVN-Di-NLT"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="XVN-Di-NLT"/>
+                                        <exclude reference="xUa-GR-FnJ"/>
+                                    </mask>
+                                </variation>
                             </textField>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_transparent" translatesAutoresizingMaskIntoConstraints="NO" id="yvi-z0-yjh">
+                                <rect key="frame" x="114" y="45" width="606" height="527.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="147" id="H1V-Yd-1Iz"/>
+                                    <constraint firstAttribute="width" secondItem="yvi-z0-yjh" secondAttribute="height" multiplier="147:128" id="f4U-us-cuc"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome ! " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DJe-9t-y5q">
+                                <rect key="frame" x="139" y="573.5" width="555" height="24"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Or register below" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RX6-0f-Vyf">
+                                <rect key="frame" x="113" y="843" width="607" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="KFk-wN-2ev"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="DJe-9t-y5q" firstAttribute="top" secondItem="yvi-z0-yjh" secondAttribute="bottom" constant="1" id="3Gr-EH-L6e"/>
                             <constraint firstItem="yCi-06-hrj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="54" id="3ua-jT-uIC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="RX6-0f-Vyf" secondAttribute="trailing" constant="114" id="8JI-5i-s20"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tZU-vh-uBJ" secondAttribute="trailing" constant="65" id="9W5-q5-6D0"/>
                             <constraint firstItem="hnl-CV-90p" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="A4D-js-ae1"/>
                             <constraint firstItem="dS0-dM-Flr" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="A7d-iW-m7a"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yvi-z0-yjh" secondAttribute="trailing" constant="114" id="AYe-0x-yH2"/>
                             <constraint firstItem="yCi-06-hrj" firstAttribute="top" secondItem="cqY-Cg-8I5" secondAttribute="bottom" constant="14" id="D9L-gl-IAN"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="TUL-kc-oba" secondAttribute="bottom" constant="147" id="Dp9-uU-4Dw"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="TUL-kc-oba" secondAttribute="bottom" constant="100" id="Dp9-uU-4Dw"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yCi-06-hrj" secondAttribute="trailing" constant="54" id="KWa-61-rFQ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="TUL-kc-oba" secondAttribute="trailing" constant="16" id="POa-fS-VCW"/>
                             <constraint firstItem="TUL-kc-oba" firstAttribute="top" secondItem="hnl-CV-90p" secondAttribute="bottom" constant="15" id="Qvt-ec-o0U"/>
@@ -82,14 +140,28 @@
                             <constraint firstItem="cqY-Cg-8I5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="54" id="TLx-0E-eEm"/>
                             <constraint firstItem="TUL-kc-oba" firstAttribute="height" secondItem="hnl-CV-90p" secondAttribute="height" id="W8g-Ew-sB4"/>
                             <constraint firstItem="dS0-dM-Flr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="WF7-9h-LlV"/>
-                            <constraint firstItem="cqY-Cg-8I5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="207" id="XIL-7R-3sK"/>
+                            <constraint firstItem="yvi-z0-yjh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="25" id="X2o-w7-f2W"/>
+                            <constraint firstItem="DJe-9t-y5q" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="139" id="Xgh-IO-SDW"/>
                             <constraint firstItem="TUL-kc-oba" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="YfI-FD-814"/>
+                            <constraint firstItem="tZU-vh-uBJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="66" id="auZ-Qa-Wkt"/>
+                            <constraint firstItem="RX6-0f-Vyf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="113" id="cKh-LQ-N4i"/>
+                            <constraint firstItem="tZU-vh-uBJ" firstAttribute="top" secondItem="DJe-9t-y5q" secondAttribute="bottom" constant="5" id="eaS-hM-2fd"/>
+                            <constraint firstItem="hnl-CV-90p" firstAttribute="top" secondItem="RX6-0f-Vyf" secondAttribute="bottom" constant="10" id="eex-vs-aAK"/>
+                            <constraint firstItem="cqY-Cg-8I5" firstAttribute="top" secondItem="tZU-vh-uBJ" secondAttribute="bottom" constant="15" id="mk2-4Y-nAC"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cqY-Cg-8I5" secondAttribute="trailing" constant="54" id="nGI-P1-3dS"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="DJe-9t-y5q" secondAttribute="trailing" constant="140" id="qt8-mV-iyf"/>
                             <constraint firstItem="yCi-06-hrj" firstAttribute="top" secondItem="cqY-Cg-8I5" secondAttribute="bottom" constant="14" id="tOL-Zg-Fyk"/>
                             <constraint firstItem="dS0-dM-Flr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="tze-jk-eh1"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hnl-CV-90p" secondAttribute="trailing" constant="16" id="uJG-Ho-Xav"/>
+                            <constraint firstItem="yvi-z0-yjh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="114" id="uSI-om-ZTF"/>
+                            <constraint firstItem="yCi-06-hrj" firstAttribute="height" secondItem="cqY-Cg-8I5" secondAttribute="height" id="w99-6I-c1k"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <mask key="constraints">
+                                <include reference="Dp9-uU-4Dw"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -101,70 +173,100 @@
             <objects>
                 <viewController modalTransitionStyle="crossDissolve" id="WsM-qp-ym1" customClass="RegisterVCViewController" customModule="SmartInterphone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LHB-Dq-zHm">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HomeScreen_Bg" translatesAutoresizingMaskIntoConstraints="NO" id="dgo-Q9-IU1">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="20" width="834" height="1092"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_transparent" translatesAutoresizingMaskIntoConstraints="NO" id="K7a-YX-7UI">
+                                <rect key="frame" x="114" y="45" width="606" height="527.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="500" constant="147" id="CDE-UE-3er"/>
+                                    <constraint firstAttribute="width" secondItem="K7a-YX-7UI" secondAttribute="height" multiplier="147:128" id="wYR-Bf-zRY"/>
+                                </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pkw-gk-yUW" customClass="BorderButton" customModule="SmartInterphone" customModuleProvider="target">
-                                <rect key="frame" x="16" y="481" width="343" height="53"/>
+                                <rect key="frame" x="16" y="951" width="802" height="60"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.58403939260000004" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="53" id="2Zr-cU-igF"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="53" id="63X-M7-sZ0"/>
+                                    <constraint firstAttribute="height" constant="60" id="YTC-Tf-erl"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Signup">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="YTC-Tf-erl"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <mask key="constraints">
+                                        <exclude reference="2Zr-cU-igF"/>
+                                        <include reference="YTC-Tf-erl"/>
+                                    </mask>
+                                </variation>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="LWn-gM-MCB">
-                                <rect key="frame" x="54" y="192" width="267" height="249"/>
+                                <rect key="frame" x="54" y="608.5" width="726" height="297"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cSK-BW-tBw" customClass="HomeCustomTextField" customModule="SmartInterphone" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="267" height="48"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="726" height="60"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="48" id="zdJ-yD-fZb"/>
+                                            <constraint firstAttribute="height" constant="40" id="8lH-yT-Hfc"/>
+                                            <constraint firstAttribute="height" constant="60" id="zdJ-yD-fZb"/>
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="go" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="zdJ-yD-fZb"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=regular">
+                                            <mask key="constraints">
+                                                <exclude reference="8lH-yT-Hfc"/>
+                                                <include reference="zdJ-yD-fZb"/>
+                                            </mask>
+                                        </variation>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eMR-bL-l2P" customClass="HomeCustomTextField" customModule="SmartInterphone" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="67" width="267" height="48"/>
+                                        <rect key="frame" x="0.0" y="79" width="726" height="60"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" keyboardKey="YES"/>
                                         </accessibility>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="48" id="xQg-tp-4wj"/>
-                                        </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="email"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yTc-ia-zVe" customClass="HomeCustomTextField" customModule="SmartInterphone" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="134" width="267" height="48"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="48" id="Qv5-Ud-6Of"/>
-                                            <constraint firstAttribute="height" constant="48" id="imX-7B-EVT"/>
-                                        </constraints>
+                                        <rect key="frame" x="0.0" y="158" width="726" height="60"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="go" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Repeat Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lcx-Zi-cKk" customClass="HomeCustomTextField" customModule="SmartInterphone" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="201" width="267" height="48"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="48" id="4vW-2D-kCP"/>
-                                            <constraint firstAttribute="height" constant="48" id="iTk-Tr-0iw"/>
-                                        </constraints>
+                                        <rect key="frame" x="0.0" y="237" width="726" height="60"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="go" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="Lcx-Zi-cKk" firstAttribute="height" secondItem="cSK-BW-tBw" secondAttribute="height" id="Agt-pD-kQk"/>
+                                    <constraint firstItem="yTc-ia-zVe" firstAttribute="height" secondItem="cSK-BW-tBw" secondAttribute="height" id="fLn-Np-qaj"/>
+                                    <constraint firstItem="eMR-bL-l2P" firstAttribute="height" secondItem="cSK-BW-tBw" secondAttribute="height" id="qy8-YW-ja1"/>
+                                </constraints>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fill in the registration form" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XNm-fw-HPR">
+                                <rect key="frame" x="75" y="562.5" width="683" height="24"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -173,15 +275,32 @@
                             <constraint firstItem="LWn-gM-MCB" firstAttribute="leading" secondItem="hgC-1d-p7e" secondAttribute="leading" constant="54" id="C4T-bI-gpM"/>
                             <constraint firstItem="hgC-1d-p7e" firstAttribute="trailing" secondItem="Pkw-gk-yUW" secondAttribute="trailing" constant="16" id="Ocy-iy-frd"/>
                             <constraint firstItem="dgo-Q9-IU1" firstAttribute="top" secondItem="hgC-1d-p7e" secondAttribute="top" id="SlB-Cr-zcG"/>
-                            <constraint firstItem="hgC-1d-p7e" firstAttribute="bottom" secondItem="Pkw-gk-yUW" secondAttribute="bottom" constant="133" id="TPp-sB-HKM"/>
                             <constraint firstItem="Pkw-gk-yUW" firstAttribute="leading" secondItem="hgC-1d-p7e" secondAttribute="leading" constant="16" id="bNl-t7-eoc"/>
+                            <constraint firstItem="XNm-fw-HPR" firstAttribute="top" secondItem="K7a-YX-7UI" secondAttribute="bottom" id="brg-ma-Fci"/>
+                            <constraint firstItem="K7a-YX-7UI" firstAttribute="leading" secondItem="hgC-1d-p7e" secondAttribute="leading" constant="114" id="d27-SO-DDL"/>
+                            <constraint firstItem="hgC-1d-p7e" firstAttribute="bottom" secondItem="Pkw-gk-yUW" secondAttribute="bottom" constant="101" id="dS7-2J-Cvv"/>
                             <constraint firstItem="dgo-Q9-IU1" firstAttribute="leading" secondItem="hgC-1d-p7e" secondAttribute="leading" id="ddV-kx-THk"/>
+                            <constraint firstItem="XNm-fw-HPR" firstAttribute="leading" secondItem="hgC-1d-p7e" secondAttribute="leading" constant="75" id="huT-iL-yDV"/>
+                            <constraint firstItem="K7a-YX-7UI" firstAttribute="top" secondItem="hgC-1d-p7e" secondAttribute="top" constant="25" id="jAE-Au-uuH"/>
                             <constraint firstItem="hgC-1d-p7e" firstAttribute="trailing" secondItem="LWn-gM-MCB" secondAttribute="trailing" constant="54" id="mfg-q8-dRh"/>
+                            <constraint firstItem="XNm-fw-HPR" firstAttribute="top" secondItem="K7a-YX-7UI" secondAttribute="bottom" constant="-10" id="n3u-Oa-9Yt"/>
                             <constraint firstItem="dgo-Q9-IU1" firstAttribute="trailing" secondItem="hgC-1d-p7e" secondAttribute="trailing" id="p4C-d7-WXf"/>
                             <constraint firstItem="dgo-Q9-IU1" firstAttribute="bottom" secondItem="hgC-1d-p7e" secondAttribute="bottom" id="q1D-9G-fcE"/>
-                            <constraint firstItem="LWn-gM-MCB" firstAttribute="top" secondItem="hgC-1d-p7e" secondAttribute="top" constant="172" id="sK6-wj-ArM"/>
+                            <constraint firstItem="LWn-gM-MCB" firstAttribute="top" secondItem="XNm-fw-HPR" secondAttribute="bottom" constant="22" id="qcg-0j-9Lb"/>
+                            <constraint firstItem="hgC-1d-p7e" firstAttribute="trailing" secondItem="K7a-YX-7UI" secondAttribute="trailing" constant="114" id="sD6-KV-eXr"/>
+                            <constraint firstItem="hgC-1d-p7e" firstAttribute="trailing" secondItem="XNm-fw-HPR" secondAttribute="trailing" constant="76" id="sdV-PT-HCl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hgC-1d-p7e"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="n3u-Oa-9Yt"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <mask key="constraints">
+                                <include reference="n3u-Oa-9Yt"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bhq-rO-p5H" sceneMemberID="firstResponder"/>
@@ -191,5 +310,6 @@
     </scenes>
     <resources>
         <image name="HomeScreen_Bg" width="512" height="768"/>
+        <image name="logo_transparent" width="600" height="600"/>
     </resources>
 </document>
