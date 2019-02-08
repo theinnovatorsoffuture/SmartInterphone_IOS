@@ -9,19 +9,25 @@
 /* Begin PBXBuildFile section */
 		231D298E220CE8D0005E2B04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231D298D220CE8D0005E2B04 /* AppDelegate.swift */; };
 		231D2990220CE8D0005E2B04 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231D298F220CE8D0005E2B04 /* ViewController.swift */; };
-		231D2993220CE8D0005E2B04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 231D2991220CE8D0005E2B04 /* Main.storyboard */; };
+		231D2993220CE8D0005E2B04 /* MainStoryBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 231D2991220CE8D0005E2B04 /* MainStoryBoard.storyboard */; };
 		231D2995220CE8D6005E2B04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 231D2994220CE8D6005E2B04 /* Assets.xcassets */; };
 		231D2998220CE8D6005E2B04 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 231D2996220CE8D6005E2B04 /* LaunchScreen.storyboard */; };
+		231D29A4220CFEBB005E2B04 /* BorderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231D29A3220CFEBB005E2B04 /* BorderButton.swift */; };
+		23438C74220D0442000D0067 /* HomeCustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23438C73220D0442000D0067 /* HomeCustomTextField.swift */; };
+		23438C76220D1393000D0067 /* RegisterVCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23438C75220D1393000D0067 /* RegisterVCViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		231D298A220CE8D0005E2B04 /* SmartInterphone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartInterphone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		231D298D220CE8D0005E2B04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		231D298F220CE8D0005E2B04 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		231D2992220CE8D0005E2B04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		231D2992220CE8D0005E2B04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainStoryBoard.storyboard; sourceTree = "<group>"; };
 		231D2994220CE8D6005E2B04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		231D2997220CE8D6005E2B04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		231D2999220CE8D6005E2B04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		231D29A3220CFEBB005E2B04 /* BorderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderButton.swift; sourceTree = "<group>"; };
+		23438C73220D0442000D0067 /* HomeCustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCustomTextField.swift; sourceTree = "<group>"; };
+		23438C75220D1393000D0067 /* RegisterVCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVCViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +60,49 @@
 		231D298C220CE8D0005E2B04 /* SmartInterphone */ = {
 			isa = PBXGroup;
 			children = (
+				231D29A1220CFE63005E2B04 /* Model */,
+				231D29A0220CFE35005E2B04 /* Controller */,
+				231D299F220CFE20005E2B04 /* View */,
 				231D298D220CE8D0005E2B04 /* AppDelegate.swift */,
-				231D298F220CE8D0005E2B04 /* ViewController.swift */,
-				231D2991220CE8D0005E2B04 /* Main.storyboard */,
 				231D2994220CE8D6005E2B04 /* Assets.xcassets */,
 				231D2996220CE8D6005E2B04 /* LaunchScreen.storyboard */,
 				231D2999220CE8D6005E2B04 /* Info.plist */,
 			);
 			path = SmartInterphone;
+			sourceTree = "<group>";
+		};
+		231D299F220CFE20005E2B04 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				231D2991220CE8D0005E2B04 /* MainStoryBoard.storyboard */,
+				231D29A2220CFEA3005E2B04 /* Custom */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		231D29A0220CFE35005E2B04 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				231D298F220CE8D0005E2B04 /* ViewController.swift */,
+				23438C75220D1393000D0067 /* RegisterVCViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		231D29A1220CFE63005E2B04 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		231D29A2220CFEA3005E2B04 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				231D29A3220CFEBB005E2B04 /* BorderButton.swift */,
+				23438C73220D0442000D0067 /* HomeCustomTextField.swift */,
+			);
+			path = Custom;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -124,7 +165,7 @@
 			files = (
 				231D2998220CE8D6005E2B04 /* LaunchScreen.storyboard in Resources */,
 				231D2995220CE8D6005E2B04 /* Assets.xcassets in Resources */,
-				231D2993220CE8D0005E2B04 /* Main.storyboard in Resources */,
+				231D2993220CE8D0005E2B04 /* MainStoryBoard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,19 +177,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				231D2990220CE8D0005E2B04 /* ViewController.swift in Sources */,
+				23438C74220D0442000D0067 /* HomeCustomTextField.swift in Sources */,
 				231D298E220CE8D0005E2B04 /* AppDelegate.swift in Sources */,
+				23438C76220D1393000D0067 /* RegisterVCViewController.swift in Sources */,
+				231D29A4220CFEBB005E2B04 /* BorderButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		231D2991220CE8D0005E2B04 /* Main.storyboard */ = {
+		231D2991220CE8D0005E2B04 /* MainStoryBoard.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				231D2992220CE8D0005E2B04 /* Base */,
 			);
-			name = Main.storyboard;
+			name = MainStoryBoard.storyboard;
 			sourceTree = "<group>";
 		};
 		231D2996220CE8D6005E2B04 /* LaunchScreen.storyboard */ = {
