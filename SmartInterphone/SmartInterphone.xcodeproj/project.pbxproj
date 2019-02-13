@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		231745872213A23E00E18B32 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231745862213A23E00E18B32 /* RoundedButton.swift */; };
 		231D298E220CE8D0005E2B04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231D298D220CE8D0005E2B04 /* AppDelegate.swift */; };
 		231D2990220CE8D0005E2B04 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231D298F220CE8D0005E2B04 /* ViewController.swift */; };
 		231D2993220CE8D0005E2B04 /* MainStoryBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 231D2991220CE8D0005E2B04 /* MainStoryBoard.storyboard */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		231745862213A23E00E18B32 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		231D298A220CE8D0005E2B04 /* SmartInterphone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartInterphone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		231D298D220CE8D0005E2B04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		231D298F220CE8D0005E2B04 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 			children = (
 				231D29A3220CFEBB005E2B04 /* BorderButton.swift */,
 				23438C73220D0442000D0067 /* HomeCustomTextField.swift */,
+				231745862213A23E00E18B32 /* RoundedButton.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 				23438C74220D0442000D0067 /* HomeCustomTextField.swift in Sources */,
 				231D298E220CE8D0005E2B04 /* AppDelegate.swift in Sources */,
 				23438C7822127FA9000D0067 /* HomeVC.swift in Sources */,
+				231745872213A23E00E18B32 /* RoundedButton.swift in Sources */,
 				23438C76220D1393000D0067 /* RegisterVCViewController.swift in Sources */,
 				231D29A4220CFEBB005E2B04 /* BorderButton.swift in Sources */,
 			);
