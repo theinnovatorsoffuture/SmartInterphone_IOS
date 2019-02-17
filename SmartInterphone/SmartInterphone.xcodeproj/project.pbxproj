@@ -7,31 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2305E87122190CF70008B484 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2305E86F22190CF60008B484 /* LoginVC.swift */; };
+		2305E87222190CF70008B484 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2305E87022190CF70008B484 /* RegisterVC.swift */; };
+		2314E2902217CCDC00FD437C /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2314E28F2217CCDC00FD437C /* AuthService.swift */; };
+		2314E2932217CD8C00FD437C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2314E2922217CD8C00FD437C /* Constants.swift */; };
 		231745872213A23E00E18B32 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231745862213A23E00E18B32 /* RoundedButton.swift */; };
 		231D298E220CE8D0005E2B04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231D298D220CE8D0005E2B04 /* AppDelegate.swift */; };
-		231D2990220CE8D0005E2B04 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231D298F220CE8D0005E2B04 /* ViewController.swift */; };
 		231D2993220CE8D0005E2B04 /* MainStoryBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 231D2991220CE8D0005E2B04 /* MainStoryBoard.storyboard */; };
 		231D2995220CE8D6005E2B04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 231D2994220CE8D6005E2B04 /* Assets.xcassets */; };
 		231D2998220CE8D6005E2B04 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 231D2996220CE8D6005E2B04 /* LaunchScreen.storyboard */; };
 		231D29A4220CFEBB005E2B04 /* BorderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231D29A3220CFEBB005E2B04 /* BorderButton.swift */; };
 		23438C74220D0442000D0067 /* HomeCustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23438C73220D0442000D0067 /* HomeCustomTextField.swift */; };
-		23438C76220D1393000D0067 /* RegisterVCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23438C75220D1393000D0067 /* RegisterVCViewController.swift */; };
 		23438C7822127FA9000D0067 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23438C7722127FA9000D0067 /* HomeVC.swift */; };
 		D736510E9FC17F15FF62E3D0 /* Pods_SmartInterphone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50E20EDF42874266DE90CF39 /* Pods_SmartInterphone.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2305E86F22190CF60008B484 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		2305E87022190CF70008B484 /* RegisterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
+		2314E28F2217CCDC00FD437C /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		2314E2922217CD8C00FD437C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		231745862213A23E00E18B32 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		231D298A220CE8D0005E2B04 /* SmartInterphone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartInterphone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		231D298D220CE8D0005E2B04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		231D298F220CE8D0005E2B04 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		231D2992220CE8D0005E2B04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainStoryBoard.storyboard; sourceTree = "<group>"; };
 		231D2994220CE8D6005E2B04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		231D2997220CE8D6005E2B04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		231D2999220CE8D6005E2B04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		231D29A3220CFEBB005E2B04 /* BorderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderButton.swift; sourceTree = "<group>"; };
 		23438C73220D0442000D0067 /* HomeCustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCustomTextField.swift; sourceTree = "<group>"; };
-		23438C75220D1393000D0067 /* RegisterVCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVCViewController.swift; sourceTree = "<group>"; };
 		23438C7722127FA9000D0067 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		50E20EDF42874266DE90CF39 /* Pods_SmartInterphone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartInterphone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F92657F6F6333766ACDCD36 /* Pods-SmartInterphone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartInterphone.debug.xcconfig"; path = "Target Support Files/Pods-SmartInterphone/Pods-SmartInterphone.debug.xcconfig"; sourceTree = "<group>"; };
@@ -50,6 +54,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2314E28E2217CCA000FD437C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				2314E28F2217CCDC00FD437C /* AuthService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		2314E2912217CD6B00FD437C /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				2314E2922217CD8C00FD437C /* Constants.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		231D2981220CE8D0005E2B04 = {
 			isa = PBXGroup;
 			children = (
@@ -71,6 +91,8 @@
 		231D298C220CE8D0005E2B04 /* SmartInterphone */ = {
 			isa = PBXGroup;
 			children = (
+				2314E2912217CD6B00FD437C /* Utils */,
+				2314E28E2217CCA000FD437C /* Services */,
 				231D29A1220CFE63005E2B04 /* Model */,
 				231D29A0220CFE35005E2B04 /* Controller */,
 				231D299F220CFE20005E2B04 /* View */,
@@ -94,8 +116,8 @@
 		231D29A0220CFE35005E2B04 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				231D298F220CE8D0005E2B04 /* ViewController.swift */,
-				23438C75220D1393000D0067 /* RegisterVCViewController.swift */,
+				2305E87022190CF70008B484 /* RegisterVC.swift */,
+				2305E86F22190CF60008B484 /* LoginVC.swift */,
 				23438C7722127FA9000D0067 /* HomeVC.swift */,
 			);
 			path = Controller;
@@ -214,12 +236,14 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SmartInterphone/Pods-SmartInterphone-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -255,13 +279,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				231D2990220CE8D0005E2B04 /* ViewController.swift in Sources */,
+				2305E87122190CF70008B484 /* LoginVC.swift in Sources */,
+				2305E87222190CF70008B484 /* RegisterVC.swift in Sources */,
 				23438C74220D0442000D0067 /* HomeCustomTextField.swift in Sources */,
 				231D298E220CE8D0005E2B04 /* AppDelegate.swift in Sources */,
 				23438C7822127FA9000D0067 /* HomeVC.swift in Sources */,
 				231745872213A23E00E18B32 /* RoundedButton.swift in Sources */,
-				23438C76220D1393000D0067 /* RegisterVCViewController.swift in Sources */,
 				231D29A4220CFEBB005E2B04 /* BorderButton.swift in Sources */,
+				2314E2902217CCDC00FD437C /* AuthService.swift in Sources */,
+				2314E2932217CD8C00FD437C /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

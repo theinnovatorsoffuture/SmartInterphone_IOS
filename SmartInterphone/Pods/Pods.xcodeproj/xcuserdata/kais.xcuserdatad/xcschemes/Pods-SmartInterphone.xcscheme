@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "806C17EE4998479CFE4619F9DB3713AA"
+               BlueprintIdentifier = "EEAACCE81B112B98003AE9F58FA5B38C"
                BuildableName = "Pods_SmartInterphone.framework"
                BlueprintName = "Pods-SmartInterphone"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "806C17EE4998479CFE4619F9DB3713AA"
+            BlueprintIdentifier = "EEAACCE81B112B98003AE9F58FA5B38C"
             BuildableName = "Pods_SmartInterphone.framework"
             BlueprintName = "Pods-SmartInterphone"
             ReferencedContainer = "container:Pods.xcodeproj">

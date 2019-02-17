@@ -8,5 +8,6 @@ target 'SmartInterphone' do
   # Pods for SmartInterphone
 
 pod 'Alamofire', '~> 4.3'
+pod 'SwiftyJSON', '~> 4.0'
 
 end
