@@ -29,6 +29,8 @@ let REGISTER_TO_LOGIN  = "RegisterToLogin"
 let TOKEN_KEY = "token"
 let LOGGED_IN_KEY = "loggedIn"
 let USER_EMAIL = "userEmail"
+let USER_FULLNAME = "userFullName"
+let USER_NAME = "username"
 
 // Headers
 let HEADER = [

@@ -31,6 +31,24 @@ class AuthService {
             defaults.set(newValue, forKey: USER_EMAIL)
         }
     }
+    var userFullName: String {
+        get {
+            return defaults.value(forKey: USER_FULLNAME) as! String
+        }
+        set {
+            defaults.set(newValue, forKey: USER_FULLNAME)
+        }
+    }
+    
+    var username: String {
+        get {
+            return defaults.value(forKey: USER_NAME) as! String
+        }
+        set {
+            defaults.set(newValue, forKey: USER_NAME)
+        }
+    }
+    
     
     var authToken: String {
         get {
@@ -89,14 +107,16 @@ class AuthService {
                 do {
                     let json = try JSON(data: data)
                     
-                    if json["token"].stringValue == "" {
+                    self.userFullName = json["message"]["name"].stringValue
+                    self.username = json["message"]["username"].stringValue
+                    self.userEmail = json["message"]["email"].stringValue
+                    self.authToken = json["token"].stringValue
+                    self.isLoggedIn = true
+                    
+                    if self.authToken == "" || self.userEmail == ""  {
                         completion(false)
                         return
                     }
-                    print(json)
-                    self.userEmail = json["message"].stringValue
-                    self.authToken = json["token"].stringValue
-                    self.isLoggedIn = true
                     completion(true)
                 } catch {
                       completion(false)
@@ -112,6 +132,8 @@ class AuthService {
     func logoutUser () {
         userEmail = ""
         authToken = ""
+        userFullName = ""
+        username = ""
         isLoggedIn = false
     }
     

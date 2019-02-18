@@ -11,17 +11,17 @@ import UIKit
 class HomeVC: UIViewController {
    
 
+    @IBOutlet weak var usernameTxt: UILabel!
+    @IBOutlet weak var emailTxt: UILabel!
+
     @IBOutlet weak var usernamelabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.setNavigationBarHidden(true, animated: false)
         setupUserInfo()
     }
 
-    @IBAction func LogoutClicked(_ sender: Any) {
+    @IBAction func logoutClicked(_ sender: Any) {
         AuthService.instance.logoutUser()
-        print ("logged out check")
-        debugPrint(AuthService.instance.userEmail)
         performSegue(withIdentifier: MENU_TO_REGISTER, sender: nil)
     }
     
@@ -29,10 +29,12 @@ class HomeVC: UIViewController {
         if AuthService.instance.isLoggedIn {
             
             // setup everything here
-            usernamelabel.text = AuthService.instance.userEmail
+            usernamelabel.text = AuthService.instance.userFullName
+            usernameTxt.text  = AuthService.instance.username
+            emailTxt.text = AuthService.instance.userEmail
         }
         else {
-           // not gonna use this
+           debugPrint(AuthService.instance.userEmail)
         }
     }
 

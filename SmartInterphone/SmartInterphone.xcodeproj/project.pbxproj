@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		2305E87122190CF70008B484 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2305E86F22190CF60008B484 /* LoginVC.swift */; };
 		2305E87222190CF70008B484 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2305E87022190CF70008B484 /* RegisterVC.swift */; };
+		2305E874221A15050008B484 /* ProfilePictureImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2305E873221A15050008B484 /* ProfilePictureImage.swift */; };
+		2305E876221A1A0C0008B484 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2305E875221A1A0C0008B484 /* GradientView.swift */; };
+		2305E878221A1D660008B484 /* DeviceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2305E877221A1D660008B484 /* DeviceCell.swift */; };
+		2305E87A221A215A0008B484 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2305E879221A215A0008B484 /* Device.swift */; };
+		2305E87C221A23170008B484 /* DevicesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2305E87B221A23170008B484 /* DevicesService.swift */; };
+		2305E87E221A24D90008B484 /* DevicesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2305E87D221A24D90008B484 /* DevicesVC.swift */; };
 		2314E2902217CCDC00FD437C /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2314E28F2217CCDC00FD437C /* AuthService.swift */; };
 		2314E2932217CD8C00FD437C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2314E2922217CD8C00FD437C /* Constants.swift */; };
 		231745872213A23E00E18B32 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231745862213A23E00E18B32 /* RoundedButton.swift */; };
@@ -25,6 +31,12 @@
 /* Begin PBXFileReference section */
 		2305E86F22190CF60008B484 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		2305E87022190CF70008B484 /* RegisterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
+		2305E873221A15050008B484 /* ProfilePictureImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePictureImage.swift; sourceTree = "<group>"; };
+		2305E875221A1A0C0008B484 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		2305E877221A1D660008B484 /* DeviceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCell.swift; sourceTree = "<group>"; };
+		2305E879221A215A0008B484 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
+		2305E87B221A23170008B484 /* DevicesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesService.swift; sourceTree = "<group>"; };
+		2305E87D221A24D90008B484 /* DevicesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesVC.swift; sourceTree = "<group>"; };
 		2314E28F2217CCDC00FD437C /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		2314E2922217CD8C00FD437C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		231745862213A23E00E18B32 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
@@ -58,6 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				2314E28F2217CCDC00FD437C /* AuthService.swift */,
+				2305E87B221A23170008B484 /* DevicesService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -119,6 +132,7 @@
 				2305E87022190CF70008B484 /* RegisterVC.swift */,
 				2305E86F22190CF60008B484 /* LoginVC.swift */,
 				23438C7722127FA9000D0067 /* HomeVC.swift */,
+				2305E87D221A24D90008B484 /* DevicesVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -126,6 +140,7 @@
 		231D29A1220CFE63005E2B04 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2305E879221A215A0008B484 /* Device.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -136,6 +151,9 @@
 				231D29A3220CFEBB005E2B04 /* BorderButton.swift */,
 				23438C73220D0442000D0067 /* HomeCustomTextField.swift */,
 				231745862213A23E00E18B32 /* RoundedButton.swift */,
+				2305E873221A15050008B484 /* ProfilePictureImage.swift */,
+				2305E875221A1A0C0008B484 /* GradientView.swift */,
+				2305E877221A1D660008B484 /* DeviceCell.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -279,14 +297,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2305E87A221A215A0008B484 /* Device.swift in Sources */,
 				2305E87122190CF70008B484 /* LoginVC.swift in Sources */,
 				2305E87222190CF70008B484 /* RegisterVC.swift in Sources */,
+				2305E876221A1A0C0008B484 /* GradientView.swift in Sources */,
 				23438C74220D0442000D0067 /* HomeCustomTextField.swift in Sources */,
+				2305E87C221A23170008B484 /* DevicesService.swift in Sources */,
+				2305E878221A1D660008B484 /* DeviceCell.swift in Sources */,
 				231D298E220CE8D0005E2B04 /* AppDelegate.swift in Sources */,
 				23438C7822127FA9000D0067 /* HomeVC.swift in Sources */,
 				231745872213A23E00E18B32 /* RoundedButton.swift in Sources */,
 				231D29A4220CFEBB005E2B04 /* BorderButton.swift in Sources */,
 				2314E2902217CCDC00FD437C /* AuthService.swift in Sources */,
+				2305E87E221A24D90008B484 /* DevicesVC.swift in Sources */,
+				2305E874221A15050008B484 /* ProfilePictureImage.swift in Sources */,
 				2314E2932217CD8C00FD437C /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
