@@ -76,7 +76,7 @@ class AuthService {
                   guard let data = response.data else { return }
                 do {
                     let json = try JSON(data: data)
-                    if json["token"].stringValue != "User Registered Sucessfully !" {
+                    if json["message"].stringValue != "User Registered Sucessfully !" {
                         completion(false)
                         return
                     }

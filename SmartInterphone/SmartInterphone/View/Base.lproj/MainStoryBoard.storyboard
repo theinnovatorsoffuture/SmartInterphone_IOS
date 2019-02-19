@@ -301,7 +301,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="f2F-7d-ffp"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" systemItem="contacts" id="YdZ-2Y-5yP"/>
+                    <tabBarItem key="tabBarItem" title="" image="profileIcon" id="YdZ-2Y-5yP"/>
                     <connections>
                         <outlet property="emailTxt" destination="YZx-Yj-SpD" id="mLr-Sa-Uis"/>
                         <outlet property="usernameTxt" destination="Jz3-87-WQI" id="T9o-wb-S0T"/>
@@ -312,6 +312,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yKy-ro-LlG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3468" y="934.18290854572717"/>
+        </scene>
+        <!--Example Controller-->
+        <scene sceneID="bTg-CD-f8n">
+            <objects>
+                <viewController id="DKZ-If-Mbg" customClass="ExampleController" customModule="SmartInterphone" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CMj-nd-xOY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="YmG-Go-QiI"/>
+                    </view>
+                    <connections>
+                        <segue destination="VEP-eP-rpn" kind="show" identifier="ScheduleToMenu" id="kJV-Qu-Vnw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TQj-bc-BIu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2582" y="-270"/>
         </scene>
         <!--DevicesVC-->
         <scene sceneID="Dag-es-efM">
@@ -471,16 +489,17 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4HI-hZ-ZGj"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" systemItem="bookmarks" id="dLu-Pb-a63"/>
+                    <tabBarItem key="tabBarItem" title="" image="devicesIcon" id="dLu-Pb-a63"/>
                     <connections>
                         <outlet property="deviceCodeTxt" destination="3JF-KQ-ebs" id="zbx-aA-7Pf"/>
                         <outlet property="deviceCollection" destination="3uc-ah-4EN" id="HzN-fi-pgD"/>
                         <outlet property="spinner" destination="RSd-H1-mZc" id="CPy-PB-xYa"/>
+                        <segue destination="DKZ-If-Mbg" kind="show" identifier="devicesToSchedule" id="6yE-CM-wft"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Yh-mz-hMw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3455.1999999999998" y="236.13193403298354"/>
+            <point key="canvasLocation" x="3574" y="172"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="UnA-xc-peJ">
@@ -491,7 +510,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="selectedImageTintColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" red="0.98431372549999996" green="0.48627450979999998" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="ec8-jc-utt" kind="relationship" relationship="viewControllers" id="qDx-ur-PLc"/>
@@ -692,6 +711,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="devicesIcon" width="37.5" height="37.5"/>
         <image name="e-paper" width="269" height="382"/>
         <image name="editProfile" width="180" height="180"/>
         <image name="iconSettings" width="180" height="180"/>
@@ -700,10 +720,12 @@
         <image name="logoutIcon" width="180" height="180"/>
         <image name="newMessageIcon" width="180" height="180"/>
         <image name="profile-placeholder" width="600" height="600"/>
+        <image name="profileIcon" width="37.5" height="37.5"/>
         <image name="smackBack" width="28" height="28"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="73L-bo-09T"/>
+        <segue reference="kUa-Zh-J7g"/>
+        <segue reference="kJV-Qu-Vnw"/>
         <segue reference="94R-PC-RzN"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -112,8 +112,22 @@ class DevicesVC: UIViewController , UICollectionViewDelegate , UICollectionViewD
     @IBAction func SettingsButtonTapped(_ sender: UIButton ) {
         makeAlert(message: "settings for : \(devicesC[sender.tag].name)")
     }
+    
+    // schedule
     @IBAction func InfoButtonTapped(_ sender: UIButton ) {
-        makeAlert(message: "info for : \(devicesC[sender.tag].name)")
+        let scheduleView = ExampleController()
+      scheduleView.device = DevicesService.instance.getDeviceMessages(device: self.devicesC[sender.tag]){ (success) in
+            if success {
+                self.present(scheduleView, animated: true , completion: nil)
+            } else {
+                // zid alerte hnés
+                self.makeAlert(message: "error")
+            }
+        }
+  
+       
+        
+        
     }
     func makeAlert( message: String ) {
         let alert = UIAlertController(title: "Alert !", message: message, preferredStyle: .alert)
@@ -134,6 +148,8 @@ class DevicesVC: UIViewController , UICollectionViewDelegate , UICollectionViewD
     @objc func devicesDataDidChange(_ notif: Notification) {
         initDevices(reload : true )
     }
+    
+
     
 }
 

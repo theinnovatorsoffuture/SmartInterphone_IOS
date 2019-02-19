@@ -24,6 +24,8 @@ let LOGIN_TO_MENU = "LoginToMenu"
 let REGISTER_TO_MENU = "RegisterToMenu"
 let MENU_TO_REGISTER = "MenuToLogin"
 let REGISTER_TO_LOGIN  = "RegisterToLogin"
+let DEVICES_TO_SCHEDULE     =  "devicesToSchedule"
+let SCHEDULE_TO_MENU =  "ScheduleToMenu"
 
 
 // User Defaults

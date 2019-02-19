@@ -1,30 +1,33 @@
 //
-//  AddMessageView.swift
+//  EditMessageView.swift
 //  SmartInterphone
 //
-//  Created by Ladjemi Kais on 2/18/19.
+//  Created by Ladjemi Kais on 2/19/19.
 //  Copyright © 2019 iof. All rights reserved.
 //
 
 import UIKit
 
-class AddMessageView: UIViewController {
+class EditMessageView: UIViewController {
 
+    @IBOutlet weak var deviceTxt: UILabel!
+    @IBOutlet weak var userTxt: UILabel!
     @IBOutlet weak var messageTxt: UITextField!
     @IBOutlet weak var startTxt: UITextField!
-    @IBOutlet weak var endTxt: UITextField!
-    @IBOutlet weak var userTxt: UILabel!
-    @IBOutlet weak var deviceTxt: UILabel!
     
+    @IBOutlet weak var endTxt: UITextField!
     public var startDate : String?
     public var endDate : String?
-    public var device : Device?
+      public var device : Device?
+    public var message : Message?
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-
+        // Do any additional setup after loading the view.
     }
+    
     func setupView() {
         
         let datePicker = UIDatePicker()
@@ -37,8 +40,11 @@ class AddMessageView: UIViewController {
         endTxt.inputView = datePicker2
         userTxt.text = AuthService.instance.username
         deviceTxt.text = device?.name
+        startTxt.text = message?.displayedAt
+        endTxt.text = message?.hiddenAt
+        messageTxt.text = message?.text
+        
     }
-
     @objc func datePickerValueChanged (sender : UIDatePicker) {
         let formatter = DateFormatter()
         formatter.dateStyle = DateFormatter.Style.short
@@ -60,44 +66,35 @@ class AddMessageView: UIViewController {
         let df = DateFormatter()
         df.locale = Locale(identifier: "en_US_POSIX")
         df.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-          endDate = df.string(from: sender.date)
+        endDate = df.string(from: sender.date)
         print(df.string(from: sender.date))
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }
     
-    @IBAction func submitButtonClicked(_ sender: Any) {
-      
-        guard let messagetext = messageTxt.text , messageTxt.text != "" else {
-            makeAlert(message: "type a message first!")
-            return }
-        if (startDate == nil || endDate == nil) {
-             makeAlert(message: "please choose a valid date !")
-            return
-        }
-        if (device == nil)  {
-              makeAlert(message: "error")
-            return
-        }
-        let message = Message(id: "s", text: messagetext, displayedAt: startDate!, hiddenAt: endDate!)
-        DevicesService.instance.newMessage(device: device!, message: message) { (success) in
+    
+    @IBAction func exitButtonClicked(_ sender: Any) {
+           dismiss(animated: true, completion: nil)
+    }
+    @IBAction func updateButton(_ sender: Any) {
+        let updatedmessage = Message(id: message!.id,
+                                     text: messageTxt.text!,
+                                     displayedAt: startDate!, hiddenAt: endDate!)
+        DevicesService.instance.EditMessage(message: updatedmessage, deviceId: device!.id){ (success) in
             if success {
                 print("message added")
                 if let presenter = self.presentingViewController as? ExampleController {
-                  presenter.device?.messages.append(message)
+                    if let fooOffset = presenter.device?.messages.index(where: {$0.id == self.message?.id}) {
+                        presenter.device?.messages[fooOffset] = updatedmessage
+                    }
                 }
                 self.dismiss(animated: false, completion: nil)
             } else {
                 // zid alerte hnés
-                self.makeAlert(message: "message not added , please try again")
+                self.makeAlert(message: "message not updated , please try again")
             }
         }
-
-        
-    }
-    @IBAction func exitButtonClicked(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
         
     }
     func makeAlert( message: String ) {
