@@ -20,6 +20,12 @@ class HomeVC: UIViewController {
         setupUserInfo()
     }
 
+    @IBAction func EditButtonClicked(_ sender: Any) {
+        
+     
+        
+    }
+    
     @IBAction func logoutClicked(_ sender: Any) {
         AuthService.instance.logoutUser()
         performSegue(withIdentifier: MENU_TO_REGISTER, sender: nil)

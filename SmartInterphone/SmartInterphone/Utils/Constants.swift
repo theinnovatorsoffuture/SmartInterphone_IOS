@@ -14,9 +14,10 @@ typealias CompletionHandler = (_ Success: Bool) -> ()
 let BASE_URL = "http://192.168.174.1:8080/api/"
 let URL_REGISTER = "\(BASE_URL)signup"
 let URL_LOGIN = "\(BASE_URL)signin"
+let URL_MESSAGES = "\(BASE_URL)messages"
 
 // Notification Constants
-let NOTIF_USER_DATA_DID_CHANGE = Notification.Name("notifUserDataChanged")
+let NOTIF_DEVICES_DATA_DID_CHANGE = Notification.Name("notifDevicesDataChanged")
 
 // Segues
 let LOGIN_TO_MENU = "LoginToMenu"

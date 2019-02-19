@@ -14,22 +14,35 @@ class DevicesVC: UIViewController , UICollectionViewDelegate , UICollectionViewD
     
     @IBOutlet weak var deviceCollection: UICollectionView!
     
-    private(set) public var devices = [Device]()
+    private(set) public var devicesC = [Device]()
 
+    @IBOutlet weak var deviceCodeTxt: UITextField!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        initDevices()
+        setupView()
         deviceCollection.dataSource = self
         deviceCollection.delegate = self
+         NotificationCenter.default.addObserver(self, selector: #selector(
+            DevicesVC.devicesDataDidChange(_:)), name: NOTIF_DEVICES_DATA_DID_CHANGE, object: nil)
+       
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        // self.tabBarController?.delegate = self
+          initDevices(reload : true)
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return devices.count
+        return devicesC.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DeviceCell", for: indexPath) as? DeviceCell {
-            let device = devices[indexPath.row]
+            let device = devicesC[indexPath.row]
             cell.updateViews(device: device, index: indexPath.row)
 
         
@@ -46,18 +59,61 @@ class DevicesVC: UIViewController , UICollectionViewDelegate , UICollectionViewD
         
     }
     
-    func initDevices () {
-        self.devices = DevicesService.instance.getDevices()
+    func initDevices (reload:Bool) {
+         DevicesService.instance.getDevices(){ (success) in
+            if success {
+                 self.devicesC = DevicesService.instance.devices
+                print ("in init devices")
+                   print(DevicesService.instance.devices.count)
+                if reload {
+                    self.deviceCollection.reloadData() }
+                self.spinner.isHidden = true
+                self.spinner.stopAnimating()
+            } else {
+                self.spinner.isHidden = true
+                self.spinner.stopAnimating()
+                print("not ok")
+            }
+            
+        }
+    }
+  
+    @IBAction func addDeviceClicked(_ sender: Any) {
+        spinner.isHidden = false
+        spinner.startAnimating()
+        guard let deviceCode = deviceCodeTxt.text , deviceCodeTxt.text != "" else { return }
+        DevicesService.instance.addDevice(code: deviceCode){ (success) in
+            if success {
+                // NotificationCenter.default.post(name: NOTIF_DEVICES_DATA_DID_CHANGE, object: nil)
+       
+                print(DevicesService.instance.devices.count)
+                self.initDevices(reload: true )
+                self.devicesC = DevicesService.instance.devices
+                print("added device")
+                
+            } else {
+                print("can't add device")
+                
+                self.spinner.isHidden = true
+                self.spinner.stopAnimating()
+                self.makeAlert(message: "this code is wrong , try again")
+            }
+            
+        }
     }
   
     @IBAction func MessageButtonTapped(_ sender: UIButton ) {
-        makeAlert(message: "adding message for : \(devices[sender.tag].name)")
+        let addmessageview = AddMessageView()
+        addmessageview.modalPresentationStyle = .custom
+        addmessageview.device = devicesC[sender.tag]	
+        present(addmessageview, animated: true , completion: nil)
+        
     }
     @IBAction func SettingsButtonTapped(_ sender: UIButton ) {
-        makeAlert(message: "settings for : \(devices[sender.tag].name)")
+        makeAlert(message: "settings for : \(devicesC[sender.tag].name)")
     }
     @IBAction func InfoButtonTapped(_ sender: UIButton ) {
-        makeAlert(message: "info for : \(devices[sender.tag].name)")
+        makeAlert(message: "info for : \(devicesC[sender.tag].name)")
     }
     func makeAlert( message: String ) {
         let alert = UIAlertController(title: "Alert !", message: message, preferredStyle: .alert)
@@ -65,4 +121,19 @@ class DevicesVC: UIViewController , UICollectionViewDelegate , UICollectionViewD
         alert.addAction(backButton)
         self.present(alert,animated: true, completion: nil)
     }
+    @objc func handleTap() {
+        view.endEditing(true)
+    }
+    func setupView () {
+        spinner.isHidden = false
+        spinner.startAnimating()
+        // enable exiting keyboard with tap
+        let tap = UITapGestureRecognizer(target: self, action: #selector(DevicesVC.handleTap))
+        view.addGestureRecognizer(tap)
+    }
+    @objc func devicesDataDidChange(_ notif: Notification) {
+        initDevices(reload : true )
+    }
+    
 }
+

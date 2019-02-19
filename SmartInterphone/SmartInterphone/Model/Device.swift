@@ -7,12 +7,17 @@
 //
 
 import Foundation
-struct Device {
-    
+class Device {
+    private(set) public var id: String
     private(set) public var name: String
+    private(set) public var code: String
+    private(set) public var messages: [Message]
 
-    
-    init(name: String) {
+    init(id : String, name: String , code : String , messages : [Message]) {
+        self.id = id
         self.name = name
+        self.code = code
+        self.messages = messages
     }
+
 }

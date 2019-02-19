@@ -25,6 +25,10 @@
 		231D29A4220CFEBB005E2B04 /* BorderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231D29A3220CFEBB005E2B04 /* BorderButton.swift */; };
 		23438C74220D0442000D0067 /* HomeCustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23438C73220D0442000D0067 /* HomeCustomTextField.swift */; };
 		23438C7822127FA9000D0067 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23438C7722127FA9000D0067 /* HomeVC.swift */; };
+		239F5D4D221B644400ABD5B9 /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239F5D4C221B644400ABD5B9 /* TabBarVC.swift */; };
+		239F5D4F221B892F00ABD5B9 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239F5D4E221B892F00ABD5B9 /* Message.swift */; };
+		239F5D52221B90F200ABD5B9 /* AddMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239F5D50221B90F200ABD5B9 /* AddMessageView.swift */; };
+		239F5D53221B90F200ABD5B9 /* AddMessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 239F5D51221B90F200ABD5B9 /* AddMessageView.xib */; };
 		D736510E9FC17F15FF62E3D0 /* Pods_SmartInterphone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50E20EDF42874266DE90CF39 /* Pods_SmartInterphone.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +53,10 @@
 		231D29A3220CFEBB005E2B04 /* BorderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderButton.swift; sourceTree = "<group>"; };
 		23438C73220D0442000D0067 /* HomeCustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCustomTextField.swift; sourceTree = "<group>"; };
 		23438C7722127FA9000D0067 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		239F5D4C221B644400ABD5B9 /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
+		239F5D4E221B892F00ABD5B9 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		239F5D50221B90F200ABD5B9 /* AddMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMessageView.swift; sourceTree = "<group>"; };
+		239F5D51221B90F200ABD5B9 /* AddMessageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddMessageView.xib; sourceTree = "<group>"; };
 		50E20EDF42874266DE90CF39 /* Pods_SmartInterphone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartInterphone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F92657F6F6333766ACDCD36 /* Pods-SmartInterphone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartInterphone.debug.xcconfig"; path = "Target Support Files/Pods-SmartInterphone/Pods-SmartInterphone.debug.xcconfig"; sourceTree = "<group>"; };
 		E2522E51E213AD009602275F /* Pods-SmartInterphone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartInterphone.release.xcconfig"; path = "Target Support Files/Pods-SmartInterphone/Pods-SmartInterphone.release.xcconfig"; sourceTree = "<group>"; };
@@ -111,7 +119,6 @@
 				231D299F220CFE20005E2B04 /* View */,
 				231D298D220CE8D0005E2B04 /* AppDelegate.swift */,
 				231D2994220CE8D6005E2B04 /* Assets.xcassets */,
-				231D2996220CE8D6005E2B04 /* LaunchScreen.storyboard */,
 				231D2999220CE8D6005E2B04 /* Info.plist */,
 			);
 			path = SmartInterphone;
@@ -120,7 +127,9 @@
 		231D299F220CFE20005E2B04 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				231D2996220CE8D6005E2B04 /* LaunchScreen.storyboard */,
 				231D2991220CE8D0005E2B04 /* MainStoryBoard.storyboard */,
+				239F5D54221B912A00ABD5B9 /* XIBs */,
 				231D29A2220CFEA3005E2B04 /* Custom */,
 			);
 			path = View;
@@ -133,6 +142,8 @@
 				2305E86F22190CF60008B484 /* LoginVC.swift */,
 				23438C7722127FA9000D0067 /* HomeVC.swift */,
 				2305E87D221A24D90008B484 /* DevicesVC.swift */,
+				239F5D4C221B644400ABD5B9 /* TabBarVC.swift */,
+				239F5D50221B90F200ABD5B9 /* AddMessageView.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -141,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				2305E879221A215A0008B484 /* Device.swift */,
+				239F5D4E221B892F00ABD5B9 /* Message.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -156,6 +168,14 @@
 				2305E877221A1D660008B484 /* DeviceCell.swift */,
 			);
 			path = Custom;
+			sourceTree = "<group>";
+		};
+		239F5D54221B912A00ABD5B9 /* XIBs */ = {
+			isa = PBXGroup;
+			children = (
+				239F5D51221B90F200ABD5B9 /* AddMessageView.xib */,
+			);
+			path = XIBs;
 			sourceTree = "<group>";
 		};
 		240234C80D7797D7831A3039 /* Frameworks */ = {
@@ -235,6 +255,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				239F5D53221B90F200ABD5B9 /* AddMessageView.xib in Resources */,
 				231D2998220CE8D6005E2B04 /* LaunchScreen.storyboard in Resources */,
 				231D2995220CE8D6005E2B04 /* Assets.xcassets in Resources */,
 				231D2993220CE8D0005E2B04 /* MainStoryBoard.storyboard in Resources */,
@@ -300,10 +321,12 @@
 				2305E87A221A215A0008B484 /* Device.swift in Sources */,
 				2305E87122190CF70008B484 /* LoginVC.swift in Sources */,
 				2305E87222190CF70008B484 /* RegisterVC.swift in Sources */,
+				239F5D4F221B892F00ABD5B9 /* Message.swift in Sources */,
 				2305E876221A1A0C0008B484 /* GradientView.swift in Sources */,
 				23438C74220D0442000D0067 /* HomeCustomTextField.swift in Sources */,
 				2305E87C221A23170008B484 /* DevicesService.swift in Sources */,
 				2305E878221A1D660008B484 /* DeviceCell.swift in Sources */,
+				239F5D52221B90F200ABD5B9 /* AddMessageView.swift in Sources */,
 				231D298E220CE8D0005E2B04 /* AppDelegate.swift in Sources */,
 				23438C7822127FA9000D0067 /* HomeVC.swift in Sources */,
 				231745872213A23E00E18B32 /* RoundedButton.swift in Sources */,
@@ -311,6 +334,7 @@
 				2314E2902217CCDC00FD437C /* AuthService.swift in Sources */,
 				2305E87E221A24D90008B484 /* DevicesVC.swift in Sources */,
 				2305E874221A15050008B484 /* ProfilePictureImage.swift in Sources */,
+				239F5D4D221B644400ABD5B9 /* TabBarVC.swift in Sources */,
 				2314E2932217CD8C00FD437C /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
