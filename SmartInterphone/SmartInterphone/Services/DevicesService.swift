@@ -49,7 +49,7 @@ class DevicesService {
         let username = AuthService.instance.username
             let URL = BASE_URL + username + "/devices"
      
-            Alamofire.request(URL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: HEADER).responseJSON { (response) in
+            Alamofire.request(URL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: HEADER).responseJSON { (response) in 
                 
                 if response.result.error == nil {
                     guard let data = response.data else { return }

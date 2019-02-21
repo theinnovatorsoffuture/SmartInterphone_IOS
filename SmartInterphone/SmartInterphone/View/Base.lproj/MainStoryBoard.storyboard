@@ -320,16 +320,29 @@
                     <view key="view" contentMode="scaleToFill" id="CMj-nd-xOY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zvB-co-6MR">
+                                <rect key="frame" x="0.0" y="69" width="375" height="598"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="zvB-co-6MR" firstAttribute="leading" secondItem="YmG-Go-QiI" secondAttribute="leading" id="SCq-Eo-XdC"/>
+                            <constraint firstItem="zvB-co-6MR" firstAttribute="bottom" secondItem="YmG-Go-QiI" secondAttribute="bottom" id="YEj-16-iTi"/>
+                            <constraint firstItem="zvB-co-6MR" firstAttribute="trailing" secondItem="YmG-Go-QiI" secondAttribute="trailing" id="ZgW-c4-h1s"/>
+                            <constraint firstItem="zvB-co-6MR" firstAttribute="top" secondItem="YmG-Go-QiI" secondAttribute="top" constant="49" id="du3-ai-Xc0"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="YmG-Go-QiI"/>
                     </view>
                     <connections>
+                        <outlet property="test" destination="zvB-co-6MR" id="xfq-oO-Jv1"/>
                         <segue destination="VEP-eP-rpn" kind="show" identifier="ScheduleToMenu" id="kJV-Qu-Vnw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TQj-bc-BIu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2582" y="-270"/>
+            <point key="canvasLocation" x="2581.5999999999999" y="-270.31484257871068"/>
         </scene>
         <!--DevicesVC-->
         <scene sceneID="Dag-es-efM">
@@ -724,7 +737,7 @@
         <image name="smackBack" width="28" height="28"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="kUa-Zh-J7g"/>
+        <segue reference="6yE-CM-wft"/>
         <segue reference="kJV-Qu-Vnw"/>
         <segue reference="94R-PC-RzN"/>
     </inferredMetricsTieBreakers>
