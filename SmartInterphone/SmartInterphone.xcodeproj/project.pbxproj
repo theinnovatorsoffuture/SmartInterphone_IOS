@@ -26,6 +26,7 @@
 		23229970221BF2220046FD93 /* EditMessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2322996F221BF2210046FD93 /* EditMessageView.xib */; };
 		23229973221BF3270046FD93 /* EditMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23229972221BF3270046FD93 /* EditMessageView.swift */; };
 		2332A1D32222E19E00DA7A03 /* Menu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2332A1D22222E19E00DA7A03 /* Menu.storyboard */; };
+		2332A1D522230D2D00DA7A03 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2332A1D422230D2D00DA7A03 /* GoogleService-Info.plist */; };
 		23438C74220D0442000D0067 /* HomeCustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23438C73220D0442000D0067 /* HomeCustomTextField.swift */; };
 		23438C7822127FA9000D0067 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23438C7722127FA9000D0067 /* HomeVC.swift */; };
 		2399409A22225ED600F27543 /* ExampleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2399409922225ED600F27543 /* ExampleController.swift */; };
@@ -63,6 +64,7 @@
 		2322996F221BF2210046FD93 /* EditMessageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditMessageView.xib; sourceTree = "<group>"; };
 		23229972221BF3270046FD93 /* EditMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMessageView.swift; sourceTree = "<group>"; };
 		2332A1D22222E19E00DA7A03 /* Menu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Menu.storyboard; path = ../../../../../.Trash/Menu.storyboard; sourceTree = "<group>"; };
+		2332A1D422230D2D00DA7A03 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		23438C73220D0442000D0067 /* HomeCustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCustomTextField.swift; sourceTree = "<group>"; };
 		23438C7722127FA9000D0067 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		2399409922225ED600F27543 /* ExampleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleController.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				231D299F220CFE20005E2B04 /* View */,
 				231D298D220CE8D0005E2B04 /* AppDelegate.swift */,
 				231D2994220CE8D6005E2B04 /* Assets.xcassets */,
+				2332A1D422230D2D00DA7A03 /* GoogleService-Info.plist */,
 				231D2999220CE8D6005E2B04 /* Info.plist */,
 			);
 			path = SmartInterphone;
@@ -292,6 +295,7 @@
 				2332A1D32222E19E00DA7A03 /* Menu.storyboard in Resources */,
 				23229970221BF2220046FD93 /* EditMessageView.xib in Resources */,
 				231D2993220CE8D0005E2B04 /* MainStoryBoard.storyboard in Resources */,
+				2332A1D522230D2D00DA7A03 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

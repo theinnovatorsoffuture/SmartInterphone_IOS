@@ -145,8 +145,10 @@ class DevicesVC: UIViewController , UICollectionViewDelegate , UICollectionViewD
         spinner.isHidden = false
         spinner.startAnimating()
         // enable exiting keyboard with tap
+        
         let tap = UITapGestureRecognizer(target: self, action: #selector(DevicesVC.handleTap))
         view.addGestureRecognizer(tap)
+ 
     }
     @objc func devicesDataDidChange(_ notif: Notification) {
         initDevices(reload : true )

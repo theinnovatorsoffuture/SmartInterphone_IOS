@@ -10,13 +10,16 @@ import UIKit
 import FBSDKLoginKit
 import FBSDKCoreKit
 import Kingfisher
+import GoogleSignIn
 
-class LoginVC: UIViewController {
+class LoginVC: UIViewController , GIDSignInUIDelegate {
   
     
     
     @IBOutlet weak var passwordTxt: HomeCustomTextField!
     @IBOutlet weak var emailTxt: HomeCustomTextField!
+
+    @IBOutlet weak var googleBtn: GIDSignInButton!
     
     @IBOutlet weak var testImg: UIImageView!
     
@@ -27,6 +30,8 @@ class LoginVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        googleBtn.style = .iconOnly
+        GIDSignIn.sharedInstance()?.uiDelegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -57,6 +62,7 @@ class LoginVC: UIViewController {
         }
       
     }
+  
     func ForgotPassword(alert: UIAlertAction!) {
         print("forgot password cool")
     }
@@ -64,15 +70,25 @@ class LoginVC: UIViewController {
     func setupView () {
         // hide spinner
         spinner.isHidden = true
-        // enable exiting keyboard with tap
-        let tap = UITapGestureRecognizer(target: self, action: #selector(LoginVC.handleTap))
+
+      /*  let tap = UITapGestureRecognizer(target: self, action: #selector(LoginVC.handleTap))
         view.addGestureRecognizer(tap)
+ */
     }
-    
+    /*
     @objc func handleTap() {
         view.endEditing(true)
     }
+    */
+
+    @IBAction func googleLoginClicked(_ sender: Any) {
+        print("clicked google")
+        GIDSignIn.sharedInstance()?.signIn()
+    }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
     @IBAction func fbLoginClicked(_ sender: Any) {
             let fbloginManager =  FBSDKLoginManager()
         
@@ -91,17 +107,7 @@ class LoginVC: UIViewController {
         }
     }
     
-    /*
-    func getUserProfile(currentAccessToken : String) {
-    let connection = FBSDKGraphRequestConnection()
-        
-        connection.add(FBSDKGraphRequest(graphPath: "/me", parameters: ["fields": "email,first_name,last_name,picture.type(large),id"],
-                                         accessToken : currentAccessToken , httpMethod: .GET )) {
-                                            
-        }
-            
-        
-    } */
+
     
     func fetchProfile () {
         let parameters = ["fields": "email,first_name,last_name,picture.type(large),id"]
