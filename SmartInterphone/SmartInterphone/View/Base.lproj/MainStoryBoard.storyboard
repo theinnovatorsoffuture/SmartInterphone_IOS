@@ -117,10 +117,29 @@
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="UbA-Yx-TvV">
                                 <rect key="frame" x="177.5" y="323.5" width="20" height="20"/>
                             </activityIndicatorView>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rj1-lm-x6R">
+                                <rect key="frame" x="54" y="525" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="Ya6-CU-auY"/>
+                                    <constraint firstAttribute="width" constant="100" id="fkV-UC-Qz0"/>
+                                </constraints>
+                                <state key="normal" title="Login" image="facebook"/>
+                                <connections>
+                                    <action selector="fbLoginClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dOq-F5-ASB"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Y8x-Hr-zQG">
+                                <rect key="frame" x="162" y="525" width="130" height="130"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="130" id="1wm-9N-f8F"/>
+                                    <constraint firstAttribute="width" constant="130" id="wBP-Y8-VtT"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="DJe-9t-y5q" firstAttribute="top" secondItem="yvi-z0-yjh" secondAttribute="bottom" constant="1" id="3Gr-EH-L6e"/>
+                            <constraint firstItem="Y8x-Hr-zQG" firstAttribute="leading" secondItem="Rj1-lm-x6R" secondAttribute="trailing" constant="8" id="3NO-BI-pMg"/>
                             <constraint firstItem="yCi-06-hrj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="54" id="3ua-jT-uIC"/>
                             <constraint firstItem="UbA-Yx-TvV" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="5rJ-F5-FFz"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tZU-vh-uBJ" secondAttribute="trailing" constant="65" id="9W5-q5-6D0"/>
@@ -132,6 +151,7 @@
                             <constraint firstItem="JT4-lW-kJb" firstAttribute="trailing" secondItem="yCi-06-hrj" secondAttribute="trailing" id="NhI-IE-1U0"/>
                             <constraint firstItem="UbA-Yx-TvV" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Rap-QG-UsO"/>
                             <constraint firstItem="cqY-Cg-8I5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="54" id="TLx-0E-eEm"/>
+                            <constraint firstItem="Rj1-lm-x6R" firstAttribute="top" secondItem="EGX-Wr-ppU" secondAttribute="bottom" constant="8" id="UtO-fs-jZB"/>
                             <constraint firstItem="yvi-z0-yjh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="25" id="X2o-w7-f2W"/>
                             <constraint firstItem="DJe-9t-y5q" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="139" id="Xgh-IO-SDW"/>
                             <constraint firstItem="UbA-Yx-TvV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZVf-3f-kAb"/>
@@ -140,6 +160,7 @@
                             <constraint firstItem="tZU-vh-uBJ" firstAttribute="top" secondItem="DJe-9t-y5q" secondAttribute="bottom" constant="5" id="eaS-hM-2fd"/>
                             <constraint firstItem="cqY-Cg-8I5" firstAttribute="top" secondItem="tZU-vh-uBJ" secondAttribute="bottom" constant="15" id="mk2-4Y-nAC"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cqY-Cg-8I5" secondAttribute="trailing" constant="54" id="nGI-P1-3dS"/>
+                            <constraint firstItem="Y8x-Hr-zQG" firstAttribute="top" secondItem="EGX-Wr-ppU" secondAttribute="bottom" constant="8" id="pFn-uW-6mm"/>
                             <constraint firstItem="UbA-Yx-TvV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qBh-cj-foW"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="DJe-9t-y5q" secondAttribute="trailing" constant="140" id="qt8-mV-iyf"/>
                             <constraint firstItem="yCi-06-hrj" firstAttribute="top" secondItem="cqY-Cg-8I5" secondAttribute="bottom" constant="14" id="tOL-Zg-Fyk"/>
@@ -147,6 +168,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hnl-CV-90p" secondAttribute="trailing" constant="16" id="uJG-Ho-Xav"/>
                             <constraint firstItem="yvi-z0-yjh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="114" id="uSI-om-ZTF"/>
                             <constraint firstItem="yCi-06-hrj" firstAttribute="height" secondItem="cqY-Cg-8I5" secondAttribute="height" id="w99-6I-c1k"/>
+                            <constraint firstItem="Rj1-lm-x6R" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="54" id="wKM-ru-mZ8"/>
                             <constraint firstItem="EGX-Wr-ppU" firstAttribute="top" secondItem="hnl-CV-90p" secondAttribute="bottom" constant="8" id="xy5-fl-1Bo"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -156,6 +178,7 @@
                         <outlet property="emailTxt" destination="cqY-Cg-8I5" id="UKX-Co-w9N"/>
                         <outlet property="passwordTxt" destination="yCi-06-hrj" id="cIJ-R3-uhn"/>
                         <outlet property="spinner" destination="UbA-Yx-TvV" id="Gua-Rn-Rz2"/>
+                        <outlet property="testImg" destination="Y8x-Hr-zQG" id="xpQ-KN-iMH"/>
                         <segue destination="cKK-pk-qSe" kind="show" identifier="LoginToMenu" id="73L-bo-09T"/>
                     </connections>
                 </viewController>
@@ -720,6 +743,7 @@
         <image name="devicesIcon" width="37.5" height="37.5"/>
         <image name="e-paper" width="269" height="382"/>
         <image name="editProfile" width="180" height="180"/>
+        <image name="facebook" width="180" height="180"/>
         <image name="iconSettings" width="180" height="180"/>
         <image name="infoIcon" width="180" height="180"/>
         <image name="logo_transparent" width="600" height="600"/>
@@ -730,7 +754,7 @@
         <image name="smackBack" width="28" height="28"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="kJV-Qu-Vnw"/>
-        <segue reference="s4q-Qd-1gL"/>
+        <segue reference="73L-bo-09T"/>
+        <segue reference="94R-PC-RzN"/>
     </inferredMetricsTieBreakers>
 </document>
