@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:SmartInterphone/View/Menu.storyboard">
+   </FileRef>
+   <FileRef
       location = "group:SmartInterphone.xcodeproj">
    </FileRef>
    <FileRef

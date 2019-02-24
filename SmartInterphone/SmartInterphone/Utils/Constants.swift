@@ -17,8 +17,8 @@ let URL_LOGIN = "\(BASE_URL)signin"
 let URL_MESSAGES = "\(BASE_URL)messages"
 
 // Notification Constants
-let NOTIF_DEVICES_DATA_DID_CHANGE = Notification.Name("notifDevicesDataChanged")
-
+let NOTIF_DEVICE_DATA_DID_CHANGE = Notification.Name("notifDeviceDataChanged")
+let NOTIF_DEVICES_ADDED = Notification.Name("addedNewDevices")
 // Segues
 let LOGIN_TO_MENU = "LoginToMenu"
 let REGISTER_TO_MENU = "RegisterToMenu"
@@ -34,6 +34,7 @@ let LOGGED_IN_KEY = "loggedIn"
 let USER_EMAIL = "userEmail"
 let USER_FULLNAME = "userFullName"
 let USER_NAME = "username"
+let SELECTED_DEVICE = "selectedDevice"
 
 // Headers
 let HEADER = [

@@ -13,10 +13,12 @@ import SwiftyJSON
 class DevicesService {
     
     static let instance = DevicesService()
+      let defaults = UserDefaults.standard
     
-    
-    private(set) var devices = [Device]()
+   static var devices = [Device]()
 
+        static var selectedDevice : Device?
+    
     
     func addDevice (code: String ,completion: @escaping CompletionHandler) {
         let username = AuthService.instance.username
@@ -60,10 +62,10 @@ class DevicesService {
                             completion(false)
                             return
                         }
-                        self.devices.removeAll()
+                        DevicesService.devices.removeAll()
                         
                         for i in 0..<jsonDevices!.count {
-                            self.devices.append(Device(
+                            DevicesService.devices.append(Device(
                                 id: jsonDevices![i]["_id"].stringValue ,
                                 name: jsonDevices![i]["name"].stringValue ,
                                 code: jsonDevices![i]["code"].stringValue ,
@@ -73,7 +75,7 @@ class DevicesService {
                     
                         }
                         print("fi getdevices")
-                        print(self.devices)
+                        print(DevicesService.devices)
                        
 
                       
@@ -130,8 +132,9 @@ class DevicesService {
         
     }
     
-    func getDeviceMessages (device : Device ,completion: @escaping CompletionHandler) -> Device {
-        
+    func getDeviceMessages (device : Device ,completion: @escaping CompletionHandler) {
+        DevicesService.selectedDevice = device
+        DevicesService.selectedDevice?.messages.removeAll()
         let URL_SHOW = URL_MESSAGES + "/" + device.id
         Alamofire.request(URL_SHOW, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: HEADER).responseJSON { (response) in
             
@@ -143,9 +146,10 @@ class DevicesService {
                     if !message.contains("Message details")  {
                         completion(false)
                         return
+                        
                     }
                     let jsonMessages = json["data"].array
-                    print (jsonMessages)
+               
                     if (jsonMessages == nil) {
                         completion(false)
                         return
@@ -157,11 +161,8 @@ class DevicesService {
                                                displayedAt: jsonMessages![i]["displayAt"].stringValue,
                                                hiddenAt: jsonMessages![i]["hiddenAt"].stringValue
                         )
-                        device.messages.append(rMessage)
-                        
-                        
-                        
-                        
+                        DevicesService.selectedDevice?.messages.append(rMessage)
+                        print (DevicesService.selectedDevice?.messages)
                     }
                     
                     
@@ -177,7 +178,7 @@ class DevicesService {
                 debugPrint(response.result.error as Any)
             }
         }
-        return device
+       
 }
     func EditMessage (message : Message , deviceId: String ,completion: @escaping CompletionHandler) {
         

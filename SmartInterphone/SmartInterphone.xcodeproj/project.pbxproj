@@ -23,13 +23,15 @@
 		231D2995220CE8D6005E2B04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 231D2994220CE8D6005E2B04 /* Assets.xcassets */; };
 		231D2998220CE8D6005E2B04 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 231D2996220CE8D6005E2B04 /* LaunchScreen.storyboard */; };
 		231D29A4220CFEBB005E2B04 /* BorderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231D29A3220CFEBB005E2B04 /* BorderButton.swift */; };
-		23229968221BB8310046FD93 /* StyleGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23229964221BB8310046FD93 /* StyleGenerator.swift */; };
-		23229969221BB8310046FD93 /* ExampleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23229965221BB8310046FD93 /* ExampleController.swift */; };
-		2322996A221BB8310046FD93 /* DatePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23229966221BB8310046FD93 /* DatePickerController.swift */; };
 		23229970221BF2220046FD93 /* EditMessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2322996F221BF2210046FD93 /* EditMessageView.xib */; };
 		23229973221BF3270046FD93 /* EditMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23229972221BF3270046FD93 /* EditMessageView.swift */; };
 		23438C74220D0442000D0067 /* HomeCustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23438C73220D0442000D0067 /* HomeCustomTextField.swift */; };
 		23438C7822127FA9000D0067 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23438C7722127FA9000D0067 /* HomeVC.swift */; };
+		23869ACB222201300007E4D8 /* Menu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23869ACA2222012F0007E4D8 /* Menu.storyboard */; };
+		2399409A22225ED600F27543 /* ExampleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2399409922225ED600F27543 /* ExampleController.swift */; };
+		2399409D22225F7700F27543 /* StyleGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2399409B22225F7700F27543 /* StyleGenerator.swift */; };
+		2399409E22225F7700F27543 /* ExampleNotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2399409C22225F7700F27543 /* ExampleNotificationController.swift */; };
+		2399409F2222605E00F27543 /* DatePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2322996C221BF0810046FD93 /* DatePickerController.swift */; };
 		239F5D4F221B892F00ABD5B9 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239F5D4E221B892F00ABD5B9 /* Message.swift */; };
 		239F5D52221B90F200ABD5B9 /* AddMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239F5D50221B90F200ABD5B9 /* AddMessageView.swift */; };
 		239F5D53221B90F200ABD5B9 /* AddMessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 239F5D51221B90F200ABD5B9 /* AddMessageView.xib */; };
@@ -55,17 +57,17 @@
 		231D2997220CE8D6005E2B04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		231D2999220CE8D6005E2B04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		231D29A3220CFEBB005E2B04 /* BorderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderButton.swift; sourceTree = "<group>"; };
-		23229964221BB8310046FD93 /* StyleGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StyleGenerator.swift; path = ../../../../CalendarKitDemo/CalendarKitDemo/StyleGenerator.swift; sourceTree = "<group>"; };
-		23229965221BB8310046FD93 /* ExampleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExampleController.swift; path = ../../../../CalendarKitDemo/CalendarKitDemo/ExampleController.swift; sourceTree = "<group>"; };
-		23229966221BB8310046FD93 /* DatePickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DatePickerController.swift; path = ../../../../CalendarKitDemo/CalendarKitDemo/DatePickerController.swift; sourceTree = "<group>"; };
 		2322996C221BF0810046FD93 /* DatePickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerController.swift; sourceTree = "<group>"; };
 		2322996D221BF0810046FD93 /* StyleGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleGenerator.swift; sourceTree = "<group>"; };
 		2322996E221BF0820046FD93 /* ExampleNotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleNotificationController.swift; sourceTree = "<group>"; };
 		2322996F221BF2210046FD93 /* EditMessageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditMessageView.xib; sourceTree = "<group>"; };
-		23229971221BF2A80046FD93 /* ExampleNotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ExampleNotificationController.swift; path = ../../../../../CalendarKitDemo/CalendarKitDemo/ExampleNotificationController.swift; sourceTree = "<group>"; };
 		23229972221BF3270046FD93 /* EditMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMessageView.swift; sourceTree = "<group>"; };
 		23438C73220D0442000D0067 /* HomeCustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCustomTextField.swift; sourceTree = "<group>"; };
 		23438C7722127FA9000D0067 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		23869ACA2222012F0007E4D8 /* Menu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Menu.storyboard; sourceTree = "<group>"; };
+		2399409922225ED600F27543 /* ExampleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleController.swift; sourceTree = "<group>"; };
+		2399409B22225F7700F27543 /* StyleGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleGenerator.swift; sourceTree = "<group>"; };
+		2399409C22225F7700F27543 /* ExampleNotificationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleNotificationController.swift; sourceTree = "<group>"; };
 		239F5D4E221B892F00ABD5B9 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		239F5D50221B90F200ABD5B9 /* AddMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMessageView.swift; sourceTree = "<group>"; };
 		239F5D51221B90F200ABD5B9 /* AddMessageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddMessageView.xib; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 		231D299F220CFE20005E2B04 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				23869ACA2222012F0007E4D8 /* Menu.storyboard */,
 				231D2996220CE8D6005E2B04 /* LaunchScreen.storyboard */,
 				231D2991220CE8D0005E2B04 /* MainStoryBoard.storyboard */,
 				239F5D54221B912A00ABD5B9 /* XIBs */,
@@ -150,16 +153,14 @@
 		231D29A0220CFE35005E2B04 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				23229966221BB8310046FD93 /* DatePickerController.swift */,
-				23229965221BB8310046FD93 /* ExampleController.swift */,
-				23229964221BB8310046FD93 /* StyleGenerator.swift */,
+				2399409922225ED600F27543 /* ExampleController.swift */,
 				2305E87022190CF70008B484 /* RegisterVC.swift */,
 				2305E86F22190CF60008B484 /* LoginVC.swift */,
 				23438C7722127FA9000D0067 /* HomeVC.swift */,
 				2305E87D221A24D90008B484 /* DevicesVC.swift */,
 				23229972221BF3270046FD93 /* EditMessageView.swift */,
 				239F5D50221B90F200ABD5B9 /* AddMessageView.swift */,
-				2322996B221BF0660046FD93 /* New Group */,
+				2322996B221BF0660046FD93 /* schedule view utils */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -186,15 +187,16 @@
 			path = Custom;
 			sourceTree = "<group>";
 		};
-		2322996B221BF0660046FD93 /* New Group */ = {
+		2322996B221BF0660046FD93 /* schedule view utils */ = {
 			isa = PBXGroup;
 			children = (
-				23229971221BF2A80046FD93 /* ExampleNotificationController.swift */,
 				2322996C221BF0810046FD93 /* DatePickerController.swift */,
+				2399409C22225F7700F27543 /* ExampleNotificationController.swift */,
+				2399409B22225F7700F27543 /* StyleGenerator.swift */,
 				2322996E221BF0820046FD93 /* ExampleNotificationController.swift */,
 				2322996D221BF0810046FD93 /* StyleGenerator.swift */,
 			);
-			path = "New Group";
+			path = "schedule view utils";
 			sourceTree = "<group>";
 		};
 		239F5D54221B912A00ABD5B9 /* XIBs */ = {
@@ -286,6 +288,7 @@
 				239F5D53221B90F200ABD5B9 /* AddMessageView.xib in Resources */,
 				231D2998220CE8D6005E2B04 /* LaunchScreen.storyboard in Resources */,
 				231D2995220CE8D6005E2B04 /* Assets.xcassets in Resources */,
+				23869ACB222201300007E4D8 /* Menu.storyboard in Resources */,
 				23229970221BF2220046FD93 /* EditMessageView.xib in Resources */,
 				231D2993220CE8D0005E2B04 /* MainStoryBoard.storyboard in Resources */,
 			);
@@ -354,8 +357,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2305E87A221A215A0008B484 /* Device.swift in Sources */,
-				2322996A221BB8310046FD93 /* DatePickerController.swift in Sources */,
-				23229969221BB8310046FD93 /* ExampleController.swift in Sources */,
+				2399409F2222605E00F27543 /* DatePickerController.swift in Sources */,
+				2399409E22225F7700F27543 /* ExampleNotificationController.swift in Sources */,
 				23229973221BF3270046FD93 /* EditMessageView.swift in Sources */,
 				2305E87122190CF70008B484 /* LoginVC.swift in Sources */,
 				2305E87222190CF70008B484 /* RegisterVC.swift in Sources */,
@@ -363,15 +366,16 @@
 				2305E876221A1A0C0008B484 /* GradientView.swift in Sources */,
 				23438C74220D0442000D0067 /* HomeCustomTextField.swift in Sources */,
 				2305E87C221A23170008B484 /* DevicesService.swift in Sources */,
-				23229968221BB8310046FD93 /* StyleGenerator.swift in Sources */,
 				2305E878221A1D660008B484 /* DeviceCell.swift in Sources */,
 				239F5D52221B90F200ABD5B9 /* AddMessageView.swift in Sources */,
 				231D298E220CE8D0005E2B04 /* AppDelegate.swift in Sources */,
 				23438C7822127FA9000D0067 /* HomeVC.swift in Sources */,
+				2399409D22225F7700F27543 /* StyleGenerator.swift in Sources */,
 				231745872213A23E00E18B32 /* RoundedButton.swift in Sources */,
 				231D29A4220CFEBB005E2B04 /* BorderButton.swift in Sources */,
 				2314E2902217CCDC00FD437C /* AuthService.swift in Sources */,
 				2305E87E221A24D90008B484 /* DevicesVC.swift in Sources */,
+				2399409A22225ED600F27543 /* ExampleController.swift in Sources */,
 				2305E874221A15050008B484 /* ProfilePictureImage.swift in Sources */,
 				2314E2932217CD8C00FD437C /* Constants.swift in Sources */,
 			);

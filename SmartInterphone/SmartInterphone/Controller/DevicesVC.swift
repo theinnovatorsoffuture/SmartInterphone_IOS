@@ -25,7 +25,7 @@ class DevicesVC: UIViewController , UICollectionViewDelegate , UICollectionViewD
         deviceCollection.dataSource = self
         deviceCollection.delegate = self
          NotificationCenter.default.addObserver(self, selector: #selector(
-            DevicesVC.devicesDataDidChange(_:)), name: NOTIF_DEVICES_DATA_DID_CHANGE, object: nil)
+            DevicesVC.devicesDataDidChange(_:)), name: NOTIF_DEVICES_ADDED , object: nil)
        
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -62,9 +62,9 @@ class DevicesVC: UIViewController , UICollectionViewDelegate , UICollectionViewD
     func initDevices (reload:Bool) {
          DevicesService.instance.getDevices(){ (success) in
             if success {
-                 self.devicesC = DevicesService.instance.devices
+                 self.devicesC = DevicesService.devices
                 print ("in init devices")
-                   print(DevicesService.instance.devices.count)
+                   print(DevicesService.devices.count)
                 if reload {
                     self.deviceCollection.reloadData() }
                 self.spinner.isHidden = true
@@ -86,9 +86,9 @@ class DevicesVC: UIViewController , UICollectionViewDelegate , UICollectionViewD
             if success {
                 // NotificationCenter.default.post(name: NOTIF_DEVICES_DATA_DID_CHANGE, object: nil)
        
-                print(DevicesService.instance.devices.count)
+                print(DevicesService.devices.count)
                 self.initDevices(reload: true )
-                self.devicesC = DevicesService.instance.devices
+                self.devicesC = DevicesService.devices
                 print("added device")
                 
             } else {
@@ -116,9 +116,12 @@ class DevicesVC: UIViewController , UICollectionViewDelegate , UICollectionViewD
     // schedule
     @IBAction func InfoButtonTapped(_ sender: UIButton ) {
         let scheduleView = ExampleController()
-      scheduleView.device = DevicesService.instance.getDeviceMessages(device: self.devicesC[sender.tag]){ (success) in
+       DevicesService.instance.getDeviceMessages(device: self.devicesC[sender.tag]){ (success) in
             if success {
-                self.present(scheduleView, animated: true , completion: nil)
+                scheduleView.device = DevicesService.selectedDevice
+                let navEditorViewController: UINavigationController = UINavigationController(rootViewController: scheduleView)
+                self.navigationController?.present(navEditorViewController, animated: true, completion: nil)
+               
             } else {
                 // zid alerte hnés
                 self.makeAlert(message: "error")

@@ -40,10 +40,19 @@ class EditMessageView: UIViewController {
         endTxt.inputView = datePicker2
         userTxt.text = AuthService.instance.username
         deviceTxt.text = device?.name
-        startTxt.text = message?.displayedAt
-        endTxt.text = message?.hiddenAt
+        startTxt.text = formatDate(dateString: message!.displayedAt)
+        endTxt.text = formatDate(dateString: message!.hiddenAt)
         messageTxt.text = message?.text
         
+    }
+    
+    func formatDate(dateString:String) -> String {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        formatter.dateFormat = "y-MM-dd'T'H:mm:ss.SSS'Z'"
+        let date : Date? = formatter.date(from: dateString)!
+        formatter.dateFormat = "dd MMM yy' at: 'H:mm a"
+        return formatter.string(from: date!)
     }
     @objc func datePickerValueChanged (sender : UIDatePicker) {
         let formatter = DateFormatter()
@@ -81,22 +90,18 @@ class EditMessageView: UIViewController {
         let updatedmessage = Message(id: message!.id,
                                      text: messageTxt.text!,
                                      displayedAt: startDate!, hiddenAt: endDate!)
+        
+        print (updatedmessage)
         DevicesService.instance.EditMessage(message: updatedmessage, deviceId: device!.id){ (success) in
             if success {
                 print("message added")
-                if let presenter = self.presentingViewController as? ExampleController {
-                    if let fooOffset = presenter.device?.messages.index(where: {$0.id == self.message?.id}) {
-                        presenter.device?.messages[fooOffset] = updatedmessage
-                    }
-                }
-                self.dismiss(animated: false, completion: nil)
+                NotificationCenter.default.post(name: NOTIF_DEVICE_DATA_DID_CHANGE, object: nil)
             } else {
-                // zid alerte hnés
-                self.makeAlert(message: "message not updated , please try again")
+                  print("error editing")
             }
         }
-        
     }
+    
     func makeAlert( message: String ) {
         let alert = UIAlertController(title: "Alert !", message: message, preferredStyle: .alert)
         let backButton = UIAlertAction (title: "Okay", style: .cancel, handler: nil)

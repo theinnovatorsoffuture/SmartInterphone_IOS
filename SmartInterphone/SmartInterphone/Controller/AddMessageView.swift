@@ -84,9 +84,7 @@ class AddMessageView: UIViewController {
         DevicesService.instance.newMessage(device: device!, message: message) { (success) in
             if success {
                 print("message added")
-                if let presenter = self.presentingViewController as? ExampleController {
-                  presenter.device?.messages.append(message)
-                }
+                NotificationCenter.default.post(name: NOTIF_DEVICE_DATA_DID_CHANGE, object: nil)
                 self.dismiss(animated: false, completion: nil)
             } else {
                 // zid alerte hnés

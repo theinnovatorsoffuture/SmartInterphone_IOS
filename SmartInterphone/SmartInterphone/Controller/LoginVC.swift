@@ -20,6 +20,10 @@ class LoginVC: UIViewController {
         super.viewDidLoad()
         setupView()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
 
 
     @IBAction func SignInClicked(_ sender: Any) {
