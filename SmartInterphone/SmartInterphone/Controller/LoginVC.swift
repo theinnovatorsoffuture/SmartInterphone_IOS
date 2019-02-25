@@ -30,7 +30,8 @@ class LoginVC: UIViewController , GIDSignInUIDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        googleBtn.style = .iconOnly
+        googleBtn.style = .wide
+        googleBtn.colorScheme = .dark
         GIDSignIn.sharedInstance()?.uiDelegate = self
     }
     
