@@ -106,9 +106,9 @@ class AuthService {
     
     func loginUser(email: String, password: String, completion: @escaping CompletionHandler) {
         
-        let lowerCaseEmail = email.lowercased()
+      
         
-        let credentialData = "\(lowerCaseEmail):\(password)".data(using: String.Encoding.utf8)!
+        let credentialData = "\(email):\(password)".data(using: String.Encoding.utf8)!
         let base64Credentials = credentialData.base64EncodedString(options: [])
         let loginHeader = ["Authorization": "Basic \(base64Credentials)"]
         
@@ -124,7 +124,7 @@ class AuthService {
                     self.userEmail = json["message"]["email"].stringValue
                     self.authToken = json["token"].stringValue
                     self.isLoggedIn = true
-                    
+                    self.imageUrl = ""
                     if self.authToken == "" || self.userEmail == ""  {
                         completion(false)
                         return
