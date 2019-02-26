@@ -58,8 +58,16 @@ class AuthService {
             defaults.set(newValue, forKey: TOKEN_KEY)
         }
     }
+    var imageUrl: String  {
+        get {
+            return defaults.value(forKey: IMAGE_URL) as! String
+        }
+        set {
+            return defaults.set(newValue , forKey: IMAGE_URL)
+        }
+    }
     
-    func registerUser(email: String, password: String, name : String , username : String, completion: @escaping CompletionHandler) {
+    func registerUser(email: String, password: String, name : String , username : String, imageUrl : String, completion: @escaping CompletionHandler) {
         
         let lowerCaseEmail = email.lowercased()
         
@@ -68,6 +76,7 @@ class AuthService {
             "name": name,
             "username": username,
             "password": password,
+           // "url": imageUrl,
         ]
         
         Alamofire.request(URL_REGISTER, method: .post, parameters: body, encoding: JSONEncoding.default, headers: HEADER).responseJSON { (response) in
@@ -76,6 +85,7 @@ class AuthService {
                   guard let data = response.data else { return }
                 do {
                     let json = try JSON(data: data)
+                      print (json)
                     if json["message"].stringValue != "User Registered Sucessfully !" {
                         completion(false)
                         return
@@ -84,6 +94,8 @@ class AuthService {
                     completion(false)
                     print(error)
                 }
+                // EERROOOORRRRRR TALFI9
+                self.imageUrl = imageUrl
                 completion(true)
             } else {
                 completion(false)
@@ -106,7 +118,7 @@ class AuthService {
                 guard let data = response.data else { return }
                 do {
                     let json = try JSON(data: data)
-                    
+                    print (json)
                     self.userFullName = json["message"]["name"].stringValue
                     self.username = json["message"]["username"].stringValue
                     self.userEmail = json["message"]["email"].stringValue
@@ -134,6 +146,7 @@ class AuthService {
         authToken = ""
         userFullName = ""
         username = ""
+        imageUrl = ""
         isLoggedIn = false
     }
     

@@ -29,6 +29,7 @@
 		2332A1D72223BDF500DA7A03 /* Menu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2332A1D62223BDF500DA7A03 /* Menu.storyboard */; };
 		23438C74220D0442000D0067 /* HomeCustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23438C73220D0442000D0067 /* HomeCustomTextField.swift */; };
 		23438C7822127FA9000D0067 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23438C7722127FA9000D0067 /* HomeVC.swift */; };
+		238F12092224C4600031D2BB /* CallendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238F12082224C4600031D2BB /* CallendarVC.swift */; };
 		2399409A22225ED600F27543 /* ExampleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2399409922225ED600F27543 /* ExampleController.swift */; };
 		2399409D22225F7700F27543 /* StyleGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2399409B22225F7700F27543 /* StyleGenerator.swift */; };
 		2399409E22225F7700F27543 /* ExampleNotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2399409C22225F7700F27543 /* ExampleNotificationController.swift */; };
@@ -67,6 +68,7 @@
 		2332A1D62223BDF500DA7A03 /* Menu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Menu.storyboard; sourceTree = "<group>"; };
 		23438C73220D0442000D0067 /* HomeCustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCustomTextField.swift; sourceTree = "<group>"; };
 		23438C7722127FA9000D0067 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		238F12082224C4600031D2BB /* CallendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallendarVC.swift; sourceTree = "<group>"; };
 		2399409922225ED600F27543 /* ExampleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleController.swift; sourceTree = "<group>"; };
 		2399409B22225F7700F27543 /* StyleGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleGenerator.swift; sourceTree = "<group>"; };
 		2399409C22225F7700F27543 /* ExampleNotificationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleNotificationController.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				2305E87D221A24D90008B484 /* DevicesVC.swift */,
 				23229972221BF3270046FD93 /* EditMessageView.swift */,
 				239F5D50221B90F200ABD5B9 /* AddMessageView.swift */,
+				238F12082224C4600031D2BB /* CallendarVC.swift */,
 				2322996B221BF0660046FD93 /* schedule view utils */,
 			);
 			path = Controller;
@@ -320,6 +323,7 @@
 				"${BUILT_PRODUCTS_DIR}/FBSDKShareKit/FBSDKShareKit.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/JTAppleCalendar/JTAppleCalendar.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/Neon/Neon.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
@@ -337,6 +341,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKShareKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JTAppleCalendar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Neon.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
@@ -413,6 +418,7 @@
 				23438C7822127FA9000D0067 /* HomeVC.swift in Sources */,
 				2399409D22225F7700F27543 /* StyleGenerator.swift in Sources */,
 				231745872213A23E00E18B32 /* RoundedButton.swift in Sources */,
+				238F12092224C4600031D2BB /* CallendarVC.swift in Sources */,
 				231D29A4220CFEBB005E2B04 /* BorderButton.swift in Sources */,
 				2314E2902217CCDC00FD437C /* AuthService.swift in Sources */,
 				2305E87E221A24D90008B484 /* DevicesVC.swift in Sources */,

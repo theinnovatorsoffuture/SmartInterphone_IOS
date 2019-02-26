@@ -40,7 +40,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate , GIDSignInDelegate {
         return returnFB || returnGoogle
     }
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-        print ("google went here") 
         if let error = error {
           
             debugPrint("could not login with google :\(error.localizedDescription)")
@@ -49,17 +48,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate , GIDSignInDelegate {
                 print ("logged in with google")
         //   let userId = user.userID                  // For client-side use only!
        //     let idToken = user.authentication.idToken // Safe to send to the server
-     //       let fullName = user.profile.name
     //        let givenName = user.profile.givenName
-    //        let familyName = user.profile.familyName
+           let familyName = user.profile.familyName
+            let fullName = user.profile.name
             let email = user.profile.email
             let imageUrl = user.profile.imageURL(withDimension: 100)?.absoluteString
-              print (email)
-            print (imageUrl)
-            guard let controller = GIDSignIn.sharedInstance()?.uiDelegate as? LoginVC else {
-                return
+
+          if ((GIDSignIn.sharedInstance()?.uiDelegate as? LoginVC) != nil ) {
+            guard let loginC = GIDSignIn.sharedInstance()?.uiDelegate as? LoginVC else {return}
+         
+            print ("im in loginVC")
             }
-            controller.changeImage(url: imageUrl!)
+            if ((GIDSignIn.sharedInstance()?.uiDelegate as? RegisterVC) != nil ) {
+                guard let registerC = GIDSignIn.sharedInstance()?.uiDelegate as? RegisterVC else {return}
+                print ("im in registerVC")
+                registerC.registerUser(email: email!, password: "generatedPassword", name: fullName!, username: familyName!, imageUrl: imageUrl!)
+            }
+  
           
                 }
     }

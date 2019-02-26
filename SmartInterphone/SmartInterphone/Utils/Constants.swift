@@ -35,6 +35,7 @@ let USER_EMAIL = "userEmail"
 let USER_FULLNAME = "userFullName"
 let USER_NAME = "username"
 let SELECTED_DEVICE = "selectedDevice"
+let IMAGE_URL = "imageUrl"
 
 // Headers
 let HEADER = [

@@ -15,4 +15,5 @@ pod 'FBSDKLoginKit'
 pod 'FBSDKShareKit'
 pod 'Kingfisher'
 pod 'GoogleSignIn'
+pod 'JTAppleCalendar'
 end

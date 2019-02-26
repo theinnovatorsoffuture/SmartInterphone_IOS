@@ -9,7 +9,7 @@
 import UIKit
 import FBSDKLoginKit
 import FBSDKCoreKit
-import Kingfisher
+
 import GoogleSignIn
 
 class LoginVC: UIViewController , GIDSignInUIDelegate {
@@ -18,11 +18,6 @@ class LoginVC: UIViewController , GIDSignInUIDelegate {
     
     @IBOutlet weak var passwordTxt: HomeCustomTextField!
     @IBOutlet weak var emailTxt: HomeCustomTextField!
-
-    @IBOutlet weak var googleBtn: GIDSignInButton!
-    
-    @IBOutlet weak var testImg: UIImageView!
-    
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     
 
@@ -30,8 +25,6 @@ class LoginVC: UIViewController , GIDSignInUIDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        googleBtn.style = .wide
-        googleBtn.colorScheme = .dark
         GIDSignIn.sharedInstance()?.uiDelegate = self
     }
     
@@ -82,13 +75,13 @@ class LoginVC: UIViewController , GIDSignInUIDelegate {
     }
     */
 
-    @IBAction func googleLoginClicked(_ sender: Any) {
-        print("clicked google")
-        GIDSignIn.sharedInstance()?.signIn()
-    }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
+    }
+    @IBAction func googlLoginClicked(_ sender: Any) {
+        print("clicked google")
+        GIDSignIn.sharedInstance()?.signIn()
     }
     @IBAction func fbLoginClicked(_ sender: Any) {
             let fbloginManager =  FBSDKLoginManager()
@@ -101,7 +94,7 @@ class LoginVC: UIViewController , GIDSignInUIDelegate {
                 print("cancelled facebook login")
             } else {
                 print("login success")
-                print (result?.token.tokenString)
+                print (result!.token.tokenString!)
                self.fetchProfile()
             }
             
@@ -117,7 +110,7 @@ class LoginVC: UIViewController , GIDSignInUIDelegate {
             print("d5al 1")
             if error != nil {
                 print ("erreur : ")
-                print (error)
+                print (error!)
                 return
             }
             print("t3ada")
@@ -142,34 +135,11 @@ class LoginVC: UIViewController , GIDSignInUIDelegate {
                     return
             }
             print (url)
-            self.changeImage(url: url)
+          
             
     })
     }
-    func changeImage (url:String) {
-        let url = URL(string: url)
-        let processor = DownsamplingImageProcessor(size: testImg.frame.size)
-            >> RoundCornerImageProcessor(cornerRadius: 20)
-        testImg.kf.indicatorType = .activity
-        testImg.kf.setImage(
-            with: url,
-            placeholder: UIImage(named: "profile-placeholder"),
-            options: [
-                .processor(processor),
-                .scaleFactor(UIScreen.main.scale),
-                .transition(.fade(1)),
-                .cacheOriginalImage
-            ])
-        {
-            result in
-            switch result {
-            case .success(let value):
-                print("Task done for: \(value.source.url?.absoluteString ?? "")")
-            case .failure(let error):
-                print("Job failed: \(error.localizedDescription)")
-            }
-        }
-    }
+
     
     
     func makeAlert( message: String ) {
