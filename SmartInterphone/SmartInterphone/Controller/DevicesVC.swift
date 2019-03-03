@@ -10,7 +10,7 @@ import UIKit
 
 class DevicesVC: UIViewController , UICollectionViewDelegate , UICollectionViewDataSource {
 
-    
+
     
     @IBOutlet weak var deviceCollection: UICollectionView!
     
@@ -21,20 +21,16 @@ class DevicesVC: UIViewController , UICollectionViewDelegate , UICollectionViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupView()
-        deviceCollection.dataSource = self
-        deviceCollection.delegate = self
+        
          NotificationCenter.default.addObserver(self, selector: #selector(
             DevicesVC.devicesDataDidChange(_:)), name: NOTIF_DEVICES_ADDED , object: nil)
        
     }
     override func viewDidAppear(_ animated: Bool) {
-        // self.tabBarController?.delegate = self
-          initDevices(reload : true)
+        setupView()
+         initDevices(reload: true, scrolltolast: false)
     }
-    override func viewWillAppear(_ animated: Bool) {
-        
-    }
+ 
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return devicesC.count
@@ -45,7 +41,7 @@ class DevicesVC: UIViewController , UICollectionViewDelegate , UICollectionViewD
             let device = devicesC[indexPath.row]
             cell.updateViews(device: device, index: indexPath.row)
 
-        
+   
             cell.addMessageButton.addTarget(self, action: #selector(MessageButtonTapped), for: .touchUpInside)
           
             cell.settingsButton.addTarget(self, action: #selector(SettingsButtonTapped), for: .touchUpInside)
@@ -59,14 +55,24 @@ class DevicesVC: UIViewController , UICollectionViewDelegate , UICollectionViewD
         
     }
     
-    func initDevices (reload:Bool) {
+    func initDevices (reload:Bool , scrolltolast : Bool) {
          DevicesService.instance.getDevices(){ (success) in
             if success {
                  self.devicesC = DevicesService.devices
                 print ("in init devices")
                    print(DevicesService.devices.count)
-                if reload {
-                    self.deviceCollection.reloadData() }
+                if reload { self.deviceCollection.reloadData()
+        
+                    self.deviceCollection.setNeedsDisplay()
+                }
+                if scrolltolast{
+                    let lastSectionIndex = self.deviceCollection!.numberOfSections - 1
+                    let lastRowIndex = self.deviceCollection!.numberOfItems(inSection: lastSectionIndex) - 1
+                    let pathToLastRow = NSIndexPath(row: lastRowIndex, section: lastSectionIndex)
+
+                    self.deviceCollection.scrollToItem(at: pathToLastRow as IndexPath, at: .bottom, animated: true)
+                }
+            
                 self.spinner.isHidden = true
                 self.spinner.stopAnimating()
             } else {
@@ -87,9 +93,10 @@ class DevicesVC: UIViewController , UICollectionViewDelegate , UICollectionViewD
                 // NotificationCenter.default.post(name: NOTIF_DEVICES_DATA_DID_CHANGE, object: nil)
        
                 print(DevicesService.devices.count)
-                self.initDevices(reload: true )
+                self.initDevices(reload: true,scrolltolast: true )
                 self.devicesC = DevicesService.devices
                 print("added device")
+              
                 
             } else {
                 print("can't add device")
@@ -151,7 +158,7 @@ class DevicesVC: UIViewController , UICollectionViewDelegate , UICollectionViewD
  
     }
     @objc func devicesDataDidChange(_ notif: Notification) {
-        initDevices(reload : true )
+        initDevices(reload : true,scrolltolast: true )
     }
     
 

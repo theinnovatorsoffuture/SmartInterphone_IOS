@@ -80,7 +80,7 @@ class AddMessageView: UIViewController {
               makeAlert(message: "error")
             return
         }
-        let message = Message(id: "s", text: messagetext, displayedAt: startDate!, hiddenAt: endDate!)
+        let message = Message(id: "s", text: messagetext, displayedAt: startDate!, hiddenAt: endDate!, deviceName: device!.name)
         DevicesService.instance.newMessage(device: device!, message: message) { (success) in
             if success {
                 print("message added")

@@ -16,6 +16,7 @@ PODS:
     - FBSDKCoreKit
   - FBSDKShareKit (4.40.0):
     - FBSDKCoreKit
+  - FSCalendar (2.8.0)
   - GoogleSignIn (4.4.0):
     - "GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)"
     - "GoogleToolboxForMac/NSString+URLArguments (~> 2.1)"
@@ -29,7 +30,6 @@ PODS:
     - "GoogleToolboxForMac/NSString+URLArguments (= 2.2.0)"
   - "GoogleToolboxForMac/NSString+URLArguments (2.2.0)"
   - GTMSessionFetcher/Core (1.2.1)
-  - JTAppleCalendar (7.1.6)
   - Kingfisher (5.1.1)
   - Neon (0.4.0)
   - SwiftyJSON (4.2.0)
@@ -40,8 +40,8 @@ DEPENDENCIES:
   - FBSDKCoreKit
   - FBSDKLoginKit
   - FBSDKShareKit
+  - FSCalendar
   - GoogleSignIn
-  - JTAppleCalendar
   - Kingfisher
   - SwiftyJSON (~> 4.0)
 
@@ -54,10 +54,10 @@ SPEC REPOS:
     - FBSDKCoreKit
     - FBSDKLoginKit
     - FBSDKShareKit
+    - FSCalendar
     - GoogleSignIn
     - GoogleToolboxForMac
     - GTMSessionFetcher
-    - JTAppleCalendar
     - Kingfisher
     - Neon
     - SwiftyJSON
@@ -70,14 +70,14 @@ SPEC CHECKSUMS:
   FBSDKCoreKit: ae214474b25033399c131dc81d258e412582a2ba
   FBSDKLoginKit: 7a1e411d46acc8834588eca437daf34de42e1d52
   FBSDKShareKit: 0e45916f4150da485928ae2a17ca021950b194f5
+  FSCalendar: 3a5ed3636e2ba1b83ebebfcf0c2603105a6f5efe
   GoogleSignIn: 7ff245e1a7b26d379099d3243a562f5747e23d39
   GoogleToolboxForMac: ff31605b7d66400dcec09bed5861689aebadda4d
   GTMSessionFetcher: 32aeca0aa144acea523e1c8e053089dec2cb98ca
-  JTAppleCalendar: abb30678f42a4ef8a340a932b1dcb8c85a33dac2
   Kingfisher: 2558186963e5be42d98c5b110ccb3130148b77e4
   Neon: 7fb5a9327e7e57911843f608e08f4893a74deaf9
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
 
-PODFILE CHECKSUM: 6f302b6a0006fbb650a388b641c3b4bb16a7f448
+PODFILE CHECKSUM: f0461c1dba16b9e336e06060292b689a7d850b2e
 
 COCOAPODS: 1.6.0

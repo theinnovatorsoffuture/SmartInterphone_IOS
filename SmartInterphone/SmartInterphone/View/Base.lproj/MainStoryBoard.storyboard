@@ -194,10 +194,10 @@
             </objects>
             <point key="canvasLocation" x="2012" y="133.5832083958021"/>
         </scene>
-        <!--HomeVC-->
+        <!--Profile-->
         <scene sceneID="QaV-OM-xm0">
             <objects>
-                <viewController storyboardIdentifier="UIViewController-ec8-jc-utt" id="ec8-jc-utt" customClass="HomeVC" customModule="SmartInterphone" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UIViewController-ec8-jc-utt" title="Profile" id="ec8-jc-utt" customClass="HomeVC" customModule="SmartInterphone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wcZ-le-LcZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -367,10 +367,10 @@
             </objects>
             <point key="canvasLocation" x="3520.8000000000002" y="-270.31484257871068"/>
         </scene>
-        <!--DevicesVC-->
+        <!--Devices-->
         <scene sceneID="Dag-es-efM">
             <objects>
-                <viewController storyboardIdentifier="UIViewController-iMO-iT-HVs" id="iMO-iT-HVs" customClass="DevicesVC" customModule="SmartInterphone" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UIViewController-iMO-iT-HVs" title="Devices" id="iMO-iT-HVs" customClass="DevicesVC" customModule="SmartInterphone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QSa-Io-OFR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -455,6 +455,10 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="iMO-iT-HVs" id="9r3-ND-Tae"/>
+                                    <outlet property="delegate" destination="iMO-iT-HVs" id="2HT-6g-Sqr"/>
+                                </connections>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Device Management" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VIZ-y6-IXN">
                                 <rect key="frame" x="61.5" y="28" width="252" height="33"/>
@@ -751,6 +755,7 @@
         <!--Navigation Controller-->
         <scene sceneID="rRH-di-OIq">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EfN-u3-4nv" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="oGb-xf-ITh" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="35y-ME-tKK">
@@ -762,9 +767,8 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="fg8-Sb-vmJ"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="EfN-u3-4nv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1072.8" y="133.5832083958021"/>
+            <point key="canvasLocation" x="1226" y="134"/>
         </scene>
         <!--Menu-->
         <scene sceneID="Gqg-2Q-XiR">
@@ -790,6 +794,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="73L-bo-09T"/>
-        <segue reference="94R-PC-RzN"/>
+        <segue reference="s4q-Qd-1gL"/>
     </inferredMetricsTieBreakers>
 </document>

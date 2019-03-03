@@ -9,6 +9,7 @@
 import Foundation
 
 typealias CompletionHandler = (_ Success: Bool) -> ()
+typealias CompletionHandler2 = (_ Success: Bool) -> ()
 
 // URL Constants
 let BASE_URL = "http://192.168.174.1:8080/api/"

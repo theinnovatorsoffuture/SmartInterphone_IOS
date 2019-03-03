@@ -89,7 +89,7 @@ class EditMessageView: UIViewController {
     @IBAction func updateButton(_ sender: Any) {
         let updatedmessage = Message(id: message!.id,
                                      text: messageTxt.text!,
-                                     displayedAt: startDate!, hiddenAt: endDate!)
+                                     displayedAt: startDate!, hiddenAt: endDate!, deviceName: device!.name)
         
         print (updatedmessage)
         DevicesService.instance.EditMessage(message: updatedmessage, deviceId: device!.id){ (success) in
