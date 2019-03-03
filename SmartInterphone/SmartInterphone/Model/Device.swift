@@ -7,7 +7,8 @@
 //
 
 import Foundation
-class Device {
+
+struct Device : Equatable{
     private(set) public var id: String
     private(set) public var name: String
     private(set) public var code: String
@@ -20,4 +21,15 @@ class Device {
         self.messages = messages
     }
 
+}
+extension Device : DiffAware {
+    var diffId: Int {
+        return self.id.hashValue
+    }
+    
+    static func compareContent(_ a: Device, _ b: Device) -> Bool {
+        return a.name == b.name
+    }
+    
+    
 }

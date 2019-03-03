@@ -58,12 +58,9 @@ class DevicesVC: UIViewController , UICollectionViewDelegate , UICollectionViewD
     func initDevices (reload:Bool , scrolltolast : Bool) {
          DevicesService.instance.getDevices(){ (success) in
             if success {
-                 self.devicesC = DevicesService.devices
-                print ("in init devices")
+                    print ("in init devices")
                    print(DevicesService.devices.count)
-                if reload { self.deviceCollection.reloadData()
-        
-                    self.deviceCollection.setNeedsDisplay()
+                if reload { self.reload()
                 }
                 if scrolltolast{
                     let lastSectionIndex = self.deviceCollection!.numberOfSections - 1
@@ -91,10 +88,11 @@ class DevicesVC: UIViewController , UICollectionViewDelegate , UICollectionViewD
         DevicesService.instance.addDevice(code: deviceCode){ (success) in
             if success {
                 // NotificationCenter.default.post(name: NOTIF_DEVICES_DATA_DID_CHANGE, object: nil)
-       
+                self.spinner.isHidden = true
+                self.spinner.stopAnimating()
                 print(DevicesService.devices.count)
-                self.initDevices(reload: true,scrolltolast: true )
-                self.devicesC = DevicesService.devices
+                self.initDevices(reload: true, scrolltolast: true)
+          
                 print("added device")
               
                 
@@ -160,7 +158,19 @@ class DevicesVC: UIViewController , UICollectionViewDelegate , UICollectionViewD
     @objc func devicesDataDidChange(_ notif: Notification) {
         initDevices(reload : true,scrolltolast: true )
     }
-    
+    @objc func reload() {
+        let oldItems = self.devicesC
+        let items = DevicesService.devices
+        let changes = diff(old: oldItems, new: items)
+        
+        
+        self.deviceCollection.reload(changes: changes, updateData: {
+            self.devicesC = DevicesService.devices
+        })
+        
+        
+        
+    }
 
     
 }

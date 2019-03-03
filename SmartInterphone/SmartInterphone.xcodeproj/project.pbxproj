@@ -15,6 +15,16 @@
 		2305E87A221A215A0008B484 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2305E879221A215A0008B484 /* Device.swift */; };
 		2305E87C221A23170008B484 /* DevicesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2305E87B221A23170008B484 /* DevicesService.swift */; };
 		2305E87E221A24D90008B484 /* DevicesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2305E87D221A24D90008B484 /* DevicesVC.swift */; };
+		230661AC222C236D004BE74E /* IndexPathConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230661A9222C236D004BE74E /* IndexPathConverter.swift */; };
+		230661AD222C236D004BE74E /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230661AA222C236D004BE74E /* UITableView+Extensions.swift */; };
+		230661AE222C236D004BE74E /* UICollectionView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230661AB222C236D004BE74E /* UICollectionView+Extensions.swift */; };
+		230661B4222C238C004BE74E /* MoveReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230661AF222C238C004BE74E /* MoveReducer.swift */; };
+		230661B5222C238C004BE74E /* Change.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230661B0222C238C004BE74E /* Change.swift */; };
+		230661B6222C238C004BE74E /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230661B1222C238C004BE74E /* Array+Extensions.swift */; };
+		230661B7222C238C004BE74E /* DeepDiff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230661B2222C238C004BE74E /* DeepDiff.swift */; };
+		230661B8222C238C004BE74E /* DiffAware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230661B3222C238C004BE74E /* DiffAware.swift */; };
+		230661BB222C2393004BE74E /* Heckel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230661B9222C2393004BE74E /* Heckel.swift */; };
+		230661BC222C2393004BE74E /* WagnerFischer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230661BA222C2393004BE74E /* WagnerFischer.swift */; };
 		2314E2902217CCDC00FD437C /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2314E28F2217CCDC00FD437C /* AuthService.swift */; };
 		2314E2932217CD8C00FD437C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2314E2922217CD8C00FD437C /* Constants.swift */; };
 		231745872213A23E00E18B32 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231745862213A23E00E18B32 /* RoundedButton.swift */; };
@@ -30,7 +40,7 @@
 		23438C74220D0442000D0067 /* HomeCustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23438C73220D0442000D0067 /* HomeCustomTextField.swift */; };
 		23438C7822127FA9000D0067 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23438C7722127FA9000D0067 /* HomeVC.swift */; };
 		23740E7B222AD7D200A32137 /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23740E7A222AD7D200A32137 /* CalendarVC.swift */; };
-		23740E80222AF82200A32137 /* tableDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23740E7F222AF82200A32137 /* tableDevice.swift */; };
+		23740E80222AF82200A32137 /* DeviceCalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23740E7F222AF82200A32137 /* DeviceCalendarCell.swift */; };
 		23740E82222B539500A32137 /* MessageTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23740E81222B539500A32137 /* MessageTableCell.swift */; };
 		2399409A22225ED600F27543 /* ExampleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2399409922225ED600F27543 /* ExampleController.swift */; };
 		2399409D22225F7700F27543 /* StyleGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2399409B22225F7700F27543 /* StyleGenerator.swift */; };
@@ -51,6 +61,16 @@
 		2305E879221A215A0008B484 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		2305E87B221A23170008B484 /* DevicesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesService.swift; sourceTree = "<group>"; };
 		2305E87D221A24D90008B484 /* DevicesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesVC.swift; sourceTree = "<group>"; };
+		230661A9222C236D004BE74E /* IndexPathConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IndexPathConverter.swift; path = SmartInterphone/Utils/DeepDiffSources/iOS/IndexPathConverter.swift; sourceTree = SOURCE_ROOT; };
+		230661AA222C236D004BE74E /* UITableView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UITableView+Extensions.swift"; path = "SmartInterphone/Utils/DeepDiffSources/iOS/UITableView+Extensions.swift"; sourceTree = SOURCE_ROOT; };
+		230661AB222C236D004BE74E /* UICollectionView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UICollectionView+Extensions.swift"; path = "SmartInterphone/Utils/DeepDiffSources/iOS/UICollectionView+Extensions.swift"; sourceTree = SOURCE_ROOT; };
+		230661AF222C238C004BE74E /* MoveReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MoveReducer.swift; path = SmartInterphone/Utils/DeepDiffSources/Shared/MoveReducer.swift; sourceTree = SOURCE_ROOT; };
+		230661B0222C238C004BE74E /* Change.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Change.swift; path = SmartInterphone/Utils/DeepDiffSources/Shared/Change.swift; sourceTree = SOURCE_ROOT; };
+		230661B1222C238C004BE74E /* Array+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Array+Extensions.swift"; path = "SmartInterphone/Utils/DeepDiffSources/Shared/Array+Extensions.swift"; sourceTree = SOURCE_ROOT; };
+		230661B2222C238C004BE74E /* DeepDiff.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DeepDiff.swift; path = SmartInterphone/Utils/DeepDiffSources/Shared/DeepDiff.swift; sourceTree = SOURCE_ROOT; };
+		230661B3222C238C004BE74E /* DiffAware.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DiffAware.swift; path = SmartInterphone/Utils/DeepDiffSources/Shared/DiffAware.swift; sourceTree = SOURCE_ROOT; };
+		230661B9222C2393004BE74E /* Heckel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Heckel.swift; path = SmartInterphone/Utils/DeepDiffSources/Shared/Algorithms/Heckel.swift; sourceTree = SOURCE_ROOT; };
+		230661BA222C2393004BE74E /* WagnerFischer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WagnerFischer.swift; path = SmartInterphone/Utils/DeepDiffSources/Shared/Algorithms/WagnerFischer.swift; sourceTree = SOURCE_ROOT; };
 		2314E28F2217CCDC00FD437C /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		2314E2922217CD8C00FD437C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		231745862213A23E00E18B32 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
@@ -72,7 +92,7 @@
 		23438C7722127FA9000D0067 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		23740E7A222AD7D200A32137 /* CalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVC.swift; sourceTree = "<group>"; };
 		23740E7C222AD98D00A32137 /* SmartInterphone-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SmartInterphone-Bridging-Header.h"; sourceTree = "<group>"; };
-		23740E7F222AF82200A32137 /* tableDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tableDevice.swift; sourceTree = "<group>"; };
+		23740E7F222AF82200A32137 /* DeviceCalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCalendarCell.swift; sourceTree = "<group>"; };
 		23740E81222B539500A32137 /* MessageTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableCell.swift; sourceTree = "<group>"; };
 		2399409922225ED600F27543 /* ExampleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleController.swift; sourceTree = "<group>"; };
 		2399409B22225F7700F27543 /* StyleGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleGenerator.swift; sourceTree = "<group>"; };
@@ -97,6 +117,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		230661A8222C2341004BE74E /* DeepDiffSource */ = {
+			isa = PBXGroup;
+			children = (
+				230661B9222C2393004BE74E /* Heckel.swift */,
+				230661BA222C2393004BE74E /* WagnerFischer.swift */,
+				230661B1222C238C004BE74E /* Array+Extensions.swift */,
+				230661B0222C238C004BE74E /* Change.swift */,
+				230661B2222C238C004BE74E /* DeepDiff.swift */,
+				230661B3222C238C004BE74E /* DiffAware.swift */,
+				230661AF222C238C004BE74E /* MoveReducer.swift */,
+				230661A9222C236D004BE74E /* IndexPathConverter.swift */,
+				230661AB222C236D004BE74E /* UICollectionView+Extensions.swift */,
+				230661AA222C236D004BE74E /* UITableView+Extensions.swift */,
+			);
+			path = DeepDiffSource;
+			sourceTree = "<group>";
+		};
 		2314E28E2217CCA000FD437C /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +146,7 @@
 		2314E2912217CD6B00FD437C /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				230661A8222C2341004BE74E /* DeepDiffSource */,
 				2314E2922217CD8C00FD437C /* Constants.swift */,
 			);
 			path = Utils;
@@ -215,7 +253,7 @@
 		2385292422285114005E8948 /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
-				23740E7F222AF82200A32137 /* tableDevice.swift */,
+				23740E7F222AF82200A32137 /* DeviceCalendarCell.swift */,
 				23740E81222B539500A32137 /* MessageTableCell.swift */,
 			);
 			path = Calendar;
@@ -419,14 +457,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				230661B7222C238C004BE74E /* DeepDiff.swift in Sources */,
+				230661AE222C236D004BE74E /* UICollectionView+Extensions.swift in Sources */,
 				23740E7B222AD7D200A32137 /* CalendarVC.swift in Sources */,
 				2305E87A221A215A0008B484 /* Device.swift in Sources */,
 				23740E82222B539500A32137 /* MessageTableCell.swift in Sources */,
 				2399409F2222605E00F27543 /* DatePickerController.swift in Sources */,
+				230661AC222C236D004BE74E /* IndexPathConverter.swift in Sources */,
 				2399409E22225F7700F27543 /* ExampleNotificationController.swift in Sources */,
 				23229973221BF3270046FD93 /* EditMessageView.swift in Sources */,
 				2305E87122190CF70008B484 /* LoginVC.swift in Sources */,
+				230661B8222C238C004BE74E /* DiffAware.swift in Sources */,
+				230661B6222C238C004BE74E /* Array+Extensions.swift in Sources */,
 				2305E87222190CF70008B484 /* RegisterVC.swift in Sources */,
+				230661AD222C236D004BE74E /* UITableView+Extensions.swift in Sources */,
+				230661B5222C238C004BE74E /* Change.swift in Sources */,
 				239F5D4F221B892F00ABD5B9 /* Message.swift in Sources */,
 				2305E876221A1A0C0008B484 /* GradientView.swift in Sources */,
 				23438C74220D0442000D0067 /* HomeCustomTextField.swift in Sources */,
@@ -437,10 +482,13 @@
 				23438C7822127FA9000D0067 /* HomeVC.swift in Sources */,
 				2399409D22225F7700F27543 /* StyleGenerator.swift in Sources */,
 				231745872213A23E00E18B32 /* RoundedButton.swift in Sources */,
+				230661BB222C2393004BE74E /* Heckel.swift in Sources */,
 				231D29A4220CFEBB005E2B04 /* BorderButton.swift in Sources */,
 				2314E2902217CCDC00FD437C /* AuthService.swift in Sources */,
+				230661BC222C2393004BE74E /* WagnerFischer.swift in Sources */,
 				2305E87E221A24D90008B484 /* DevicesVC.swift in Sources */,
-				23740E80222AF82200A32137 /* tableDevice.swift in Sources */,
+				23740E80222AF82200A32137 /* DeviceCalendarCell.swift in Sources */,
+				230661B4222C238C004BE74E /* MoveReducer.swift in Sources */,
 				2399409A22225ED600F27543 /* ExampleController.swift in Sources */,
 				2305E874221A15050008B484 /* ProfilePictureImage.swift in Sources */,
 				2314E2932217CD8C00FD437C /* Constants.swift in Sources */,

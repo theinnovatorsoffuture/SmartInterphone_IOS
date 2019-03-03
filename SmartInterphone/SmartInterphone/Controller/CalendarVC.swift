@@ -11,7 +11,7 @@ import UIKit
 class CalendarVC: UIViewController {
     
     @IBOutlet weak var calendar: FSCalendar!
-   @IBOutlet weak var deviceTable: UITableView!
+    @IBOutlet weak var deviceCollection : UICollectionView!
     @IBOutlet weak var messageTable : UITableView!
     private(set) public var devices = [Device]()
     private(set) public var allMessages = [Message]()
@@ -35,31 +35,57 @@ class CalendarVC: UIViewController {
         if UIDevice.current.model.hasPrefix("iPad") {
             calendar.heightAnchor.constraint(equalToConstant: 400)
         }
-        
-        
     }
+        
+    @objc func reloadMessages() {
+        let oldItems = self.displayedMessages
+        let items = DevicesService.selectedDevice?.messages
+        let changes = diff(old: oldItems, new: items!)
+            self.messageTable.reload(changes: changes, updateData: {
+                self.displayedMessages = (DevicesService.selectedDevice?.messages)!
+            })
+    }
+    /*
+    @objc func reloadCalendar() {
+        let oldItems = self.selectedMessages
+        let items = DevicesService.selectedDevice!.messages
+        let changes = diff(old: oldItems, new: items)
+        self.calendar.reload(changes: changes, updateData: {
+            self.displayedMessages = (DevicesService.selectedDevice?.messages)!
+        })
+    }
+     */
+    
+    @objc func reloadDevices() {
+        let oldItems = self.devices
+        let items = DevicesService.devices
+        let changes = diff(old: oldItems, new: items)
+        self.deviceCollection.reload(changes: changes, updateData: {
+            self.devices = DevicesService.devices
+        })
+    }
+    
+    
     func initDevices (reload:Bool) {
-        if DevicesService.devices.count == 0 {
+        if (DevicesService.devices.count == 0 || DevicesService.devices.count != self.devices.count ) {
         DevicesService.instance.getDevices(){ (success) in
             if success {
-                self.devices = DevicesService.devices
                 print ("in init devices callendar")
                 print(DevicesService.devices.count)
-                if reload { self.deviceTable.reloadData()
-                    
-                    self.deviceTable.setNeedsLayout()
+                if reload {
+                    self.reloadDevices()
                 }
             } else {
                 print("not ok")
             }
-            
         }
         }
         else {
             self.devices = DevicesService.devices
- 
         }
     }
+    
+    // unused , needs update
     func reloadAllMessages() {
         
         DevicesService.instance.getMessagesForUserDevices() { (success) in
@@ -74,12 +100,8 @@ class CalendarVC: UIViewController {
             else {
                 print ("error getting all messages")
             }
-            
         }
-
     }
-    
-   
 }
 extension CalendarVC : FSCalendarDataSource, FSCalendarDelegate {
     
@@ -101,16 +123,18 @@ extension CalendarVC : FSCalendarDataSource, FSCalendarDelegate {
     }
     
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-       
-        DevicesService.instance.getDeviceMessagesForDate(device: devices[(deviceTable.indexPathForSelectedRow?.row)!], date: date) {
+        if (deviceCollection.indexPathsForSelectedItems != nil){
+               if (deviceCollection.indexPathsForSelectedItems!.count > 0){
+        DevicesService.instance.getDeviceMessagesForDate(device: devices[(deviceCollection.indexPathsForSelectedItems?[0].row)!], date: date) {
             (success) in
             if success {
-                self.displayedMessages = DevicesService.selectedDevice!.messages
-                self.messageTable.reloadData()
+                 self.reloadMessages()
             }
             else {
                 print ("error getting messages for this date")
             }
+        }
+        }
         }
     
         
@@ -119,24 +143,56 @@ extension CalendarVC : FSCalendarDataSource, FSCalendarDelegate {
         }
     }
 }
-extension CalendarVC : UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if tableView == deviceTable {
+
+extension CalendarVC : UICollectionViewDelegate , UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+     
+            return devices.count
+            
+     
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+   
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "deviceCallendarCell", for: indexPath) as? DeviceCalendarCell
+        cell?.title.text = devices[indexPath.row].name
+        return cell!
+        }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-            return devices.count }
-        else  {
-            return displayedMessages.count
+        let cell = collectionView.cellForItem(at: indexPath) as? DeviceCalendarCell
+            cell?.background.layer.borderColor = UIColor(red:0.96, green:0.40, blue:0.38, alpha:1.0).cgColor
+        
+        DevicesService.instance.getDeviceMessages(device: devices[indexPath.row]) { success in
+            if success {
+                self.selectedMessages = DevicesService.selectedDevice!.messages
+                    self.calendar.reloadData()
+            } else {
+                print ("error fetching device messages")
+            }
         }
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if tableView == deviceTable {
-            
-       let cell = tableView.dequeueReusableCell(withIdentifier: "tableDevice", for: indexPath) as? tableDevice
-        cell?.title.text = devices[indexPath.row].name
-            return cell!
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        
+        let cell = collectionView.cellForItem(at: indexPath) as? DeviceCalendarCell
+        cell?.background.layer.borderColor = UIColor.white.cgColor
+            cell?.isSelected = false
+        
+      
+    }
+    
+    
+}
+extension CalendarVC : UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+            return displayedMessages.count
         }
-        else {
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+      
             let cell = tableView.dequeueReusableCell(withIdentifier: "messageCell", for: indexPath) as? MessageTableCell
             cell?.device.text = displayedMessages[indexPath.row].deviceName
             cell?.message.text = displayedMessages[indexPath.row].text
@@ -144,42 +200,10 @@ extension CalendarVC : UITableViewDelegate, UITableViewDataSource {
             let endDate = formatter.date(from: displayedMessages[indexPath.row].hiddenAt)
             cell?.time.text = "\(startDate!.format(with: "HH:mm")) - \( endDate!.format(with: "HH:mm"))"
             return cell!
-        }
+       
     }
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if tableView == deviceTable {
-        let cell = tableView.cellForRow(at: indexPath) as? tableDevice
-        cell?.isSelected = true
-        tableView.setNeedsDisplay()
-      
-            DevicesService.instance.getDeviceMessages(device: devices[indexPath.row]) { success in
-                if success {
-                    self.selectedMessages = DevicesService.selectedDevice!.messages
-                    self.calendar.reloadData()
-                } else {
-                    print ("error fetching device messages")
-                }
-            
-        }
-        }
-        else
-        {
-            return
-        }
-    }
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        if tableView == deviceTable {
-        let cell = tableView.cellForRow(at: indexPath) as? tableDevice
-        cell?.isSelected = false
-        }
-        else
-        {
-        return
-        }
-        
-    }
-    
 }
+
 extension Date {
     func isBetween(_ date1: Date, and date2: Date) -> Bool {
         return (min(date1, date2) ... max(date1, date2)) ~= self

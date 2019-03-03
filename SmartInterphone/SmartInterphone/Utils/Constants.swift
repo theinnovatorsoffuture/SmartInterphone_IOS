@@ -43,3 +43,7 @@ let HEADER = [
     "Content-Type": "application/json"
 ]
 
+// Colors
+let lightRed = UIColor(red:0.98, green:0.78, blue:0.77, alpha:1.0)
+
+

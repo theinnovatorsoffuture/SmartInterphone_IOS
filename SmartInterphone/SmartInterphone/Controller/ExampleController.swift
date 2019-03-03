@@ -86,11 +86,8 @@ class ExampleController: DayViewController, DatePickerControllerDelegate {
         }
         controller.dismiss(animated: true, completion: nil)
     }
-
-
-
+    
   // MARK: EventDataSource
-
     override func eventsForDate(_ date: Date) -> [EventDescriptor] {
         let models = device!.messages
         
@@ -116,22 +113,12 @@ class ExampleController: DayViewController, DatePickerControllerDelegate {
             event.text = info.reduce("", {$0 + $1 + "\n"})
             event.color = colors[Int(arc4random_uniform(UInt32(colors.count)))]
                 events.append(event)
-                
                 }
-                
             }
         }
-        
-        
         return events
     }
-  
-  private func textColorForEventInDarkTheme(baseColor: UIColor) -> UIColor {
-    var h: CGFloat = 0, s: CGFloat = 0, b: CGFloat = 0, a: CGFloat = 0
-    baseColor.getHue(&h, saturation: &s, brightness: &b, alpha: &a)
-    return UIColor(hue: h, saturation: s * 0.3, brightness: b, alpha: a)
-  }
-
+    
   // MARK: DayViewDelegate
 
   override func dayViewDidSelectEventView(_ eventView: EventView) {
