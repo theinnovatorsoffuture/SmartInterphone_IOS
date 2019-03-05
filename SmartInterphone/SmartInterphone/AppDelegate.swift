@@ -22,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate , GIDSignInDelegate {
         // Override point for customization after application launch.
         
         // facebook
+  
         FBSDKApplicationDelegate.sharedInstance()?.application(application, didFinishLaunchingWithOptions: launchOptions)
         // google
          GIDSignIn.sharedInstance()?.clientID = "387121122978-f71th4igf353hag1nr4ufht586qv0kuj.apps.googleusercontent.com"
@@ -40,6 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate , GIDSignInDelegate {
         return returnFB || returnGoogle
     }
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        GIDSignIn.sharedInstance().signOut()
         if let error = error {
           
             debugPrint("could not login with google :\(error.localizedDescription)")
@@ -47,8 +49,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate , GIDSignInDelegate {
         } else {
                 print ("logged in with google")
         //   let userId = user.userID                  // For client-side use only!
-       //     let idToken = user.authentication.idToken // Safe to send to the server
-    //        let givenName = user.profile.givenName
+        //   let idToken = user.authentication.idToken // Safe to send to the server
+        //   let givenName = user.profile.givenName
            let familyName = user.profile.familyName
             let fullName = user.profile.name
             let email = user.profile.email
@@ -56,18 +58,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate , GIDSignInDelegate {
 
           if ((GIDSignIn.sharedInstance()?.uiDelegate as? LoginVC) != nil ) {
             guard let loginC = GIDSignIn.sharedInstance()?.uiDelegate as? LoginVC else {return}
-         
+            loginC.Signin(email: familyName!, password: "generatedPassword" , url: imageUrl!)
             print ("im in loginVC")
             }
             if ((GIDSignIn.sharedInstance()?.uiDelegate as? RegisterVC) != nil ) {
                 guard let registerC = GIDSignIn.sharedInstance()?.uiDelegate as? RegisterVC else {return}
                 print ("im in registerVC")
                 registerC.registerUser(email: email!, password: "generatedPassword", name: fullName!, username: familyName!, imageUrl: imageUrl!)
+
             }
   
           
                 }
     }
+    
     
     
     func applicationWillResignActive(_ application: UIApplication) {

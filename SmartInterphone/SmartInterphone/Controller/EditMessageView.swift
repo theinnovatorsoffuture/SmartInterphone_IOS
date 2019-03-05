@@ -20,7 +20,7 @@ class EditMessageView: UIViewController {
     public var endDate : String?
       public var device : Device?
     public var message : Message?
-    
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -95,7 +95,10 @@ class EditMessageView: UIViewController {
         DevicesService.instance.EditMessage(message: updatedmessage, deviceId: device!.id){ (success) in
             if success {
                 print("message added")
-                NotificationCenter.default.post(name: NOTIF_DEVICE_DATA_DID_CHANGE, object: nil)
+                var dict : Dictionary = Dictionary<AnyHashable,Any>()
+                dict["device"] = self.device
+                dict["message"] = updatedmessage
+                NotificationCenter.default.post(name: NOTIF_DEVICE_DATA_DID_CHANGE, object: nil , userInfo: dict)
             } else {
                   print("error editing")
             }

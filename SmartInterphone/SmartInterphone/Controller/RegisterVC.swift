@@ -83,7 +83,7 @@ class RegisterVC: UIViewController ,GIDSignInUIDelegate {
                     return
             }
             print (url)
-            self.registerUser(email: email, password: "generatedPass", name: "\(first_name) \(last_name)", username: first_name, imageUrl: url)
+            self.registerUser(email: email, password: "generatedPass", name: "\(last_name)", username: first_name, imageUrl: url)
             
         })
     }
@@ -127,6 +127,7 @@ class RegisterVC: UIViewController ,GIDSignInUIDelegate {
     }
     
     func registerUser (email: String , password : String , name : String , username : String , imageUrl : String) {
+           print ("sign in entered")
         AuthService.instance.registerUser(email: email, password: password, name: name, username: username , imageUrl: imageUrl) { (success) in
             if success {
                 AuthService.instance.loginUser(email: username, password: password, completion: {

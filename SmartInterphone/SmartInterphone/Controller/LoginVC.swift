@@ -56,6 +56,22 @@ class LoginVC: UIViewController , GIDSignInUIDelegate {
         }
       
     }
+    // used for fb/google signin
+    public func Signin(email: String , password : String , url : String) {
+        print ("sign in entered")
+        AuthService.instance.loginUser(email: email, password: password) { (success) in
+            if success {
+                self.spinner.isHidden = true
+                self.spinner.stopAnimating()
+                AuthService.instance.imageUrl = url
+                self.performSegue(withIdentifier: LOGIN_TO_MENU, sender: nil)
+            } else {
+                // zid alerte hnés
+                self.makeAlert(message: "invalid creditentials , please try again")
+            }
+        
+    }
+    }
   
     func ForgotPassword(alert: UIAlertAction!) {
         print("forgot password cool")
@@ -64,16 +80,8 @@ class LoginVC: UIViewController , GIDSignInUIDelegate {
     func setupView () {
         // hide spinner
         spinner.isHidden = true
-
-      /*  let tap = UITapGestureRecognizer(target: self, action: #selector(LoginVC.handleTap))
-        view.addGestureRecognizer(tap)
- */
     }
-    /*
-    @objc func handleTap() {
-        view.endEditing(true)
-    }
-    */
+ 
 
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -135,6 +143,8 @@ class LoginVC: UIViewController , GIDSignInUIDelegate {
                     return
             }
             print (url)
+            
+            self.Signin(email: first_name, password: "generatedPass", url : url)
           
             
     })

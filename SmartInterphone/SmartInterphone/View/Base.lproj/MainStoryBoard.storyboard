@@ -74,8 +74,8 @@
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="UbA-Yx-TvV">
                                 <rect key="frame" x="177.5" y="323.5" width="20" height="20"/>
                             </activityIndicatorView>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="B3c-Bv-tMy">
-                                <rect key="frame" x="16" y="418" width="343" height="224"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="-6" translatesAutoresizingMaskIntoConstraints="NO" id="B3c-Bv-tMy">
+                                <rect key="frame" x="16" y="406" width="343" height="94"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hnl-CV-90p" customClass="RoundedButton" customModule="SmartInterphone" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="50"/>
@@ -113,11 +113,25 @@
                                             <action selector="SignInClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ogy-3O-g5W"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rj1-lm-x6R" customClass="RoundedButton" customModule="SmartInterphone" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="58" width="343" height="50"/>
-                                        <color key="backgroundColor" red="0.020931961014866829" green="0.14354130993150685" blue="0.77282905578613281" alpha="1" colorSpace="calibratedRGB"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EGX-Wr-ppU">
+                                        <rect key="frame" x="0.0" y="44" width="343" height="50"/>
+                                        <state key="normal" title="Don't have an account? Sign up here"/>
+                                        <connections>
+                                            <segue destination="WsM-qp-ym1" kind="show" identifier="LoginToRegisterSeg" id="V6W-Ps-dLg"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="2hE-IR-lId">
+                                <rect key="frame" x="18.5" y="508" width="338" height="71"/>
+                                <subviews>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rj1-lm-x6R" customClass="RoundedButton" customModule="SmartInterphone" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="165" height="71"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="165" id="D6s-iA-unv"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                        <state key="normal" title="SignIn with Facebook"/>
+                                        <state key="normal" image="facebookBtn"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="10"/>
@@ -128,10 +142,9 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T6H-G7-qoh" customClass="RoundedButton" customModule="SmartInterphone" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="116" width="343" height="50"/>
-                                        <color key="backgroundColor" red="0.84705882349999995" green="0.090196078430000007" blue="0.086274509799999996" alpha="1" colorSpace="calibratedRGB"/>
+                                        <rect key="frame" x="173" y="0.0" width="165" height="71"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                        <state key="normal" title="SignIn with Google"/>
+                                        <state key="normal" image="googleBtn"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="10"/>
@@ -141,14 +154,10 @@
                                             <action selector="googlLoginClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YwY-Nm-6Q4"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EGX-Wr-ppU">
-                                        <rect key="frame" x="0.0" y="174" width="343" height="50"/>
-                                        <state key="normal" title="Don't have an account? Sign up here"/>
-                                        <connections>
-                                            <segue destination="WsM-qp-ym1" kind="show" identifier="LoginToRegisterSeg" id="V6W-Ps-dLg"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="71" id="ma3-B3-I5y"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -158,6 +167,7 @@
                             <constraint firstItem="DJe-9t-y5q" firstAttribute="top" secondItem="yvi-z0-yjh" secondAttribute="bottom" constant="1" id="3Gr-EH-L6e"/>
                             <constraint firstItem="yCi-06-hrj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="54" id="3ua-jT-uIC"/>
                             <constraint firstItem="UbA-Yx-TvV" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="5rJ-F5-FFz"/>
+                            <constraint firstItem="2hE-IR-lId" firstAttribute="top" secondItem="B3c-Bv-tMy" secondAttribute="bottom" constant="8" id="87c-Ad-2fo"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tZU-vh-uBJ" secondAttribute="trailing" constant="65" id="9W5-q5-6D0"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yvi-z0-yjh" secondAttribute="trailing" constant="114" id="AYe-0x-yH2"/>
                             <constraint firstItem="yCi-06-hrj" firstAttribute="top" secondItem="cqY-Cg-8I5" secondAttribute="bottom" constant="14" id="D9L-gl-IAN"/>
@@ -168,6 +178,7 @@
                             <constraint firstItem="cqY-Cg-8I5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="54" id="TLx-0E-eEm"/>
                             <constraint firstItem="yvi-z0-yjh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="5" id="X2o-w7-f2W"/>
                             <constraint firstItem="DJe-9t-y5q" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="139" id="Xgh-IO-SDW"/>
+                            <constraint firstItem="2hE-IR-lId" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZIV-Zf-g7p"/>
                             <constraint firstItem="UbA-Yx-TvV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZVf-3f-kAb"/>
                             <constraint firstItem="tZU-vh-uBJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="66" id="auZ-Qa-Wkt"/>
                             <constraint firstItem="tZU-vh-uBJ" firstAttribute="top" secondItem="DJe-9t-y5q" secondAttribute="bottom" constant="5" id="eaS-hM-2fd"/>
@@ -652,7 +663,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="WSQ-Ow-AF1">
-                                <rect key="frame" x="16" y="445" width="343" height="174"/>
+                                <rect key="frame" x="16" y="445" width="343" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pkw-gk-yUW" customClass="RoundedButton" customModule="SmartInterphone" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="50"/>
@@ -685,11 +696,15 @@
                                             <action selector="registerOnClick:" destination="WsM-qp-ym1" eventType="touchUpInside" id="jvq-BG-hpB"/>
                                         </connections>
                                     </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="RwY-cL-o3w">
+                                <rect key="frame" x="18.5" y="510" width="338" height="71"/>
+                                <subviews>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pxj-Eu-dx4" customClass="RoundedButton" customModule="SmartInterphone" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="62" width="343" height="50"/>
-                                        <color key="backgroundColor" red="0.02093196101" green="0.1435413099" blue="0.77282905580000005" alpha="1" colorSpace="calibratedRGB"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="165" height="71"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                        <state key="normal" title="Signup with Facebook"/>
+                                        <state key="normal" image="facebookBtn"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="10"/>
@@ -699,11 +714,10 @@
                                             <action selector="facebookSignupClicked:" destination="WsM-qp-ym1" eventType="touchUpInside" id="mQU-rY-V25"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WUn-my-yqK" customClass="RoundedButton" customModule="SmartInterphone" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="124" width="343" height="50"/>
-                                        <color key="backgroundColor" red="0.84705882349999995" green="0.090196078430000007" blue="0.086274509799999996" alpha="1" colorSpace="calibratedRGB"/>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WUn-my-yqK" customClass="RoundedButton" customModule="SmartInterphone" customModuleProvider="target">
+                                        <rect key="frame" x="173" y="0.0" width="165" height="71"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                        <state key="normal" title="Signup with Google"/>
+                                        <state key="normal" image="googleBtn"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="10"/>
@@ -727,9 +741,11 @@
                             <constraint firstItem="DJw-BP-b45" firstAttribute="leading" secondItem="hgC-1d-p7e" secondAttribute="leading" constant="20" id="bTF-Z7-3E2"/>
                             <constraint firstItem="XNm-fw-HPR" firstAttribute="top" secondItem="K7a-YX-7UI" secondAttribute="bottom" id="brg-ma-Fci"/>
                             <constraint firstItem="K7a-YX-7UI" firstAttribute="leading" secondItem="hgC-1d-p7e" secondAttribute="leading" constant="114" id="d27-SO-DDL"/>
+                            <constraint firstItem="RwY-cL-o3w" firstAttribute="top" secondItem="WSQ-Ow-AF1" secondAttribute="bottom" constant="15" id="f9N-lt-73n"/>
                             <constraint firstItem="XNm-fw-HPR" firstAttribute="leading" secondItem="hgC-1d-p7e" secondAttribute="leading" constant="75" id="huT-iL-yDV"/>
                             <constraint firstItem="K7a-YX-7UI" firstAttribute="top" secondItem="hgC-1d-p7e" secondAttribute="top" constant="5" id="jAE-Au-uuH"/>
                             <constraint firstItem="hgC-1d-p7e" firstAttribute="trailing" secondItem="LWn-gM-MCB" secondAttribute="trailing" constant="54" id="mfg-q8-dRh"/>
+                            <constraint firstItem="RwY-cL-o3w" firstAttribute="centerX" secondItem="LHB-Dq-zHm" secondAttribute="centerX" id="nt1-zj-IPh"/>
                             <constraint firstItem="WGH-Pf-Je3" firstAttribute="centerX" secondItem="LHB-Dq-zHm" secondAttribute="centerX" id="pHg-iE-Omz"/>
                             <constraint firstItem="LWn-gM-MCB" firstAttribute="top" secondItem="XNm-fw-HPR" secondAttribute="bottom" constant="12" id="qcg-0j-9Lb"/>
                             <constraint firstItem="hgC-1d-p7e" firstAttribute="trailing" secondItem="K7a-YX-7UI" secondAttribute="trailing" constant="114" id="sD6-KV-eXr"/>
@@ -755,7 +771,6 @@
         <!--Navigation Controller-->
         <scene sceneID="rRH-di-OIq">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="EfN-u3-4nv" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="oGb-xf-ITh" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="35y-ME-tKK">
@@ -767,6 +782,7 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="fg8-Sb-vmJ"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EfN-u3-4nv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1226" y="134"/>
         </scene>
@@ -783,6 +799,8 @@
         <image name="devicesIcon" width="37.5" height="37.5"/>
         <image name="e-paper" width="269" height="382"/>
         <image name="editProfile" width="180" height="180"/>
+        <image name="facebookBtn" width="165" height="60"/>
+        <image name="googleBtn" width="165" height="71"/>
         <image name="iconSettings" width="180" height="180"/>
         <image name="infoIcon" width="180" height="180"/>
         <image name="logo_transparent" width="600" height="600"/>
@@ -793,7 +811,7 @@
         <image name="smackBack" width="28" height="28"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="73L-bo-09T"/>
+        <segue reference="Yzx-Fs-Z4I"/>
         <segue reference="s4q-Qd-1gL"/>
     </inferredMetricsTieBreakers>
 </document>

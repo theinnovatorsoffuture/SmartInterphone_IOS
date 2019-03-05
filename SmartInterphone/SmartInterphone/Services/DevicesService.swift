@@ -180,22 +180,71 @@ class DevicesService {
             }
         }
     }
+    func CustomGetMessagesForDevice (device : Device ,completion: @escaping CompletionHandler) {
+        DevicesService.selectedDevice = device
+        let URL_SHOW = URL_MESSAGES + "/" + device.id
+        Alamofire.request(URL_SHOW, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: HEADER).responseJSON { (response) in
+            
+            if response.result.error == nil {
+                guard let data = response.data else { return }
+                do {
+                    let json = try JSON(data: data)
+                    let message = json["message"].stringValue
+                    if !message.contains("Message details")  {
+                        completion(false)
+                        return
+                        
+                    }
+                    let jsonMessages = json["data"].array
+                    
+                    if (jsonMessages == nil) {
+                        completion(false)
+                        return
+                    }
+                    for i in 0..<jsonMessages!.count {
+                        if (jsonMessages![i]["displayAt"].stringValue != "" && jsonMessages![i]["hiddenAt"].stringValue != ""){
+                            let rMessage = Message(id: jsonMessages![i]["_id"].stringValue,
+                                                   text: jsonMessages![i]["content"].stringValue,
+                                                   displayedAt: jsonMessages![i]["displayAt"].stringValue,
+                                                   hiddenAt: jsonMessages![i]["hiddenAt"].stringValue,
+                                                   deviceName: device.name
+                            )
+                            DevicesService.messages.append(rMessage)
+                        }
+                    }
+                } catch {
+                    completion(false)
+                    print(error)
+                }
+                
+                completion(true)
+                
+            } else {
+                completion(false)
+                debugPrint(response.result.error as Any)
+            }
+        }
+    }
     func getMessagesForUserDevices (completion: @escaping CompletionHandler2) {
-        
+        DevicesService.messages.removeAll()
         if (DevicesService.devices.count != 0){
          
             for i in 0..<DevicesService.devices.count {
-            self.getDeviceMessages(device: DevicesService.devices[i]){ (success) in
+                if (DevicesService.devices[i].id != ""){
+                self.CustomGetMessagesForDevice(device: DevicesService.devices[i]){ (success) in
                 if success {
-                    if (i == DevicesService.devices.count-1) {
-                    DevicesService.messages.append(contentsOf: DevicesService.selectedDevice!.messages)
+                 
+                    if ( i == DevicesService.devices.count - 1) {
+                            completion(true)
                     }
                 } else {
                     print("error getting devices messages")
                 }
+                print(DevicesService.messages.count)
             }
           }
-              completion(true)
+            }
+          
         } else {
             completion(false)
         }
@@ -239,7 +288,30 @@ class DevicesService {
         
     }
     
+    func filterMsgsByDate(date:Date, messages: [Message]) -> [Message]{
+        var newmsgs = [Message]()
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        formatter.dateFormat = "y-MM-dd'T'H:mm:ss.SSS'Z'"
+        messages.forEach(){ msg in
+            if (msg.displayedAt != "" && msg.hiddenAt != "") {
+            var startDate = formatter.date(from: msg.displayedAt)
+            var endDate = formatter.date(from: msg.hiddenAt)
+            startDate = startDate?.stripTime()
+            endDate = endDate?.stripTime()
+                if (startDate != nil && endDate != nil) {
+                    if (date.isBetween(startDate! , and: endDate!)) {
+                        newmsgs.append(msg)
+                    }
+                }
+                
+            } //endif
+        }
+        return newmsgs
+    }
     
+    
+    // UNUSED
     func getDeviceMessagesForDate (device : Device , date :Date ,completion: @escaping CompletionHandler) {
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "en_US_POSIX")
@@ -284,7 +356,7 @@ class DevicesService {
                                 }
                                 
                             }
-                           
+                            
                         }
                     }
                 } catch {
@@ -298,27 +370,6 @@ class DevicesService {
                 completion(false)
                 debugPrint(response.result.error as Any)
             }
-        }
-    }
-
-    func getAllMessagesForDate (date:Date ,completion: @escaping CompletionHandler2) {
-        
-        if (DevicesService.devices.count != 0){
-            
-            for i in 0..<DevicesService.devices.count {
-                self.getDeviceMessagesForDate(device: DevicesService.devices[i], date: date){ (success) in
-                    if success {
-                        if (i == DevicesService.devices.count-1) {
-                            DevicesService.messagesForDate.append(contentsOf: DevicesService.selectedDevice!.messages)
-                        }
-                    } else {
-                        print("error getting devices messages")
-                    }
-                }
-            }
-            completion(true)
-        } else {
-            completion(false)
         }
     }
 }

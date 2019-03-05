@@ -9,6 +9,9 @@
 import Foundation
 import Alamofire
 import SwiftyJSON
+import FBSDKCoreKit
+import FBSDKLoginKit
+import GoogleSignIn
 
 class AuthService {
     static let instance = AuthService()
@@ -148,6 +151,10 @@ class AuthService {
         username = ""
         imageUrl = ""
         isLoggedIn = false
+        let fbloginManager =  FBSDKLoginManager()
+        
+        fbloginManager.logOut()
+        GIDSignIn.sharedInstance().signOut()
     }
     
     

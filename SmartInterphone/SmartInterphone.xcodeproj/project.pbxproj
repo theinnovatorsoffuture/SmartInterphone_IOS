@@ -90,6 +90,7 @@
 		2332A1D62223BDF500DA7A03 /* Menu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Menu.storyboard; sourceTree = "<group>"; };
 		23438C73220D0442000D0067 /* HomeCustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCustomTextField.swift; sourceTree = "<group>"; };
 		23438C7722127FA9000D0067 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		234B3C57222D9A3500B220E2 /* SmartInterphone.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SmartInterphone.entitlements; sourceTree = "<group>"; };
 		23740E7A222AD7D200A32137 /* CalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVC.swift; sourceTree = "<group>"; };
 		23740E7C222AD98D00A32137 /* SmartInterphone-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SmartInterphone-Bridging-Header.h"; sourceTree = "<group>"; };
 		23740E7F222AF82200A32137 /* DeviceCalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCalendarCell.swift; sourceTree = "<group>"; };
@@ -174,6 +175,7 @@
 		231D298C220CE8D0005E2B04 /* SmartInterphone */ = {
 			isa = PBXGroup;
 			children = (
+				234B3C57222D9A3500B220E2 /* SmartInterphone.entitlements */,
 				2314E2912217CD6B00FD437C /* Utils */,
 				2314E28E2217CCA000FD437C /* Services */,
 				231D29A1220CFE63005E2B04 /* Model */,
@@ -321,6 +323,11 @@
 					231D2989220CE8D0005E2B04 = {
 						CreatedOnToolsVersion = 10.1;
 						LastSwiftMigration = 1010;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -639,6 +646,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = SmartInterphone/SmartInterphone.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SL53WS7H35;
 				INFOPLIST_FILE = SmartInterphone/Info.plist;
@@ -661,6 +669,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = SmartInterphone/SmartInterphone.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SL53WS7H35;
 				INFOPLIST_FILE = SmartInterphone/Info.plist;

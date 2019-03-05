@@ -2,15 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "Groupe 8038.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "Groupe 8038@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "icons8-calendar-filled-100.png",
+      "filename" : "Groupe 8038@3x.png",
       "scale" : "3x"
     }
   ],
