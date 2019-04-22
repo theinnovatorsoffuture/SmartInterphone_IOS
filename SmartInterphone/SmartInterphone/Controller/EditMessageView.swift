@@ -20,20 +20,24 @@ class EditMessageView: UIViewController {
     public var endDate : String?
       public var device : Device?
     public var message : Message?
-
+    let datePicker = UIDatePicker()
+    let datePicker2 = UIDatePicker()
+    var edited2 : Bool = false
+    var edited1 : Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+
         // Do any additional setup after loading the view.
     }
     
     func setupView() {
         
-        let datePicker = UIDatePicker()
-        let datePicker2 = UIDatePicker()
+
         datePicker.datePickerMode = UIDatePicker.Mode.dateAndTime
         datePicker.addTarget(self, action: #selector(datePickerValueChanged(sender:)), for: UIControl.Event.valueChanged)
+        datePicker.minimumDate = Date()
         datePicker2.datePickerMode = UIDatePicker.Mode.dateAndTime
         datePicker2.addTarget(self, action: #selector(datePicker2ValueChanged(sender:)), for: UIControl.Event.valueChanged)
         startTxt.inputView = datePicker
@@ -55,6 +59,7 @@ class EditMessageView: UIViewController {
         return formatter.string(from: date!)
     }
     @objc func datePickerValueChanged (sender : UIDatePicker) {
+        edited1 = true
         let formatter = DateFormatter()
         formatter.dateStyle = DateFormatter.Style.short
         formatter.timeStyle = DateFormatter.Style.short
@@ -65,8 +70,11 @@ class EditMessageView: UIViewController {
         df.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
         startDate = df.string(from: sender.date)
         print(df.string(from: sender.date))
+        datePicker2.minimumDate = sender.date
+        
     }
     @objc func datePicker2ValueChanged (sender : UIDatePicker) {
+          edited2 = true
         let formatter = DateFormatter()
         formatter.dateStyle = DateFormatter.Style.short
         formatter.timeStyle = DateFormatter.Style.short
@@ -87,9 +95,22 @@ class EditMessageView: UIViewController {
            dismiss(animated: true, completion: nil)
     }
     @IBAction func updateButton(_ sender: Any) {
+        if (!edited1) {
+            // conversion
+            let df = DateFormatter()
+            df.locale = Locale(identifier: "en_US_POSIX")
+            df.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+            startDate = df.string(from: Date())
+            print(df.string(from: Date()))
+        }
+        
+        if (!edited2) {
+            return
+        }
         let updatedmessage = Message(id: message!.id,
                                      text: messageTxt.text!,
-                                     displayedAt: startDate!, hiddenAt: endDate!, deviceName: device!.name)
+                                     displayedAt: startDate!, hiddenAt: endDate!, deviceName: "kais's device")
+        
         
         print (updatedmessage)
         DevicesService.instance.EditMessage(message: updatedmessage, deviceId: device!.id){ (success) in

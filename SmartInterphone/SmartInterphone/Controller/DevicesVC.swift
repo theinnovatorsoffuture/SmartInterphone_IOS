@@ -120,7 +120,7 @@ class DevicesVC: UIViewController , UICollectionViewDelegate , UICollectionViewD
     
     // schedule
     @IBAction func InfoButtonTapped(_ sender: UIButton ) {
-        let scheduleView = ExampleController()
+        let scheduleView = ScheduleController()
        DevicesService.instance.getDeviceMessages(device: self.devicesC[sender.tag]){ (success) in
             if success {
                 scheduleView.device = DevicesService.selectedDevice

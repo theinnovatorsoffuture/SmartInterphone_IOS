@@ -94,11 +94,15 @@ class CalendarVC: UIViewController {
         print("notification update")
         if let updatedMsg = notif.userInfo?["message"] as? Message {
             print(updatedMsg)
-        var paths = [IndexPath]()
-        paths.append(updatePath!)
-            displayedMessages[updatePath!.row] = updatedMsg
-            print (displayedMessages[updatePath!.row])
-            self.messageTable.reloadRows(at: paths, with: .fade)
+            if (updatePath != nil){
+                var paths = [IndexPath]()
+                paths.append(updatePath!)
+                displayedMessages[updatePath!.row] = updatedMsg
+                print (displayedMessages[updatePath!.row])
+                self.messageTable.reloadRows(at: paths, with: .fade)
+                
+            }
+   
         }
         
         /*
@@ -162,7 +166,7 @@ extension CalendarVC : FSCalendarDataSource, FSCalendarDelegate {
 extension CalendarVC : UICollectionViewDelegate , UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
      
-            return devices.count+1
+            return devices.count
             
      
     }
@@ -170,13 +174,10 @@ extension CalendarVC : UICollectionViewDelegate , UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
           let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "deviceCallendarCell", for: indexPath) as? DeviceCalendarCell
             cell?.title.adjustsFontSizeToFitWidth = true
-     if (indexPath.row != 0) {
-  
-        cell?.title.text = devices[indexPath.row-1].name
+        if (devices.count > 0) {
+          cell?.title.text = devices[indexPath.row].name
         }
-     else {
-        cell?.title.text = "All Devices"
-        }
+        
         return cell!
         }
     
@@ -184,30 +185,20 @@ extension CalendarVC : UICollectionViewDelegate , UICollectionViewDataSource {
         
         let cell = collectionView.cellForItem(at: indexPath) as? DeviceCalendarCell
             cell?.background.layer.borderColor = UIColor(red:0.96, green:0.40, blue:0.38, alpha:1.0).cgColor
-        if (indexPath.row != 0) {
-        DevicesService.instance.getDeviceMessages(device: devices[indexPath.row-1]) { success in
+          cell?.setNeedsDisplay()
+ 
+        DevicesService.instance.getDeviceMessages(device: devices[indexPath.row]) { success in
             if success {
                 self.selectedMessages = DevicesService.selectedDevice!.messages
                  
-                self.calendar.reloadData()
+                self.calendar.setNeedsDisplay()
             } else {
                 print ("error fetching device messages")
             }
-        }
-        } else {
-            // all devices case
         
-            DevicesService.instance.getMessagesForUserDevices() { success in
-                if success {
-                    self.selectedMessages = DevicesService.messages
-                     self.calendar.reloadData()
-                } else {
-                    print ("error fetching all messages")
-                    
-                }
+    }
         }
-    }
-    }
+ 
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         
@@ -242,6 +233,7 @@ extension CalendarVC : UITableViewDelegate, UITableViewDataSource {
         } else {
             cell?.time.text = "\(startDate.format(with: "H a")) - \( endDate.format(with: "H a"))"
         }
+        cell?.setNeedsDisplay()
             return cell!
        
     }
@@ -255,23 +247,17 @@ extension CalendarVC : UITableViewDelegate, UITableViewDataSource {
                 print("edit clicked")
                 if (self.deviceCollection.indexPathsForSelectedItems != nil){
                     if (self.deviceCollection.indexPathsForSelectedItems!.count > 0){
-                        if (self.deviceCollection.indexPathsForSelectedItems?[0].row != 0) {
+                        
                             self.updatePath = indexPath
                             self.editMsg(device: self.devices[(self.deviceCollection.indexPathsForSelectedItems?[0].row)!-1] , message: self.displayedMessages[indexPath.row])
                             
-                        } else {
-                                 self.updatePath = indexPath
-                            if let found = self.devices.first(where: {$0.name == self.displayedMessages[indexPath.row].deviceName}) {
-                                  self.editMsg(device: found , message: self.displayedMessages[indexPath.row])
-                            }
-                        }
                     }
                 }
                 
             }
-            editButton.backgroundColor = UIColor.yellow
+            editButton.backgroundColor = UIColor.orange
             let deleteButton = UITableViewRowAction(style: .normal, title: "delete") { (rowAction,indexPath) in
-                print("delete clicked")
+                print("delete clicked")	
                 var indexs = [IndexPath]()
                 indexs.append(indexPath)
                 self.displayedMessages.remove(at: indexPath.row)

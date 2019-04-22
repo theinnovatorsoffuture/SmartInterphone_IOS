@@ -68,7 +68,7 @@ class ScheduleController: DayViewController, DatePickerControllerDelegate {
         let addmessageview = AddMessageView()
         addmessageview.modalPresentationStyle = .custom
         addmessageview.device = self.device
-        present(addmessageview, animated: false , completion: nil)
+        present(addmessageview, animated: true , completion: nil)
       
     }
 

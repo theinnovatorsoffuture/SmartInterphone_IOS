@@ -15,7 +15,8 @@ class AddMessageView: UIViewController {
     @IBOutlet weak var endTxt: UITextField!
     @IBOutlet weak var userTxt: UILabel!
     @IBOutlet weak var deviceTxt: UILabel!
-    
+    let datePicker = UIDatePicker()
+    let datePicker2 = UIDatePicker()
     public var startDate : String?
     public var endDate : String?
     public var device : Device?
@@ -23,15 +24,16 @@ class AddMessageView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-
+        endTxt.isEnabled = false
     }
     func setupView() {
         
-        let datePicker = UIDatePicker()
-        let datePicker2 = UIDatePicker()
+        
         datePicker.datePickerMode = UIDatePicker.Mode.dateAndTime
+        datePicker.minimumDate = Date()
         datePicker.addTarget(self, action: #selector(datePickerValueChanged(sender:)), for: UIControl.Event.valueChanged)
         datePicker2.datePickerMode = UIDatePicker.Mode.dateAndTime
+           datePicker2.minimumDate = Date()
         datePicker2.addTarget(self, action: #selector(datePicker2ValueChanged(sender:)), for: UIControl.Event.valueChanged)
         startTxt.inputView = datePicker
         endTxt.inputView = datePicker2
@@ -50,6 +52,9 @@ class AddMessageView: UIViewController {
         df.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
         startDate = df.string(from: sender.date)
         print(df.string(from: sender.date))
+        datePicker2.minimumDate = sender.date
+        datePicker2.date = sender.date
+        endTxt.isEnabled = true
     }
     @objc func datePicker2ValueChanged (sender : UIDatePicker) {
         let formatter = DateFormatter()

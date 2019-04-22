@@ -12,7 +12,7 @@ typealias CompletionHandler = (_ Success: Bool) -> ()
 typealias CompletionHandler2 = (_ Success: Bool) -> ()
 
 // URL Constants
-let BASE_URL = "http://192.168.174.1:8080/api/"
+let BASE_URL = "https://smart-interphone.herokuapp.com/api/"
 let URL_REGISTER = "\(BASE_URL)signup"
 let URL_LOGIN = "\(BASE_URL)signin"
 let URL_MESSAGES = "\(BASE_URL)messages"

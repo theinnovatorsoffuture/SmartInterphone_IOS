@@ -137,31 +137,22 @@ class DevicesService {
     func getDeviceMessages (device : Device ,completion: @escaping CompletionHandler) {
         DevicesService.selectedDevice = device
         DevicesService.selectedDevice?.messages.removeAll()
-        let URL_SHOW = URL_MESSAGES + "/" + device.id
+        let URL_SHOW = BASE_URL  + device.id + "/message"
+        debugPrint(URL_SHOW)
         Alamofire.request(URL_SHOW, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: HEADER).responseJSON { (response) in
             
             if response.result.error == nil {
                 guard let data = response.data else { return }
                 do {
+                    
                     let json = try JSON(data: data)
-                    let message = json["message"].stringValue
-                    if !message.contains("Message details")  {
-                        completion(false)
-                        return
-                        
-                    }
-                    let jsonMessages = json["data"].array
-               
-                    if (jsonMessages == nil) {
-                        completion(false)
-                        return
-                    }
-                    for i in 0..<jsonMessages!.count {
-                        if (jsonMessages![i]["displayAt"].stringValue != "" && jsonMessages![i]["hiddenAt"].stringValue != ""){
-                        let rMessage = Message(id: jsonMessages![i]["_id"].stringValue,
-                                               text: jsonMessages![i]["content"].stringValue,
-                                               displayedAt: jsonMessages![i]["displayAt"].stringValue,
-                                               hiddenAt: jsonMessages![i]["hiddenAt"].stringValue,
+                  debugPrint(json)
+                    for i in 0..<json.count {
+                        if (json[i]["displayAt"].stringValue != "" && json[i]["hiddenAt"].stringValue != ""){
+                        let rMessage = Message(id: json[i]["_id"].stringValue,
+                                               text: json[i]["content"].stringValue,
+                                               displayedAt: json[i]["displayAt"].stringValue,
+                                               hiddenAt: json[i]["hiddenAt"].stringValue,
                                                deviceName: device.name
                         )
                             DevicesService.selectedDevice?.messages.append(rMessage)
@@ -251,7 +242,7 @@ class DevicesService {
     }
     func EditMessage (message : Message , deviceId: String ,completion: @escaping CompletionHandler) {
         
-        let URL_EDIT = URL_MESSAGES + "/" + message.id + "/" + deviceId
+        let URL_EDIT = URL_MESSAGES  + "/" + message.id 
      
         let body: [String: Any] = [
             "content": message.text,

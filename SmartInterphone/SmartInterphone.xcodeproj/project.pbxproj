@@ -42,7 +42,7 @@
 		23740E7B222AD7D200A32137 /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23740E7A222AD7D200A32137 /* CalendarVC.swift */; };
 		23740E80222AF82200A32137 /* DeviceCalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23740E7F222AF82200A32137 /* DeviceCalendarCell.swift */; };
 		23740E82222B539500A32137 /* MessageTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23740E81222B539500A32137 /* MessageTableCell.swift */; };
-		2399409A22225ED600F27543 /* ExampleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2399409922225ED600F27543 /* ExampleController.swift */; };
+		2399409A22225ED600F27543 /* ScheduleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2399409922225ED600F27543 /* ScheduleController.swift */; };
 		2399409D22225F7700F27543 /* StyleGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2399409B22225F7700F27543 /* StyleGenerator.swift */; };
 		2399409E22225F7700F27543 /* ExampleNotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2399409C22225F7700F27543 /* ExampleNotificationController.swift */; };
 		2399409F2222605E00F27543 /* DatePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2322996C221BF0810046FD93 /* DatePickerController.swift */; };
@@ -95,7 +95,7 @@
 		23740E7C222AD98D00A32137 /* SmartInterphone-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SmartInterphone-Bridging-Header.h"; sourceTree = "<group>"; };
 		23740E7F222AF82200A32137 /* DeviceCalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCalendarCell.swift; sourceTree = "<group>"; };
 		23740E81222B539500A32137 /* MessageTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableCell.swift; sourceTree = "<group>"; };
-		2399409922225ED600F27543 /* ExampleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleController.swift; sourceTree = "<group>"; };
+		2399409922225ED600F27543 /* ScheduleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleController.swift; sourceTree = "<group>"; };
 		2399409B22225F7700F27543 /* StyleGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleGenerator.swift; sourceTree = "<group>"; };
 		2399409C22225F7700F27543 /* ExampleNotificationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleNotificationController.swift; sourceTree = "<group>"; };
 		239F5D4E221B892F00ABD5B9 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
@@ -205,7 +205,7 @@
 		231D29A0220CFE35005E2B04 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				2399409922225ED600F27543 /* ExampleController.swift */,
+				2399409922225ED600F27543 /* ScheduleController.swift */,
 				2305E87022190CF70008B484 /* RegisterVC.swift */,
 				2305E86F22190CF60008B484 /* LoginVC.swift */,
 				23438C7722127FA9000D0067 /* HomeVC.swift */,
@@ -496,7 +496,7 @@
 				2305E87E221A24D90008B484 /* DevicesVC.swift in Sources */,
 				23740E80222AF82200A32137 /* DeviceCalendarCell.swift in Sources */,
 				230661B4222C238C004BE74E /* MoveReducer.swift in Sources */,
-				2399409A22225ED600F27543 /* ExampleController.swift in Sources */,
+				2399409A22225ED600F27543 /* ScheduleController.swift in Sources */,
 				2305E874221A15050008B484 /* ProfilePictureImage.swift in Sources */,
 				2314E2932217CD8C00FD437C /* Constants.swift in Sources */,
 			);
