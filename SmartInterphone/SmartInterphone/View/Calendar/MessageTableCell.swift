@@ -11,7 +11,7 @@ import UIKit
 class MessageTableCell:  UITableViewCell  {
 
     @IBOutlet weak var message: UILabel!
-    @IBOutlet weak var device : UILabel!
+
     @IBOutlet weak var time: UILabel!
     
    

@@ -56,6 +56,8 @@ class DevicesVC: UIViewController , UICollectionViewDelegate , UICollectionViewD
     }
     
     func initDevices (reload:Bool , scrolltolast : Bool) {
+        spinner.isHidden = false
+        spinner.startAnimating()
          DevicesService.instance.getDevices(){ (success) in
             if success {
                     print ("in init devices")
@@ -94,7 +96,7 @@ class DevicesVC: UIViewController , UICollectionViewDelegate , UICollectionViewD
                 self.initDevices(reload: true, scrolltolast: true)
           
                 print("added device")
-              
+              	
                 
             } else {
                 print("can't add device")
@@ -147,8 +149,6 @@ class DevicesVC: UIViewController , UICollectionViewDelegate , UICollectionViewD
         view.endEditing(true)
     }
     func setupView () {
-        spinner.isHidden = false
-        spinner.startAnimating()
         // enable exiting keyboard with tap
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(DevicesVC.handleTap))

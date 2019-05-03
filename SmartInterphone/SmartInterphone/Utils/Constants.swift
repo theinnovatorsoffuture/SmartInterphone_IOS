@@ -16,7 +16,7 @@ let BASE_URL = "https://smart-interphone.herokuapp.com/api/"
 let URL_REGISTER = "\(BASE_URL)signup"
 let URL_LOGIN = "\(BASE_URL)signin"
 let URL_MESSAGES = "\(BASE_URL)messages"
-
+		
 // Notification Constants
 let NOTIF_DEVICE_DATA_DID_CHANGE = Notification.Name("notifDeviceDataChanged")
 let NOTIF_DEVICES_ADDED = Notification.Name("addedNewDevices")
@@ -47,3 +47,24 @@ let HEADER = [
 let lightRed = UIColor(red:0.98, green:0.78, blue:0.77, alpha:1.0)
 
 
+extension ISO8601DateFormatter {
+    convenience init(_ formatOptions: Options, timeZone: TimeZone = TimeZone(secondsFromGMT: 3600)!) {
+        self.init()
+        self.formatOptions = formatOptions
+        self.timeZone = timeZone
+    }
+}
+extension Formatter {
+    static let iso8601 = ISO8601DateFormatter([.withInternetDateTime, .withFractionalSeconds])
+}
+
+extension Date {
+    var iso8601: String {
+        return Formatter.iso8601.string(from: self)
+    }
+}
+extension String {
+    var iso8601: Date? {
+        return Formatter.iso8601.date(from: self)
+    }
+}

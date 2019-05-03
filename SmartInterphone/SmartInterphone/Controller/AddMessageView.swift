@@ -46,14 +46,11 @@ class AddMessageView: UIViewController {
         formatter.dateStyle = DateFormatter.Style.short
         formatter.timeStyle = DateFormatter.Style.short
         startTxt.text = formatter.string(from: sender.date)
-        // conversion
-        let df = DateFormatter()
-        df.locale = Locale(identifier: "en_US_POSIX")
-        df.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-        startDate = df.string(from: sender.date)
-        print(df.string(from: sender.date))
-        datePicker2.minimumDate = sender.date
-        datePicker2.date = sender.date
+
+        startDate = sender.date.iso8601
+        print(startDate)
+  
+  
         endTxt.isEnabled = true
     }
     @objc func datePicker2ValueChanged (sender : UIDatePicker) {
@@ -61,13 +58,10 @@ class AddMessageView: UIViewController {
         formatter.dateStyle = DateFormatter.Style.short
         formatter.timeStyle = DateFormatter.Style.short
         endTxt.text = formatter.string(from: sender.date)
-        // conversion
-        let df = DateFormatter()
-        df.locale = Locale(identifier: "en_US_POSIX")
-        df.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-          endDate = df.string(from: sender.date)
-        print(df.string(from: sender.date))
-    }
+        
+          endDate = sender.date.iso8601
+        print(endDate)
+    }	
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }

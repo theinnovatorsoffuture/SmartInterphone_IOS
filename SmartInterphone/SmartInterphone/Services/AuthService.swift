@@ -68,7 +68,7 @@ class AuthService {
         set {
             return defaults.set(newValue , forKey: IMAGE_URL)
         }
-    }
+    }	
     
     func registerUser(email: String, password: String, name : String , username : String, imageUrl : String, completion: @escaping CompletionHandler) {
         

@@ -10,12 +10,12 @@ enum SelectedStyle {
 class ScheduleController: DayViewController, DatePickerControllerDelegate {
     
     public var device : Device?
-    var colors = [UIColor.blue,
+    var colors = [
                 UIColor.yellow,
                 UIColor.red]
     var currentStyle = SelectedStyle.Light
     let formatter = DateFormatter()
-    
+    var k: Int = 0
   override func viewDidLoad() {
     super.viewDidLoad()
     // nav setup
@@ -92,7 +92,7 @@ class ScheduleController: DayViewController, DatePickerControllerDelegate {
         let models = device!.messages
         
         var events = [Event]()
-        formatter.locale = Locale(identifier: "en_US_POSIX")
+      	
         formatter.dateFormat = "y-MM-dd'T'H:mm:ss.SSS'Z'"
     
         for model in models {
@@ -103,15 +103,17 @@ class ScheduleController: DayViewController, DatePickerControllerDelegate {
             // Specify StartDate and EndDate
          
                 event.userInfo = model
-            event.startDate = formatter.date(from: model.displayedAt)!
-            event.endDate = formatter.date(from: model.hiddenAt)!
+            event.startDate = model.displayedAt.iso8601!
+            event.endDate =  model.hiddenAt.iso8601!
              
             // Add info: event title, subtitle, location to the array of Strings
             var info = [model.text]
            info.append("\(event.startDate.format(with: "HH:mm")) - \(event.endDate.format(with: "HH:mm"))")
             // Set "text" value of event by formatting all the information needed for display
             event.text = info.reduce("", {$0 + $1 + "\n"})
-            event.color = colors[Int(arc4random_uniform(UInt32(colors.count)))]
+                if (k==0){
+                    event.color = colors[1]}
+                else { event.color = colors[0]}
                 events.append(event)
                 }
             }
@@ -144,7 +146,7 @@ class ScheduleController: DayViewController, DatePickerControllerDelegate {
                     print(DevicesService.selectedDevice!.messages)
                     self.device! = DevicesService.selectedDevice!
                     self.reloadData()
-                   self.dayView.state?.move(to: self.formatter.date(from: self.device!.messages.last!.displayedAt)!)
+                   self.dayView.state?.move(to: self.device!.messages.last!.displayedAt.iso8601!)
         
                 } else {
                     self.device = deviceBackup

@@ -52,7 +52,7 @@ class EditMessageView: UIViewController {
     
     func formatDate(dateString:String) -> String {
         let formatter = DateFormatter()
-        formatter.locale = Locale(identifier: "en_US_POSIX")
+
         formatter.dateFormat = "y-MM-dd'T'H:mm:ss.SSS'Z'"
         let date : Date? = formatter.date(from: dateString)!
         formatter.dateFormat = "dd MMM yy' at: 'H:mm a"
@@ -65,11 +65,9 @@ class EditMessageView: UIViewController {
         formatter.timeStyle = DateFormatter.Style.short
         startTxt.text = formatter.string(from: sender.date)
         // conversion
-        let df = DateFormatter()
-        df.locale = Locale(identifier: "en_US_POSIX")
-        df.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-        startDate = df.string(from: sender.date)
-        print(df.string(from: sender.date))
+
+        startDate = sender.date.iso8601
+    
         datePicker2.minimumDate = sender.date
         
     }
@@ -80,11 +78,8 @@ class EditMessageView: UIViewController {
         formatter.timeStyle = DateFormatter.Style.short
         endTxt.text = formatter.string(from: sender.date)
         // conversion
-        let df = DateFormatter()
-        df.locale = Locale(identifier: "en_US_POSIX")
-        df.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-        endDate = df.string(from: sender.date)
-        print(df.string(from: sender.date))
+        endDate = sender.date.iso8601
+        print(endDate)
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
@@ -96,16 +91,13 @@ class EditMessageView: UIViewController {
     }
     @IBAction func updateButton(_ sender: Any) {
         if (!edited1) {
-            // conversion
-            let df = DateFormatter()
-            df.locale = Locale(identifier: "en_US_POSIX")
-            df.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-            startDate = df.string(from: Date())
-            print(df.string(from: Date()))
+            startDate =  message!.displayedAt.iso8601!.iso8601
         }
         
         if (!edited2) {
-            return
+      
+            endDate = message!.hiddenAt.iso8601!.iso8601
+          
         }
         let updatedmessage = Message(id: message!.id,
                                      text: messageTxt.text!,

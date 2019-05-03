@@ -22,7 +22,7 @@ class CalendarVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        formatter.locale = Locale(identifier: "en_US_POSIX")
+   
         formatter.dateFormat = "y-MM-dd'T'H:mm:ss.SSS'Z'"
         setupCalendar()
         NotificationCenter.default.addObserver(self, selector: #selector(self.messageUpdateResponse(_:)), name: NOTIF_DEVICE_DATA_DID_CHANGE, object: nil)
@@ -88,7 +88,10 @@ class CalendarVC: UIViewController {
         editmessageview.modalPresentationStyle = .custom
         editmessageview.device =  device
         editmessageview.message = message
-        present(editmessageview, animated: false , completion: nil)
+        present(editmessageview, animated: false) {
+            self.initDevices(reload: true)
+     
+        }
     }
     @objc func messageUpdateResponse(_ notif: Notification)  {
         print("notification update")
@@ -104,20 +107,7 @@ class CalendarVC: UIViewController {
             }
    
         }
-        
-        /*
-        let device = notif.userInfo?["device"] as? Device
-        
-        DevicesService.instance.getDeviceMessages(device: device!) { success in
-            if success {
-                self.selectedMessages = DevicesService.selectedDevice!.messages
-                
-                self.calendar.reloadData()
-            } else {
-                print ("error fetching device messages")
-            }
-        }
-         */
+      
         }
     
     
@@ -128,8 +118,8 @@ extension CalendarVC : FSCalendarDataSource, FSCalendarDelegate {
     func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
         var count: Int = 0
         selectedMessages.forEach { message in
-            var startDate = formatter.date(from: message.displayedAt)
-            var endDate = formatter.date(from: message.hiddenAt)
+            var startDate = message.displayedAt.iso8601
+            var endDate = message.hiddenAt.iso8601
             startDate = startDate?.stripTime()
             endDate = endDate?.stripTime()
             if (startDate != nil && endDate != nil) {
@@ -185,12 +175,14 @@ extension CalendarVC : UICollectionViewDelegate , UICollectionViewDataSource {
         
         let cell = collectionView.cellForItem(at: indexPath) as? DeviceCalendarCell
             cell?.background.layer.borderColor = UIColor(red:0.96, green:0.40, blue:0.38, alpha:1.0).cgColor
+          cell?.background.backgroundColor = UIColor(red:0.96, green:0.40, blue:0.38, alpha:0.3)
           cell?.setNeedsDisplay()
  
         DevicesService.instance.getDeviceMessages(device: devices[indexPath.row]) { success in
             if success {
                 self.selectedMessages = DevicesService.selectedDevice!.messages
                  
+                self.calendar.reloadData()
                 self.calendar.setNeedsDisplay()
             } else {
                 print ("error fetching device messages")
@@ -204,6 +196,7 @@ extension CalendarVC : UICollectionViewDelegate , UICollectionViewDataSource {
         
         let cell = collectionView.cellForItem(at: indexPath) as? DeviceCalendarCell
         cell?.background.layer.borderColor = UIColor.white.cgColor
+         cell?.background.backgroundColor =  UIColor.white
             cell?.isSelected = false
         
       
@@ -220,18 +213,17 @@ extension CalendarVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
       
             let cell = tableView.dequeueReusableCell(withIdentifier: "messageCell", for: indexPath) as? MessageTableCell
-            cell?.device.text = displayedMessages[indexPath.row].deviceName
             cell?.message.text = displayedMessages[indexPath.row].text
-            let startDate = formatter.date(from: displayedMessages[indexPath.row].displayedAt)!
-            let endDate = formatter.date(from: displayedMessages[indexPath.row].hiddenAt)!
+            let startDate = displayedMessages[indexPath.row].displayedAt.iso8601!
+            let endDate = displayedMessages[indexPath.row].hiddenAt.iso8601!
             let components = Calendar.current.dateComponents([ .day ,.hour], from: startDate, to: endDate)
             print(components.day!)
         if (components.day! > 0) {
                cell?.time.adjustsFontSizeToFitWidth = true
-              cell?.time.text = "\(startDate.format(with: "MMM d, H a")) - \( endDate.format(with: "MMM d, H a"))"
+              cell?.time.text = "\(startDate.format(with: "MM/dd, H a")) - \( endDate.format(with: "MM/dd, H a"))"
          
         } else {
-            cell?.time.text = "\(startDate.format(with: "H a")) - \( endDate.format(with: "H a"))"
+            cell?.time.text = "\(startDate.format(with: "H:mm a")) - \( endDate.format(with: "H:mm a"))"
         }
         cell?.setNeedsDisplay()
             return cell!
@@ -249,7 +241,7 @@ extension CalendarVC : UITableViewDelegate, UITableViewDataSource {
                     if (self.deviceCollection.indexPathsForSelectedItems!.count > 0){
                         
                             self.updatePath = indexPath
-                            self.editMsg(device: self.devices[(self.deviceCollection.indexPathsForSelectedItems?[0].row)!-1] , message: self.displayedMessages[indexPath.row])
+                            self.editMsg(device: self.devices[(self.deviceCollection.indexPathsForSelectedItems?[0].row)!			] , message: self.displayedMessages[indexPath.row])
                             
                     }
                 }
@@ -257,14 +249,26 @@ extension CalendarVC : UITableViewDelegate, UITableViewDataSource {
             }
             editButton.backgroundColor = UIColor.orange
             let deleteButton = UITableViewRowAction(style: .normal, title: "delete") { (rowAction,indexPath) in
-                print("delete clicked")	
+                print("delete clicked")
                 var indexs = [IndexPath]()
                 indexs.append(indexPath)
+                DevicesService.instance.DeleteMessage(message:  self.displayedMessages[indexPath.row], completion: { (Bool) in
+                    DevicesService.instance.getDeviceMessages(device: self.devices[indexPath.row]) { success in
+                        if success {
+                            self.selectedMessages = DevicesService.selectedDevice!.messages
+                            
+                            self.calendar.reloadData()
+                            self.calendar.setNeedsDisplay()
+                        } else {
+                            print ("error fetching device messages")
+                        }
+                    }
+                })
                 self.displayedMessages.remove(at: indexPath.row)
                 self.messageTable.deleteRows(at: indexs, with: .fade)
                 
             }
-            deleteButton.backgroundColor = UIColor.red
+            deleteButton.backgroundColor = UIColor(red: 245, green: 102, blue: 97, alpha: 1)
                     return [deleteButton, editButton]
         
 

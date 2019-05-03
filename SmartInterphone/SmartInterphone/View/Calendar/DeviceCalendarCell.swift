@@ -15,9 +15,9 @@ class DeviceCalendarCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-            self.background.layer.borderWidth = 3
+            self.background.layer.borderWidth = 5
         self.background.layer.borderColor = UIColor.white.cgColor
-        self.background.layer.cornerRadius = 10
+        self.background.layer.cornerRadius = self.background.layer.width/2
     }
 
 }

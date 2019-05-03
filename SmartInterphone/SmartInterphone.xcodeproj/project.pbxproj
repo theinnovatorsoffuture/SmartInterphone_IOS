@@ -35,16 +35,14 @@
 		231D29A4220CFEBB005E2B04 /* BorderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231D29A3220CFEBB005E2B04 /* BorderButton.swift */; };
 		23229970221BF2220046FD93 /* EditMessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2322996F221BF2210046FD93 /* EditMessageView.xib */; };
 		23229973221BF3270046FD93 /* EditMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23229972221BF3270046FD93 /* EditMessageView.swift */; };
-		2332A1D522230D2D00DA7A03 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2332A1D422230D2D00DA7A03 /* GoogleService-Info.plist */; };
 		2332A1D72223BDF500DA7A03 /* Menu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2332A1D62223BDF500DA7A03 /* Menu.storyboard */; };
 		23438C74220D0442000D0067 /* HomeCustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23438C73220D0442000D0067 /* HomeCustomTextField.swift */; };
 		23438C7822127FA9000D0067 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23438C7722127FA9000D0067 /* HomeVC.swift */; };
 		23740E7B222AD7D200A32137 /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23740E7A222AD7D200A32137 /* CalendarVC.swift */; };
 		23740E80222AF82200A32137 /* DeviceCalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23740E7F222AF82200A32137 /* DeviceCalendarCell.swift */; };
 		23740E82222B539500A32137 /* MessageTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23740E81222B539500A32137 /* MessageTableCell.swift */; };
+		237F8BAB227793A000F05CB9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 237F8BAA227793A000F05CB9 /* GoogleService-Info.plist */; };
 		2399409A22225ED600F27543 /* ScheduleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2399409922225ED600F27543 /* ScheduleController.swift */; };
-		2399409D22225F7700F27543 /* StyleGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2399409B22225F7700F27543 /* StyleGenerator.swift */; };
-		2399409E22225F7700F27543 /* ExampleNotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2399409C22225F7700F27543 /* ExampleNotificationController.swift */; };
 		2399409F2222605E00F27543 /* DatePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2322996C221BF0810046FD93 /* DatePickerController.swift */; };
 		239F5D4F221B892F00ABD5B9 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239F5D4E221B892F00ABD5B9 /* Message.swift */; };
 		239F5D52221B90F200ABD5B9 /* AddMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239F5D50221B90F200ABD5B9 /* AddMessageView.swift */; };
@@ -82,11 +80,9 @@
 		231D2999220CE8D6005E2B04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		231D29A3220CFEBB005E2B04 /* BorderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderButton.swift; sourceTree = "<group>"; };
 		2322996C221BF0810046FD93 /* DatePickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerController.swift; sourceTree = "<group>"; };
-		2322996D221BF0810046FD93 /* StyleGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleGenerator.swift; sourceTree = "<group>"; };
 		2322996E221BF0820046FD93 /* ExampleNotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleNotificationController.swift; sourceTree = "<group>"; };
 		2322996F221BF2210046FD93 /* EditMessageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditMessageView.xib; sourceTree = "<group>"; };
 		23229972221BF3270046FD93 /* EditMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMessageView.swift; sourceTree = "<group>"; };
-		2332A1D422230D2D00DA7A03 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2332A1D62223BDF500DA7A03 /* Menu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Menu.storyboard; sourceTree = "<group>"; };
 		23438C73220D0442000D0067 /* HomeCustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCustomTextField.swift; sourceTree = "<group>"; };
 		23438C7722127FA9000D0067 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
@@ -95,9 +91,8 @@
 		23740E7C222AD98D00A32137 /* SmartInterphone-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SmartInterphone-Bridging-Header.h"; sourceTree = "<group>"; };
 		23740E7F222AF82200A32137 /* DeviceCalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCalendarCell.swift; sourceTree = "<group>"; };
 		23740E81222B539500A32137 /* MessageTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableCell.swift; sourceTree = "<group>"; };
+		237F8BAA227793A000F05CB9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2399409922225ED600F27543 /* ScheduleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleController.swift; sourceTree = "<group>"; };
-		2399409B22225F7700F27543 /* StyleGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleGenerator.swift; sourceTree = "<group>"; };
-		2399409C22225F7700F27543 /* ExampleNotificationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleNotificationController.swift; sourceTree = "<group>"; };
 		239F5D4E221B892F00ABD5B9 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		239F5D50221B90F200ABD5B9 /* AddMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMessageView.swift; sourceTree = "<group>"; };
 		239F5D51221B90F200ABD5B9 /* AddMessageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddMessageView.xib; sourceTree = "<group>"; };
@@ -183,7 +178,7 @@
 				231D299F220CFE20005E2B04 /* View */,
 				231D298D220CE8D0005E2B04 /* AppDelegate.swift */,
 				231D2994220CE8D6005E2B04 /* Assets.xcassets */,
-				2332A1D422230D2D00DA7A03 /* GoogleService-Info.plist */,
+				237F8BAA227793A000F05CB9 /* GoogleService-Info.plist */,
 				231D2999220CE8D6005E2B04 /* Info.plist */,
 			);
 			path = SmartInterphone;
@@ -244,10 +239,7 @@
 			isa = PBXGroup;
 			children = (
 				2322996C221BF0810046FD93 /* DatePickerController.swift */,
-				2399409C22225F7700F27543 /* ExampleNotificationController.swift */,
-				2399409B22225F7700F27543 /* StyleGenerator.swift */,
 				2322996E221BF0820046FD93 /* ExampleNotificationController.swift */,
-				2322996D221BF0810046FD93 /* StyleGenerator.swift */,
 			);
 			path = "schedule view utils";
 			sourceTree = "<group>";
@@ -360,7 +352,7 @@
 				2332A1D72223BDF500DA7A03 /* Menu.storyboard in Resources */,
 				23229970221BF2220046FD93 /* EditMessageView.xib in Resources */,
 				231D2993220CE8D0005E2B04 /* MainStoryBoard.storyboard in Resources */,
-				2332A1D522230D2D00DA7A03 /* GoogleService-Info.plist in Resources */,
+				237F8BAB227793A000F05CB9 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,7 +463,6 @@
 				23740E82222B539500A32137 /* MessageTableCell.swift in Sources */,
 				2399409F2222605E00F27543 /* DatePickerController.swift in Sources */,
 				230661AC222C236D004BE74E /* IndexPathConverter.swift in Sources */,
-				2399409E22225F7700F27543 /* ExampleNotificationController.swift in Sources */,
 				23229973221BF3270046FD93 /* EditMessageView.swift in Sources */,
 				2305E87122190CF70008B484 /* LoginVC.swift in Sources */,
 				230661B8222C238C004BE74E /* DiffAware.swift in Sources */,
@@ -487,7 +478,6 @@
 				239F5D52221B90F200ABD5B9 /* AddMessageView.swift in Sources */,
 				231D298E220CE8D0005E2B04 /* AppDelegate.swift in Sources */,
 				23438C7822127FA9000D0067 /* HomeVC.swift in Sources */,
-				2399409D22225F7700F27543 /* StyleGenerator.swift in Sources */,
 				231745872213A23E00E18B32 /* RoundedButton.swift in Sources */,
 				230661BB222C2393004BE74E /* Heckel.swift in Sources */,
 				231D29A4220CFEBB005E2B04 /* BorderButton.swift in Sources */,
@@ -647,6 +637,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = SmartInterphone/SmartInterphone.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SL53WS7H35;
 				INFOPLIST_FILE = SmartInterphone/Info.plist;
@@ -656,6 +647,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = tiof.SmartInterphone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "SmartInterphone-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
@@ -670,6 +662,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = SmartInterphone/SmartInterphone.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SL53WS7H35;
 				INFOPLIST_FILE = SmartInterphone/Info.plist;
@@ -679,6 +672,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = tiof.SmartInterphone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "SmartInterphone-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -51,7 +51,7 @@ class DevicesService {
     func getDevices(completion: @escaping CompletionHandler) {
         let username = AuthService.instance.username
             let URL = BASE_URL + username + "/devices"
-     
+            debugPrint(URL)
             Alamofire.request(URL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: HEADER).responseJSON { (response) in 
                 
                 if response.result.error == nil {
@@ -267,6 +267,34 @@ class DevicesService {
                     print(error)
                 }
                
+                
+                completion(true)
+            } else {
+                completion(false)
+                debugPrint(response.result.error as Any)
+            }
+        }
+        
+        
+        
+    }
+    func DeleteMessage (message : Message , completion: @escaping CompletionHandler) {
+        
+        let URL_EDIT = URL_MESSAGES  + "/" + message.id
+     
+        Alamofire.request(URL_EDIT, method: .delete, parameters: nil, encoding: JSONEncoding.default, headers: HEADER).responseJSON { (response) in
+            
+            if response.result.error == nil {
+                guard let data = response.data else { return }
+                do {
+                    let json = try JSON(data: data)
+                    print(json)
+                    print ("after check")
+                } catch {
+                    completion(false)
+                    print(error)
+                }
+                
                 
                 completion(true)
             } else {
