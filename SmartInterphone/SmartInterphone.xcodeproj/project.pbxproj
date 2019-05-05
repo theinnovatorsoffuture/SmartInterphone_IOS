@@ -38,6 +38,8 @@
 		2332A1D72223BDF500DA7A03 /* Menu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2332A1D62223BDF500DA7A03 /* Menu.storyboard */; };
 		23438C74220D0442000D0067 /* HomeCustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23438C73220D0442000D0067 /* HomeCustomTextField.swift */; };
 		23438C7822127FA9000D0067 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23438C7722127FA9000D0067 /* HomeVC.swift */; };
+		23545B79227E84FB00AD99A4 /* HomeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23545B78227E84FB00AD99A4 /* HomeExtension.swift */; };
+		23545B7B227E9E2F00AD99A4 /* DevicesExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23545B7A227E9E2F00AD99A4 /* DevicesExtension.swift */; };
 		23740E7B222AD7D200A32137 /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23740E7A222AD7D200A32137 /* CalendarVC.swift */; };
 		23740E80222AF82200A32137 /* DeviceCalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23740E7F222AF82200A32137 /* DeviceCalendarCell.swift */; };
 		23740E82222B539500A32137 /* MessageTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23740E81222B539500A32137 /* MessageTableCell.swift */; };
@@ -47,6 +49,9 @@
 		239F5D4F221B892F00ABD5B9 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239F5D4E221B892F00ABD5B9 /* Message.swift */; };
 		239F5D52221B90F200ABD5B9 /* AddMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239F5D50221B90F200ABD5B9 /* AddMessageView.swift */; };
 		239F5D53221B90F200ABD5B9 /* AddMessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 239F5D51221B90F200ABD5B9 /* AddMessageView.xib */; };
+		23F1B87B227EBB9600D867B1 /* CalendarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F1B87A227EBB9600D867B1 /* CalendarExtension.swift */; };
+		23F1B87E227EC90600D867B1 /* FirstUse.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 23F1B87C227EC90600D867B1 /* FirstUse.xcdatamodeld */; };
+		23F1B880227EE8E400D867B1 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F1B87F227EE8E400D867B1 /* TabBarController.swift */; };
 		D736510E9FC17F15FF62E3D0 /* Pods_SmartInterphone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50E20EDF42874266DE90CF39 /* Pods_SmartInterphone.framework */; };
 /* End PBXBuildFile section */
 
@@ -87,6 +92,8 @@
 		23438C73220D0442000D0067 /* HomeCustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCustomTextField.swift; sourceTree = "<group>"; };
 		23438C7722127FA9000D0067 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		234B3C57222D9A3500B220E2 /* SmartInterphone.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SmartInterphone.entitlements; sourceTree = "<group>"; };
+		23545B78227E84FB00AD99A4 /* HomeExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExtension.swift; sourceTree = "<group>"; };
+		23545B7A227E9E2F00AD99A4 /* DevicesExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesExtension.swift; sourceTree = "<group>"; };
 		23740E7A222AD7D200A32137 /* CalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVC.swift; sourceTree = "<group>"; };
 		23740E7C222AD98D00A32137 /* SmartInterphone-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SmartInterphone-Bridging-Header.h"; sourceTree = "<group>"; };
 		23740E7F222AF82200A32137 /* DeviceCalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCalendarCell.swift; sourceTree = "<group>"; };
@@ -96,6 +103,9 @@
 		239F5D4E221B892F00ABD5B9 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		239F5D50221B90F200ABD5B9 /* AddMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMessageView.swift; sourceTree = "<group>"; };
 		239F5D51221B90F200ABD5B9 /* AddMessageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddMessageView.xib; sourceTree = "<group>"; };
+		23F1B87A227EBB9600D867B1 /* CalendarExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarExtension.swift; sourceTree = "<group>"; };
+		23F1B87D227EC90600D867B1 /* FirstUse.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FirstUse.xcdatamodel; sourceTree = "<group>"; };
+		23F1B87F227EE8E400D867B1 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		50E20EDF42874266DE90CF39 /* Pods_SmartInterphone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartInterphone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F92657F6F6333766ACDCD36 /* Pods-SmartInterphone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartInterphone.debug.xcconfig"; path = "Target Support Files/Pods-SmartInterphone/Pods-SmartInterphone.debug.xcconfig"; sourceTree = "<group>"; };
 		E2522E51E213AD009602275F /* Pods-SmartInterphone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartInterphone.release.xcconfig"; path = "Target Support Files/Pods-SmartInterphone/Pods-SmartInterphone.release.xcconfig"; sourceTree = "<group>"; };
@@ -144,6 +154,7 @@
 			children = (
 				230661A8222C2341004BE74E /* DeepDiffSource */,
 				2314E2922217CD8C00FD437C /* Constants.swift */,
+				23F1B87C227EC90600D867B1 /* FirstUse.xcdatamodeld */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -200,6 +211,7 @@
 		231D29A0220CFE35005E2B04 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				23545B77227E834400AD99A4 /* onboarding delegates */,
 				2399409922225ED600F27543 /* ScheduleController.swift */,
 				2305E87022190CF70008B484 /* RegisterVC.swift */,
 				2305E86F22190CF60008B484 /* LoginVC.swift */,
@@ -209,6 +221,7 @@
 				239F5D50221B90F200ABD5B9 /* AddMessageView.swift */,
 				23740E7A222AD7D200A32137 /* CalendarVC.swift */,
 				2322996B221BF0660046FD93 /* schedule view utils */,
+				23F1B87F227EE8E400D867B1 /* TabBarController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -242,6 +255,16 @@
 				2322996E221BF0820046FD93 /* ExampleNotificationController.swift */,
 			);
 			path = "schedule view utils";
+			sourceTree = "<group>";
+		};
+		23545B77227E834400AD99A4 /* onboarding delegates */ = {
+			isa = PBXGroup;
+			children = (
+				23545B78227E84FB00AD99A4 /* HomeExtension.swift */,
+				23545B7A227E9E2F00AD99A4 /* DevicesExtension.swift */,
+				23F1B87A227EBB9600D867B1 /* CalendarExtension.swift */,
+			);
+			path = "onboarding delegates";
 			sourceTree = "<group>";
 		};
 		2385292422285114005E8948 /* Calendar */ = {
@@ -378,9 +401,12 @@
 				"${BUILT_PRODUCTS_DIR}/FSCalendar/FSCalendar.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Instructions/Instructions.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/Neon/Neon.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/TransitionButton/TransitionButton.framework",
+				"${BUILT_PRODUCTS_DIR}/TransitionableTab/TransitionableTab.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -396,9 +422,12 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSCalendar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Instructions.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Neon.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TransitionButton.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TransitionableTab.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -458,6 +487,7 @@
 			files = (
 				230661B7222C238C004BE74E /* DeepDiff.swift in Sources */,
 				230661AE222C236D004BE74E /* UICollectionView+Extensions.swift in Sources */,
+				23545B79227E84FB00AD99A4 /* HomeExtension.swift in Sources */,
 				23740E7B222AD7D200A32137 /* CalendarVC.swift in Sources */,
 				2305E87A221A215A0008B484 /* Device.swift in Sources */,
 				23740E82222B539500A32137 /* MessageTableCell.swift in Sources */,
@@ -470,6 +500,7 @@
 				2305E87222190CF70008B484 /* RegisterVC.swift in Sources */,
 				230661AD222C236D004BE74E /* UITableView+Extensions.swift in Sources */,
 				230661B5222C238C004BE74E /* Change.swift in Sources */,
+				23F1B87E227EC90600D867B1 /* FirstUse.xcdatamodeld in Sources */,
 				239F5D4F221B892F00ABD5B9 /* Message.swift in Sources */,
 				2305E876221A1A0C0008B484 /* GradientView.swift in Sources */,
 				23438C74220D0442000D0067 /* HomeCustomTextField.swift in Sources */,
@@ -479,10 +510,13 @@
 				231D298E220CE8D0005E2B04 /* AppDelegate.swift in Sources */,
 				23438C7822127FA9000D0067 /* HomeVC.swift in Sources */,
 				231745872213A23E00E18B32 /* RoundedButton.swift in Sources */,
+				23545B7B227E9E2F00AD99A4 /* DevicesExtension.swift in Sources */,
 				230661BB222C2393004BE74E /* Heckel.swift in Sources */,
 				231D29A4220CFEBB005E2B04 /* BorderButton.swift in Sources */,
 				2314E2902217CCDC00FD437C /* AuthService.swift in Sources */,
+				23F1B880227EE8E400D867B1 /* TabBarController.swift in Sources */,
 				230661BC222C2393004BE74E /* WagnerFischer.swift in Sources */,
+				23F1B87B227EBB9600D867B1 /* CalendarExtension.swift in Sources */,
 				2305E87E221A24D90008B484 /* DevicesVC.swift in Sources */,
 				23740E80222AF82200A32137 /* DeviceCalendarCell.swift in Sources */,
 				230661B4222C238C004BE74E /* MoveReducer.swift in Sources */,
@@ -701,6 +735,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		23F1B87C227EC90600D867B1 /* FirstUse.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				23F1B87D227EC90600D867B1 /* FirstUse.xcdatamodel */,
+			);
+			currentVersion = 23F1B87D227EC90600D867B1 /* FirstUse.xcdatamodel */;
+			path = FirstUse.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 231D2982220CE8D0005E2B04 /* Project object */;
 }

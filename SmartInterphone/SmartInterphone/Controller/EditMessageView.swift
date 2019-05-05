@@ -11,7 +11,6 @@ import UIKit
 class EditMessageView: UIViewController {
 
     @IBOutlet weak var deviceTxt: UILabel!
-    @IBOutlet weak var userTxt: UILabel!
     @IBOutlet weak var messageTxt: UITextField!
     @IBOutlet weak var startTxt: UITextField!
     
@@ -42,7 +41,6 @@ class EditMessageView: UIViewController {
         datePicker2.addTarget(self, action: #selector(datePicker2ValueChanged(sender:)), for: UIControl.Event.valueChanged)
         startTxt.inputView = datePicker
         endTxt.inputView = datePicker2
-        userTxt.text = AuthService.instance.username
         deviceTxt.text = device?.name
         startTxt.text = formatDate(dateString: message!.displayedAt)
         endTxt.text = formatDate(dateString: message!.hiddenAt)

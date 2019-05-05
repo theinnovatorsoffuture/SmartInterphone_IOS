@@ -30,9 +30,12 @@ PODS:
     - "GoogleToolboxForMac/NSString+URLArguments (= 2.2.0)"
   - "GoogleToolboxForMac/NSString+URLArguments (2.2.0)"
   - GTMSessionFetcher/Core (1.2.1)
+  - Instructions (1.2.2)
   - Kingfisher (5.1.1)
   - Neon (0.4.0)
   - SwiftyJSON (4.2.0)
+  - TransitionableTab (0.2.0)
+  - TransitionButton (0.5.2)
 
 DEPENDENCIES:
   - Alamofire (~> 4.3)
@@ -42,8 +45,11 @@ DEPENDENCIES:
   - FBSDKShareKit
   - FSCalendar
   - GoogleSignIn
+  - Instructions (~> 1.2.0)
   - Kingfisher
   - SwiftyJSON (~> 4.0)
+  - TransitionableTab (~> 0.2.0)
+  - TransitionButton
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -58,9 +64,12 @@ SPEC REPOS:
     - GoogleSignIn
     - GoogleToolboxForMac
     - GTMSessionFetcher
+    - Instructions
     - Kingfisher
     - Neon
     - SwiftyJSON
+    - TransitionableTab
+    - TransitionButton
 
 SPEC CHECKSUMS:
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
@@ -74,10 +83,13 @@ SPEC CHECKSUMS:
   GoogleSignIn: 7ff245e1a7b26d379099d3243a562f5747e23d39
   GoogleToolboxForMac: ff31605b7d66400dcec09bed5861689aebadda4d
   GTMSessionFetcher: 32aeca0aa144acea523e1c8e053089dec2cb98ca
+  Instructions: baff1b8ac41e195556c2b3453be1fcdd92e18612
   Kingfisher: 2558186963e5be42d98c5b110ccb3130148b77e4
   Neon: 7fb5a9327e7e57911843f608e08f4893a74deaf9
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
+  TransitionableTab: 54a5d0af475033bdb83959fde4e5d6201af7e2ab
+  TransitionButton: fb271583d9c9e4bb116b97103047e5157653f233
 
-PODFILE CHECKSUM: b65a10619034c6b9ac036fc84549abfa69746b91
+PODFILE CHECKSUM: e2d256a0c07ec89b76b13f52e3b083486831f29a
 
 COCOAPODS: 1.6.0

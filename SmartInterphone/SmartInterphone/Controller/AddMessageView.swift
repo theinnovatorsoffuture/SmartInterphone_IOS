@@ -13,7 +13,7 @@ class AddMessageView: UIViewController {
     @IBOutlet weak var messageTxt: UITextField!
     @IBOutlet weak var startTxt: UITextField!
     @IBOutlet weak var endTxt: UITextField!
-    @IBOutlet weak var userTxt: UILabel!
+
     @IBOutlet weak var deviceTxt: UILabel!
     let datePicker = UIDatePicker()
     let datePicker2 = UIDatePicker()
@@ -37,7 +37,6 @@ class AddMessageView: UIViewController {
         datePicker2.addTarget(self, action: #selector(datePicker2ValueChanged(sender:)), for: UIControl.Event.valueChanged)
         startTxt.inputView = datePicker
         endTxt.inputView = datePicker2
-        userTxt.text = AuthService.instance.username
         deviceTxt.text = device?.name
     }
 
@@ -48,7 +47,7 @@ class AddMessageView: UIViewController {
         startTxt.text = formatter.string(from: sender.date)
 
         startDate = sender.date.iso8601
-        print(startDate)
+        //print(startDate)
   
   
         endTxt.isEnabled = true
@@ -60,7 +59,7 @@ class AddMessageView: UIViewController {
         endTxt.text = formatter.string(from: sender.date)
         
           endDate = sender.date.iso8601
-        print(endDate)
+        //print(endDate)
     }	
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)

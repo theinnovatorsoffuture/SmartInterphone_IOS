@@ -68,6 +68,7 @@ class ScheduleController: DayViewController, DatePickerControllerDelegate {
         let addmessageview = AddMessageView()
         addmessageview.modalPresentationStyle = .custom
         addmessageview.device = self.device
+        addmessageview.modalTransitionStyle = .crossDissolve
         present(addmessageview, animated: true , completion: nil)
       
     }
@@ -131,6 +132,7 @@ class ScheduleController: DayViewController, DatePickerControllerDelegate {
     editmessageview.modalPresentationStyle = .custom
     editmessageview.device = self.device
     editmessageview.message = descriptor.userInfo as? Message
+    editmessageview.modalTransitionStyle = .crossDissolve
     present(editmessageview, animated: false , completion: nil)
     
     }

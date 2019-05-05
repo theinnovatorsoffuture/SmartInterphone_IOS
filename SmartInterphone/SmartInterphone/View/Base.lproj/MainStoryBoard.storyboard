@@ -355,6 +355,7 @@
                     <tabBarItem key="tabBarItem" title="Profile" image="profileIcon" id="YdZ-2Y-5yP"/>
                     <connections>
                         <outlet property="emailTxt" destination="YZx-Yj-SpD" id="mLr-Sa-Uis"/>
+                        <outlet property="logoutBtn" destination="ZPF-e7-Ved" id="NYd-Ms-f1e"/>
                         <outlet property="userImg" destination="dJp-hc-1oj" id="ZZi-OZ-2fz"/>
                         <outlet property="usernameTxt" destination="Jz3-87-WQI" id="T9o-wb-S0T"/>
                         <outlet property="usernamelabel" destination="vwx-k9-GBB" id="7zK-zo-haD"/>
@@ -363,7 +364,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yKy-ro-LlG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4438" y="962"/>
+            <point key="canvasLocation" x="3591" y="918"/>
         </scene>
         <!--Schedule Controller-->
         <scene sceneID="bTg-CD-f8n">
@@ -392,7 +393,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="3uc-ah-4EN">
-                                <rect key="frame" x="20" y="78" width="335" height="529"/>
+                                <rect key="frame" x="20" y="76" width="335" height="531"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Noe-Zp-Ah2">
                                     <size key="itemSize" width="151" height="196"/>
@@ -430,7 +431,7 @@
                                                         <constraint firstAttribute="height" constant="40" id="XjL-WD-BUX"/>
                                                         <constraint firstAttribute="width" constant="40" id="kbe-bp-Jvy"/>
                                                     </constraints>
-                                                    <state key="normal" image="infoIcon"/>
+                                                    <state key="normal" image="scheduleIcon"/>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tYZ-7m-zUq">
                                                     <rect key="frame" x="119" y="60" width="40" height="40"/>
@@ -462,6 +463,7 @@
                                             <constraint firstItem="WmS-qe-hnl" firstAttribute="leading" secondItem="s8z-1x-2vW" secondAttribute="trailing" constant="10" id="j5S-Ek-AVn"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="ZP4-Iy-zAy" secondAttribute="bottom" constant="2" id="sdU-xd-YIh"/>
                                             <constraint firstItem="tYZ-7m-zUq" firstAttribute="leading" secondItem="s8z-1x-2vW" secondAttribute="trailing" constant="10" id="wua-Hk-7mQ"/>
+                                            <constraint firstAttribute="trailing" secondItem="ZP4-Iy-zAy" secondAttribute="trailing" constant="2" id="xJb-5z-lcx"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="addMessageButton" destination="tYZ-7m-zUq" id="Jbx-OT-4oy"/>
@@ -486,14 +488,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoutIcon" translatesAutoresizingMaskIntoConstraints="NO" id="6Lj-Oa-2KB">
-                                <rect key="frame" x="3" y="20" width="50" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="fdM-0B-xLg"/>
-                                    <constraint firstAttribute="height" constant="50" id="lh5-6w-tUf"/>
-                                </constraints>
-                            </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Device code" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3JF-KQ-ebs">
+                            <textField hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Device code" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3JF-KQ-ebs">
                                 <rect key="frame" x="15" y="622" width="212" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="212" id="ohG-0N-9Hk"/>
@@ -502,7 +497,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UY8-I9-Ye2" customClass="RoundedButton" customModule="SmartInterphone" customModuleProvider="target">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UY8-I9-Ye2" customClass="RoundedButton" customModule="SmartInterphone" customModuleProvider="target">
                                 <rect key="frame" x="247" y="622" width="105" height="30"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -523,12 +518,23 @@
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="RSd-H1-mZc">
                                 <rect key="frame" x="177.5" y="323.5" width="20" height="20"/>
                             </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SGk-rk-GU4">
+                                <rect key="frame" x="157.5" y="587" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="9mS-k8-L1P"/>
+                                    <constraint firstAttribute="width" constant="60" id="ckw-tv-GHf"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="refreshIcon"/>
+                                <connections>
+                                    <action selector="refreshClicked:" destination="iMO-iT-HVs" eventType="touchUpInside" id="QAr-R6-tVT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="6Lj-Oa-2KB" firstAttribute="top" secondItem="4HI-hZ-ZGj" secondAttribute="top" id="2KO-mm-1js"/>
-                            <constraint firstItem="6Lj-Oa-2KB" firstAttribute="leading" secondItem="4HI-hZ-ZGj" secondAttribute="leading" constant="3" id="2cX-hD-DcW"/>
                             <constraint firstItem="4HI-hZ-ZGj" firstAttribute="bottom" secondItem="UY8-I9-Ye2" secondAttribute="bottom" constant="15" id="AVF-7i-fBH"/>
+                            <constraint firstItem="4HI-hZ-ZGj" firstAttribute="bottom" secondItem="SGk-rk-GU4" secondAttribute="bottom" constant="20" id="D2t-G0-M0A"/>
+                            <constraint firstItem="SGk-rk-GU4" firstAttribute="centerX" secondItem="QSa-Io-OFR" secondAttribute="centerX" id="Gh1-Mz-CLR"/>
                             <constraint firstItem="UY8-I9-Ye2" firstAttribute="top" secondItem="3uc-ah-4EN" secondAttribute="bottom" constant="15" id="Ieq-GP-mlP"/>
                             <constraint firstItem="3JF-KQ-ebs" firstAttribute="top" secondItem="3uc-ah-4EN" secondAttribute="bottom" constant="15" id="Mlm-Ne-ZBq"/>
                             <constraint firstItem="RSd-H1-mZc" firstAttribute="centerY" secondItem="QSa-Io-OFR" secondAttribute="centerY" id="PA3-aE-MD2"/>
@@ -538,8 +544,8 @@
                             <constraint firstItem="VIZ-y6-IXN" firstAttribute="centerX" secondItem="QSa-Io-OFR" secondAttribute="centerX" id="bhL-87-zlB"/>
                             <constraint firstItem="4HI-hZ-ZGj" firstAttribute="bottom" secondItem="3JF-KQ-ebs" secondAttribute="bottom" constant="15" id="dSv-4C-DJt"/>
                             <constraint firstItem="UY8-I9-Ye2" firstAttribute="leading" secondItem="3JF-KQ-ebs" secondAttribute="trailing" constant="20" id="dmx-ti-c2A"/>
-                            <constraint firstItem="3uc-ah-4EN" firstAttribute="top" secondItem="6Lj-Oa-2KB" secondAttribute="bottom" constant="8" id="gQf-dt-7wu"/>
                             <constraint firstItem="RSd-H1-mZc" firstAttribute="centerX" secondItem="QSa-Io-OFR" secondAttribute="centerX" id="gW7-o9-OY3"/>
+                            <constraint firstItem="3uc-ah-4EN" firstAttribute="top" secondItem="VIZ-y6-IXN" secondAttribute="bottom" constant="15" id="jZ1-ot-KNH"/>
                             <constraint firstItem="3uc-ah-4EN" firstAttribute="leading" secondItem="4HI-hZ-ZGj" secondAttribute="leading" constant="20" id="tUO-XN-nNv"/>
                             <constraint firstItem="3uc-ah-4EN" firstAttribute="trailing" secondItem="4HI-hZ-ZGj" secondAttribute="trailing" constant="-20" id="yOS-Ja-2hl"/>
                         </constraints>
@@ -549,6 +555,7 @@
                     <connections>
                         <outlet property="deviceCodeTxt" destination="3JF-KQ-ebs" id="zbx-aA-7Pf"/>
                         <outlet property="deviceCollection" destination="3uc-ah-4EN" id="HzN-fi-pgD"/>
+                        <outlet property="refreshBtn" destination="SGk-rk-GU4" id="0D6-Vm-S4N"/>
                         <outlet property="spinner" destination="RSd-H1-mZc" id="CPy-PB-xYa"/>
                         <segue destination="DKZ-If-Mbg" kind="showDetail" identifier="devicesToSchedule" id="6yE-CM-wft"/>
                     </connections>
@@ -807,12 +814,13 @@
         <image name="facebookBtn" width="165" height="60"/>
         <image name="googleBtn" width="165" height="71"/>
         <image name="iconSettings" width="180" height="180"/>
-        <image name="infoIcon" width="180" height="180"/>
         <image name="logo_transparent" width="600" height="600"/>
         <image name="logoutIcon" width="153.60000610351562" height="153.60000610351562"/>
         <image name="newMessageIcon" width="180" height="180"/>
         <image name="profile-placeholder" width="600" height="600"/>
         <image name="profileIcon" width="52.5" height="52.5"/>
+        <image name="refreshIcon" width="153.19148254394531" height="153.19148254394531"/>
+        <image name="scheduleIcon" width="180" height="180"/>
         <image name="smackBack" width="28" height="28"/>
     </resources>
     <inferredMetricsTieBreakers>

@@ -10,6 +10,7 @@ import FBSDKLoginKit
 import FBSDKCoreKit
 import Kingfisher
 import GoogleSignIn
+import CoreData
 
 class RegisterVC: UIViewController ,GIDSignInUIDelegate {
 
@@ -22,8 +23,32 @@ class RegisterVC: UIViewController ,GIDSignInUIDelegate {
     @IBOutlet weak var repPasswordTxt: UITextField!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     //
-    
-    
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+
+    public func addFirstUseCoreData(email: String) {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "FirstUse")
+        fetchRequest.predicate = NSPredicate(format: "email == %@",email)
+        do{
+            let Result = try context.fetch(fetchRequest)
+            if Result.count == 0 {
+                do {
+                    let firstUse = FirstUse(context: self.context)
+                    firstUse.email = email
+                    firstUse.firstUseCalendar = true
+                    firstUse.firstUseDevices = true
+                     firstUse.firstUseProfile = true
+                    try context.save()
+                    print ("save succeded")
+                } catch {
+                    print("error saving")
+                }
+            }
+        }
+        catch {
+            print("error saving")
+        }
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
   
@@ -45,7 +70,7 @@ class RegisterVC: UIViewController ,GIDSignInUIDelegate {
                 print("cancelled facebook login")
             } else {
                 print("login success")
-                print (result?.token.tokenString!)
+               
                 self.fetchProfile()
             }
             
@@ -130,9 +155,11 @@ class RegisterVC: UIViewController ,GIDSignInUIDelegate {
            print ("sign in entered")
         AuthService.instance.registerUser(email: email, password: password, name: name, username: username , imageUrl: imageUrl) { (success) in
             if success {
+             
                 AuthService.instance.loginUser(email: username, password: password, completion: {
                     (success) in
                     if success {
+                         self.addFirstUseCoreData(email: email)
                         print ("logged in new user!")
                         self.spinner.isHidden = true
                         self.spinner.stopAnimating()
@@ -149,6 +176,7 @@ class RegisterVC: UIViewController ,GIDSignInUIDelegate {
                 AuthService.instance.loginUser(email: username, password: password, completion: {
                     (success) in
                     if success {
+                       self.addFirstUseCoreData(email: email)
                         print ("logged in new user!")
                         self.spinner.isHidden = true
                         self.spinner.stopAnimating()

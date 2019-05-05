@@ -9,17 +9,15 @@
 import UIKit
 import FBSDKLoginKit
 import FBSDKCoreKit
-
+import CoreData
 import GoogleSignIn
 
 class LoginVC: UIViewController , GIDSignInUIDelegate {
   
-    
-    
     @IBOutlet weak var passwordTxt: HomeCustomTextField!
     @IBOutlet weak var emailTxt: HomeCustomTextField!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
-    
+     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
     
     override func viewDidLoad() {
@@ -31,7 +29,31 @@ class LoginVC: UIViewController , GIDSignInUIDelegate {
     override func viewDidAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
-
+    
+    public func addFirstUseCoreData(email: String) {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "FirstUse")
+        fetchRequest.predicate = NSPredicate(format: "email == %@",email)
+        do{
+            let Result = try context.fetch(fetchRequest)
+            if Result.count == 0 {
+                do {
+                    let firstUse = FirstUse(context: self.context)
+                    firstUse.email = email
+                    firstUse.firstUseCalendar = true
+                    firstUse.firstUseDevices = true
+                    firstUse.firstUseProfile = true
+                    try context.save()
+                    print ("save succeded")
+                } catch {
+                    print("error saving")
+                }
+            }
+        }
+        catch {
+            print("error saving")
+        }
+        
+    }
 
     @IBAction func SignInClicked(_ sender: Any) {
         spinner.isHidden = false
@@ -46,6 +68,7 @@ class LoginVC: UIViewController , GIDSignInUIDelegate {
         
         AuthService.instance.loginUser(email: email, password: pass) { (success) in
             if success {
+              self.addFirstUseCoreData(email: AuthService.instance.userEmail)
                 self.spinner.isHidden = true
                 self.spinner.stopAnimating()
                 self.performSegue(withIdentifier: LOGIN_TO_MENU, sender: nil)
@@ -61,6 +84,7 @@ class LoginVC: UIViewController , GIDSignInUIDelegate {
         print ("sign in entered")
         AuthService.instance.loginUser(email: email, password: password) { (success) in
             if success {
+                self.addFirstUseCoreData(email: AuthService.instance.userEmail)
                 self.spinner.isHidden = true
                 self.spinner.stopAnimating()
                 AuthService.instance.imageUrl = url
@@ -108,8 +132,6 @@ class LoginVC: UIViewController , GIDSignInUIDelegate {
             
         }
     }
-    
-
     
     func fetchProfile () {
         let parameters = ["fields": "email,first_name,last_name,picture.type(large),id"]

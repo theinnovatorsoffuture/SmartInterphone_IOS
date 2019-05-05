@@ -17,4 +17,7 @@ pod 'FBSDKShareKit'
 pod 'Kingfisher'
 pod 'GoogleSignIn'
 pod 'FSCalendar'
+pod 'TransitionableTab', '~> 0.2.0'
+pod 'TransitionButton'
+pod 'Instructions', '~> 1.2.0'
 end

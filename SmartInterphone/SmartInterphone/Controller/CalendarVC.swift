@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import Instructions
+import CoreData
 
-class CalendarVC: UIViewController {
+class CalendarVC: UIViewController, CoachMarksControllerDelegate {
     
     @IBOutlet weak var calendar: FSCalendar!
     @IBOutlet weak var deviceCollection : UICollectionView!
@@ -17,25 +19,108 @@ class CalendarVC: UIViewController {
     private(set) public var allMessages = [Message]()
     private(set) public var selectedMessages = [Message]()
     private(set) public var displayedMessages = [Message]()
+ 
     public var updatePath : IndexPath?
     let formatter = DateFormatter()
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
+    var coachMarksController = CoachMarksController()
+    let txts = ["Here is the calendar! The little dots below days represent messages to be displayed on those days.","Here are your Devices, Select a         device and the calendar will be    updated accordingly!" , "Messages will be displayed here! For now it is empty, To display     messages start by selecting a       Device, then a Date !"]
+    let nextButtonText = ["Nice","Okay", "Got it"]
     override func viewDidLoad() {
         super.viewDidLoad()
-   
         formatter.dateFormat = "y-MM-dd'T'H:mm:ss.SSS'Z'"
-        setupCalendar()
         NotificationCenter.default.addObserver(self, selector: #selector(self.messageUpdateResponse(_:)), name: NOTIF_DEVICE_DATA_DID_CHANGE, object: nil)
+         onboardingSetup()
     }
  
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
              initDevices(reload: true)
     }
-    func setupCalendar() {
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         
+        coachMarksController.stop(immediately: true)
     }
+    
+    fileprivate func onboardingSetup() {
+        coachMarksController.delegate = self
+        coachMarksController.animationDelegate = self
+        coachMarksController.dataSource = self
         
+        let skipView = CoachMarkSkipDefaultView()
+        skipView.setTitle("Skip", for: .normal)
+        
+        coachMarksController.skipView = skipView
+    }
+    
+    func startInstructions() {
+        coachMarksController.start(in: .window(over: self))
+    }
+    
+    func shouldHandleOverlayTap(in coachMarksController: CoachMarksController,
+                                at index: Int) -> Bool {
+        return true
+    }
+    
+    public func updateCoreData() {
+        let email = AuthService.instance.userEmail
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "FirstUse")
+        fetchRequest.predicate = NSPredicate(format: "email == %@",email)
+        do{
+            let Result = try context.fetch(fetchRequest)
+            if Result.count == 0 {
+                do {
+                    let firstUse = FirstUse(context: self.context)
+                    firstUse.email = email
+                    firstUse.firstUseCalendar = false
+                    firstUse.firstUseDevices = false
+                    firstUse.firstUseProfile = false
+                    try context.save()
+                    print ("save succeded")
+                } catch {
+                    print("error saving")
+                }
+            } else {
+                do {
+                    let userdata = Result[0] as! FirstUse
+                    userdata.firstUseCalendar = false
+                    try context.save()
+                    print ("save succeded")
+                } catch {
+                    print("error saving")
+                }
+            }
+        }
+        catch {
+            print("error saving")
+        }
+    }
+    func coachMarksController(_ coachMarksController: CoachMarksController, didEndShowingBySkipping skipped: Bool) {
+        updateCoreData()
+    }
+    func isFirstUse() -> Bool {
+        let email = AuthService.instance.userEmail
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "FirstUse")
+        fetchRequest.predicate = NSPredicate(format: "email == %@",email)
+        do{
+            let Result = try context.fetch(fetchRequest)
+            if Result.count > 0 {
+                
+                let firstUse = Result[0] as! FirstUse
+                return firstUse.firstUseCalendar
+            } else {
+                return true
+            }
+        }
+        catch {
+            print("error saving")
+        }
+        print ("couldnt fetch results core data is first use")
+        return false
+    }
+    
     @objc func reloadMessages(for date: Date) {
         let oldItems = self.displayedMessages
         let items = DevicesService.instance.filterMsgsByDate(date:date , messages:  selectedMessages)
@@ -74,6 +159,8 @@ class CalendarVC: UIViewController {
                 if reload {
                     self.reloadDevices()
                 }
+                if self.isFirstUse() {
+                    self.startInstructions() }
             } else {
                 print("not ok")
             }
@@ -88,6 +175,7 @@ class CalendarVC: UIViewController {
         editmessageview.modalPresentationStyle = .custom
         editmessageview.device =  device
         editmessageview.message = message
+        editmessageview.modalTransitionStyle = .crossDissolve
         present(editmessageview, animated: false) {
             self.initDevices(reload: true)
      
@@ -181,15 +269,14 @@ extension CalendarVC : UICollectionViewDelegate , UICollectionViewDataSource {
         DevicesService.instance.getDeviceMessages(device: devices[indexPath.row]) { success in
             if success {
                 self.selectedMessages = DevicesService.selectedDevice!.messages
-                 
                 self.calendar.reloadData()
                 self.calendar.setNeedsDisplay()
             } else {
                 print ("error fetching device messages")
             }
-        
+          }
     }
-        }
+
  
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
@@ -248,7 +335,7 @@ extension CalendarVC : UITableViewDelegate, UITableViewDataSource {
                 
             }
             editButton.backgroundColor = UIColor.orange
-            let deleteButton = UITableViewRowAction(style: .normal, title: "delete") { (rowAction,indexPath) in
+            let deleteButton = UITableViewRowAction(style: .destructive, title: "Delete") { (rowAction,indexPath) in
                 print("delete clicked")
                 var indexs = [IndexPath]()
                 indexs.append(indexPath)
@@ -268,11 +355,12 @@ extension CalendarVC : UITableViewDelegate, UITableViewDataSource {
                 self.messageTable.deleteRows(at: indexs, with: .fade)
                 
             }
-            deleteButton.backgroundColor = UIColor(red: 245, green: 102, blue: 97, alpha: 1)
+            deleteButton.backgroundColor = UIColor(red: 245/255, green: 102/255, blue: 97/255, alpha: 1)
                     return [deleteButton, editButton]
         
 
     }
+
 }
 
 extension Date {
