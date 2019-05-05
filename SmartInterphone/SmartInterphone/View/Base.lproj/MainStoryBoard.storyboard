@@ -232,29 +232,8 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="dJp-hc-1oj" firstAttribute="centerX" secondItem="gmF-BP-PWX" secondAttribute="centerX" id="Cz7-e7-7Vj"/>
-                                    <constraint firstAttribute="height" constant="240" id="FJn-tc-8ih"/>
-                                    <constraint firstItem="vwx-k9-GBB" firstAttribute="top" secondItem="dJp-hc-1oj" secondAttribute="bottom" constant="20" id="bNl-cZ-0qI"/>
-                                    <constraint firstItem="dJp-hc-1oj" firstAttribute="top" secondItem="gmF-BP-PWX" secondAttribute="top" constant="38" id="p3E-AM-geg"/>
-                                    <constraint firstItem="vwx-k9-GBB" firstAttribute="centerX" secondItem="gmF-BP-PWX" secondAttribute="centerX" id="wdH-Zd-IFT"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="firstColor">
-                                        <color key="value" red="0.84705882352941175" green="0.090196078431372548" blue="0.086274509803921567" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="secondColor">
-                                        <color key="value" red="0.98431372549019602" green="0.48627450980392156" blue="0.45098039215686275" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="80" translatesAutoresizingMaskIntoConstraints="NO" id="8Eb-Lf-cfC">
-                                <rect key="frame" x="97.5" y="268" width="180" height="50"/>
-                                <subviews>
                                     <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZPF-e7-Ved" customClass="RoundedButton" customModule="SmartInterphone" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <rect key="frame" x="8" y="8" width="50" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="MGb-Ap-Sjh"/>
                                             <constraint firstAttribute="height" constant="50" id="qlM-m5-6dh"/>
@@ -269,8 +248,35 @@
                                             <action selector="logoutClicked:" destination="ec8-jc-utt" eventType="touchUpInside" id="Fu0-OF-yu5"/>
                                         </connections>
                                     </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="ZPF-e7-Ved" firstAttribute="top" secondItem="gmF-BP-PWX" secondAttribute="top" constant="8" id="7RI-Mp-XiW"/>
+                                    <constraint firstItem="dJp-hc-1oj" firstAttribute="centerX" secondItem="gmF-BP-PWX" secondAttribute="centerX" id="Cz7-e7-7Vj"/>
+                                    <constraint firstAttribute="height" constant="240" id="FJn-tc-8ih"/>
+                                    <constraint firstItem="ZPF-e7-Ved" firstAttribute="leading" secondItem="gmF-BP-PWX" secondAttribute="leading" constant="8" id="PYr-8Z-tTd"/>
+                                    <constraint firstItem="vwx-k9-GBB" firstAttribute="top" secondItem="dJp-hc-1oj" secondAttribute="bottom" constant="20" id="bNl-cZ-0qI"/>
+                                    <constraint firstItem="dJp-hc-1oj" firstAttribute="top" secondItem="gmF-BP-PWX" secondAttribute="top" constant="38" id="p3E-AM-geg"/>
+                                    <constraint firstItem="vwx-k9-GBB" firstAttribute="centerX" secondItem="gmF-BP-PWX" secondAttribute="centerX" id="wdH-Zd-IFT"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="firstColor">
+                                        <color key="value" red="0.84705882352941175" green="0.090196078431372548" blue="0.086274509803921567" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="secondColor">
+                                        <color key="value" red="0.98431372549019602" green="0.48627450980392156" blue="0.45098039215686275" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="80" translatesAutoresizingMaskIntoConstraints="NO" id="8Eb-Lf-cfC">
+                                <rect key="frame" x="162.5" y="268" width="50" height="50"/>
+                                <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sig-lE-iCF">
-                                        <rect key="frame" x="130" y="0.0" width="50" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="tIH-1j-hEn"/>
+                                            <constraint firstAttribute="width" constant="50" id="xAm-0O-CXp"/>
+                                        </constraints>
                                         <state key="normal" title="Button" image="editProfile"/>
                                         <connections>
                                             <action selector="EditButtonClicked:" destination="ec8-jc-utt" eventType="touchUpInside" id="kzV-aQ-lQL"/>
@@ -302,10 +308,10 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X1X-zY-CPd" userLabel="SeparatingLine">
-                                <rect key="frame" x="32" y="411" width="273" height="1"/>
+                                <rect key="frame" x="32" y="411" width="280" height="1"/>
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="273" id="1im-0a-VhX"/>
+                                    <constraint firstAttribute="width" constant="280" id="1im-0a-VhX"/>
                                     <constraint firstAttribute="height" constant="1" id="6Uc-f7-REG"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -815,7 +821,7 @@
         <image name="googleBtn" width="165" height="71"/>
         <image name="iconSettings" width="180" height="180"/>
         <image name="logo_transparent" width="600" height="600"/>
-        <image name="logoutIcon" width="153.60000610351562" height="153.60000610351562"/>
+        <image name="logoutIcon" width="153.19148254394531" height="153.19148254394531"/>
         <image name="newMessageIcon" width="180" height="180"/>
         <image name="profile-placeholder" width="600" height="600"/>
         <image name="profileIcon" width="52.5" height="52.5"/>

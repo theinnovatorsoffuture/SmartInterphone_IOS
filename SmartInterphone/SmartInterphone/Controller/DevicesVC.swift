@@ -39,7 +39,7 @@ class DevicesVC: UIViewController , UICollectionViewDelegate , UICollectionViewD
     }
     override func viewDidAppear(_ animated: Bool) {
         setupView()
-        initDevices(reload: true, scrolltolast: false)
+        initDevices(reload: true)
     }
     
     func startInstructions() {
@@ -133,7 +133,7 @@ class DevicesVC: UIViewController , UICollectionViewDelegate , UICollectionViewD
             cell.settingsButton.addTarget(self, action: #selector(SettingsButtonTapped), for: .touchUpInside)
             
             cell.infoButton.addTarget(self, action: #selector(InfoButtonTapped), for: .touchUpInside)
-            
+            	
             return cell
         }
         
@@ -141,7 +141,7 @@ class DevicesVC: UIViewController , UICollectionViewDelegate , UICollectionViewD
         
     }
     
-    func initDevices (reload:Bool , scrolltolast : Bool) {
+    func initDevices (reload:Bool ) {
         spinner.isHidden = false
         spinner.startAnimating()
          DevicesService.instance.getDevices(){ (success) in
@@ -150,13 +150,13 @@ class DevicesVC: UIViewController , UICollectionViewDelegate , UICollectionViewD
                    print(DevicesService.devices.count)
                 if reload { self.reload()
                 }
-                if scrolltolast{
-                    let lastSectionIndex = self.deviceCollection!.numberOfSections - 1
-                    let lastRowIndex = self.deviceCollection!.numberOfItems(inSection: lastSectionIndex) - 1
-                    let pathToLastRow = NSIndexPath(row: lastRowIndex, section: lastSectionIndex)
-
-                    self.deviceCollection.scrollToItem(at: pathToLastRow as IndexPath, at: .bottom, animated: true)
-                }
+//                if scrolltolast{
+//                    let lastSectionIndex = self.deviceCollection!.numberOfSections - 1
+//                    let lastRowIndex = self.deviceCollection!.numberOfItems(inSection: lastSectionIndex) - 1
+//                    let pathToLastRow = NSIndexPath(row: lastRowIndex, section: lastSectionIndex)
+//
+//                    self.deviceCollection.scrollToItem(at: pathToLastRow as IndexPath, at: .bottom, animated: true)
+//                }
                 // start instructions
                 if (DevicesService.devices.count>0 && self.isFirstUse()){
                     self.startInstructions()
@@ -184,7 +184,7 @@ class DevicesVC: UIViewController , UICollectionViewDelegate , UICollectionViewD
                 self.spinner.isHidden = true
                 self.spinner.stopAnimating()
                 print(DevicesService.devices.count)
-                self.initDevices(reload: true, scrolltolast: true)
+                self.initDevices(reload: true)
           
                 print("added device")
               	
@@ -202,7 +202,7 @@ class DevicesVC: UIViewController , UICollectionViewDelegate , UICollectionViewD
     }
   
     @IBAction func refreshClicked(_ sender: Any) {
-          initDevices(reload: true, scrolltolast: true)
+          initDevices(reload: true)
     }
     
     @IBAction func MessageButtonTapped(_ sender: UIButton ) {
@@ -258,7 +258,7 @@ class DevicesVC: UIViewController , UICollectionViewDelegate , UICollectionViewD
  
     }
     @objc func devicesDataDidChange(_ notif: Notification) {
-        initDevices(reload : true,scrolltolast: true )
+        initDevices(reload : true)
     }
     @objc func reload() {
         let oldItems = self.devicesC
