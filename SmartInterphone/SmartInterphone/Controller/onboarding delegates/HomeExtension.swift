@@ -45,9 +45,12 @@ extension HomeVC :  CoachMarksControllerDataSource {
             withArrow: true,
             arrowOrientation: coachMark.arrowOrientation
         )
+        if index>=0 {
             coachViews.bodyView.hintLabel.text = txts[index]
             coachViews.bodyView.nextLabel.text = nextButtonText[index]
             coachViews.bodyView.nextLabel.textColor = UIColor.orange
+        }
+    
         return (bodyView: coachViews.bodyView, arrowView: coachViews.arrowView)
     }
 }

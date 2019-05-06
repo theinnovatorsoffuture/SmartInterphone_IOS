@@ -11,15 +11,12 @@ import UIKit
 class DeviceCell: UICollectionViewCell {
     @IBOutlet weak var deviceLabel : UILabel!
     @IBOutlet weak var addMessageButton : UIButton!
-    @IBOutlet weak var settingsButton : UIButton!
     @IBOutlet weak var infoButton : UIButton!
    
     
     func updateViews (device : Device , index : Int) {
         deviceLabel.text = device.name
-        
         addMessageButton.tag = index
-        settingsButton.tag = index
         infoButton.tag = index
     }
     

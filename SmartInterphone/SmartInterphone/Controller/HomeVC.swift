@@ -25,8 +25,8 @@ class HomeVC: UIViewController,CoachMarksControllerDelegate  {
     //variables
     var coachMarksController = CoachMarksController()
     
-    let txts = ["That's your profile picture. You look gorgeous!","If you want to logout, Here is the place!"]
-    let nextButtonText = ["Nice","Okay", "Got it"]
+    let txts = ["That's your profile picture. You look gorgeous!","If you want to logout, Here is the place!", "Thanks"]
+    let nextButtonText = ["Nice","Okay", "Got it", "Thanks"]
     
     fileprivate func onboardingSetup() {
         coachMarksController.delegate = self

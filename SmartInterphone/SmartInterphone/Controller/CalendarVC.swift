@@ -159,7 +159,7 @@ class CalendarVC: UIViewController, CoachMarksControllerDelegate {
                 if reload {
                     self.reloadDevices()
                 }
-                if self.isFirstUse() {
+                if self.isFirstUse() && DevicesService.devices.count>0 {
                     self.startInstructions() }
             } else {
                 print("not ok")

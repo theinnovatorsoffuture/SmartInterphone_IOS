@@ -126,12 +126,7 @@ class DevicesVC: UIViewController , UICollectionViewDelegate , UICollectionViewD
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DeviceCell", for: indexPath) as? DeviceCell {
             let device = devicesC[indexPath.row]
             cell.updateViews(device: device, index: indexPath.row)
-
-   
             cell.addMessageButton.addTarget(self, action: #selector(MessageButtonTapped), for: .touchUpInside)
-          
-            cell.settingsButton.addTarget(self, action: #selector(SettingsButtonTapped), for: .touchUpInside)
-            
             cell.infoButton.addTarget(self, action: #selector(InfoButtonTapped), for: .touchUpInside)
             	
             return cell
@@ -185,13 +180,9 @@ class DevicesVC: UIViewController , UICollectionViewDelegate , UICollectionViewD
                 self.spinner.stopAnimating()
                 print(DevicesService.devices.count)
                 self.initDevices(reload: true)
-          
                 print("added device")
-              	
-                
             } else {
                 print("can't add device")
-                
                 self.spinner.isHidden = true
                 self.spinner.stopAnimating()
                 self.spinner.setNeedsDisplay()
@@ -213,9 +204,7 @@ class DevicesVC: UIViewController , UICollectionViewDelegate , UICollectionViewD
         present(addmessageview, animated: true , completion: nil)
         
     }
-    @IBAction func SettingsButtonTapped(_ sender: UIButton ) {
-        makeAlert(message: "settings for : \(devicesC[sender.tag].name)")
-    }
+
     
     // schedule
     @IBAction func InfoButtonTapped(_ sender: UIButton ) {
